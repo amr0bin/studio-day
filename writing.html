@@ -3,49 +3,163 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="robots" content="noai, noimageai" />
 <title>Writing · Studio Day</title>
-<meta name="description" content="Dear Ordinary: fifty-six weeks of thesis inquiry, mapped as eight constellations rather than a sequence." />
+<meta name="description" content="What writing does inside the studio practice: where it comes from, how it is made, where it lives, and what forms it takes. Seven constellations, in two dimensions or three." />
+<meta property="og:title" content="Writing · Studio Day" />
+<meta property="og:description" content="What writing does inside the studio practice. Seven constellations: The Reading, The Sentence, The Archive, The Forms, What It Owes, The Rhythm, The Reach." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="style.css" />
 <style>
-  .cwrap{position:relative;background:var(--panel);border:1px solid var(--hair);
-    border-radius:8px;overflow:hidden;}
-  #map{display:block;width:100%;height:520px;cursor:grab;touch-action:none;}
-  #map.dragging{cursor:grabbing;}
-  .tt{position:absolute;pointer-events:none;background:var(--ink-strong);color:#fff;
-    border-radius:5px;padding:7px 10px;font-size:12px;line-height:1.35;max-width:200px;
-    opacity:0;transition:opacity .12s var(--ease);transform:translate(-50%,-130%);}
-  .tt.on{opacity:1;}
-  .tt .k{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;
-    color:rgba(255,255,255,.62);font-weight:600;margin:0 0 2px;}
-  .maptools{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:14px 0 0;}
-  .linkbtn{font-family:inherit;font-size:11px;letter-spacing:.12em;text-transform:uppercase;
-    font-weight:600;color:var(--stone);background:none;border:none;cursor:pointer;
-    text-decoration:underline;text-underline-offset:3px;padding:6px 0;}
-  .linkbtn:hover{color:var(--ink-strong);}
-  .legend{display:flex;flex-wrap:wrap;gap:14px;margin:16px 0 0;}
-  .lg{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;color:var(--stone);}
-  .lg .sw{width:9px;height:9px;border-radius:50%;}
-  .conns{display:flex;flex-wrap:wrap;gap:7px;margin:6px 0 0;}
-  .cbtn{font-family:inherit;font-size:11.5px;color:var(--ink);background:var(--paper);
-    border:1px solid var(--hair);border-radius:100px;padding:5px 12px;cursor:pointer;
-    display:inline-flex;align-items:center;gap:7px;transition:all .2s var(--ease);}
-  .cbtn:hover{border-color:var(--stone);}
-  .cbtn .cd{width:7px;height:7px;border-radius:50%;background:var(--sw);}
-  .aslist{border-top:1px solid var(--hair);padding-top:16px;}
-  .aslist summary{font-size:11px;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--stone);font-weight:600;cursor:pointer;padding:6px 0;}
-  .aslist h3{font-size:13px;font-weight:600;margin:22px 0 8px;letter-spacing:.02em;}
-  .aslist p{font-size:14.5px;margin:0 0 12px;}
-  .aslist .ln{font-weight:600;color:var(--ink-strong);}
+  :root{--paper:#ffffff;--ink:#5d5a5b;--ink-strong:#454344;--stone:#a29f9f;
+    --hair:#e6e4e2;--hair-soft:#efedeb;--panel:#faf9f8;--maxw:1080px;--ease:cubic-bezier(.22,.61,.36,1);}
+  *{box-sizing:border-box;} html,body{margin:0;padding:0;}
+  body{font-family:"Asap",system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);
+    background:var(--paper);-webkit-font-smoothing:antialiased;line-height:1.6;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  .hero{padding:56px 0 26px;max-width:720px;}
+  .eyebrow{display:flex;align-items:center;gap:12px;font-size:11.5px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--stone);font-weight:600;margin:0 0 18px;}
+  .status{border:1px solid var(--hair);border-radius:100px;padding:2px 9px;letter-spacing:.1em;}
+  h1{font-weight:500;font-size:clamp(32px,4.8vw,52px);line-height:1.07;letter-spacing:-.015em;
+    color:var(--ink-strong);margin:0 0 20px;}
+  h1 em{font-style:italic;font-weight:400;color:var(--ink);}
+  .lede{font-size:17.5px;max-width:640px;margin:0;color:var(--ink);}
+
+  /* ── MAP STAGE ── */
+  .controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px 8px;margin:14px 0 12px;}
+  .tf{display:flex;flex-wrap:wrap;gap:6px;}
+  .fbtn{font-family:inherit;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+    color:var(--stone);background:var(--paper);border:1px solid var(--hair);border-radius:100px;
+    padding:5px 12px;cursor:pointer;transition:all .2s var(--ease);white-space:nowrap;}
+  .fbtn:hover{color:var(--ink);border-color:var(--stone);}
+  .fbtn[aria-pressed="true"]{color:var(--ink-strong);border-color:var(--ink-strong);}
+  .fbtn .dot{display:inline-block;width:7px;height:7px;border-radius:100px;margin-right:6px;vertical-align:middle;
+    background:var(--sw,var(--stone));transform:translateY(-1px);}
+  .spacer{flex:1 1 auto;}
+  .vtoggle{display:flex;gap:4px;border:1px solid var(--hair);border-radius:100px;padding:3px;}
+  .vbtn{font-family:inherit;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+    color:var(--stone);background:transparent;border:none;border-radius:100px;padding:4px 12px;cursor:pointer;
+    transition:all .2s var(--ease);}
+  .vbtn[aria-pressed="true"]{color:var(--ink-strong);background:var(--panel);}
+  .linkbtn{font-family:inherit;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+    color:var(--stone);background:none;border:none;cursor:pointer;padding:5px 4px;transition:color .2s var(--ease);}
+  .linkbtn:hover{color:var(--ink);}
+
+  .stage{position:relative;display:grid;grid-template-columns:1fr 300px;gap:1px;background:var(--hair);
+    border:1px solid var(--hair);border-radius:6px;overflow:hidden;}
+  .canvas-wrap{position:relative;background:var(--paper);min-height:520px;height:62vh;max-height:640px;touch-action:none;}
+  canvas{display:block;width:100%;height:100%;cursor:grab;}
+  canvas.grabbing{cursor:grabbing;}
+  canvas.pointing{cursor:pointer;}
+
+  .tt{position:absolute;pointer-events:none;z-index:5;background:var(--ink-strong);color:#fff;
+    border-radius:4px;padding:6px 9px;max-width:190px;opacity:0;transform:translateY(2px);
+    transition:opacity .14s var(--ease);}
+  .tt.show{opacity:1;}
+  .tt .k{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:2px;}
+  .tt .n{font-size:12.5px;line-height:1.35;}
+
+  .panel{background:var(--panel);padding:22px 20px 26px;overflow-y:auto;
+    height:62vh;max-height:640px;min-height:520px;}
+  .panel .empty{color:var(--stone);font-size:13.5px;}
+  .panel .empty strong{display:block;color:var(--ink-strong);font-weight:600;font-size:12.5px;
+    letter-spacing:.02em;margin-bottom:6px;text-transform:none;}
+  .p-tag{font-size:10px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin:0 0 8px;}
+  .p-title{font-size:19px;font-weight:500;color:var(--ink-strong);line-height:1.2;margin:0 0 4px;letter-spacing:-.01em;}
+  .p-sub{font-size:12.5px;color:var(--stone);font-style:italic;margin:0 0 14px;}
+  .p-body{font-size:13.5px;color:var(--ink);margin:0 0 4px;}
+  .p-label{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);font-weight:600;
+    margin:18px 0 8px;padding-top:14px;border-top:1px solid var(--hair);}
+  .p-src{list-style:none;margin:0;padding:0;}
+  .p-src li{font-size:12px;line-height:1.5;margin-bottom:8px;color:var(--ink);}
+  .p-conns{display:flex;flex-wrap:wrap;gap:6px;}
+  .chip{font-family:inherit;font-size:10.5px;letter-spacing:.02em;color:var(--ink);background:var(--paper);
+    border:1px solid var(--hair);border-radius:100px;padding:4px 10px;cursor:pointer;transition:all .2s var(--ease);}
+  .chip:hover{border-color:var(--stone);color:var(--ink-strong);}
+  .chip .cd{display:inline-block;width:6px;height:6px;border-radius:100px;margin-right:5px;vertical-align:middle;
+    background:var(--sw,var(--stone));transform:translateY(-1px);}
+
+  .legend{display:flex;flex-wrap:wrap;gap:6px 40px;margin:14px 0 4px;padding:14px 2px 0;
+    border-top:1px solid var(--hair-soft);}
+  .legend .grp{display:flex;flex-direction:column;gap:7px;}
+  .legend .lt{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);font-weight:600;}
+  .legend .row{display:flex;flex-wrap:wrap;gap:5px 16px;align-items:center;}
+  .legend .li{display:flex;align-items:center;gap:7px;font-size:11.5px;color:var(--ink);}
+  .legend .sz{border-radius:100px;background:var(--stone);flex-shrink:0;}
+  .legend .sw{width:9px;height:9px;border-radius:100px;flex-shrink:0;}
+
+  .section{padding:8px 0;max-width:820px;}
+  .section h2{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--stone);
+    font-weight:600;margin:40px 0 10px;}
+  .about-table{width:100%;border-collapse:collapse;margin:6px 0 0;font-size:13.5px;}
+  .about-table th{text-align:left;color:var(--ink-strong);font-weight:600;padding:.4rem 1rem .4rem 0;border-bottom:1px solid var(--hair);}
+  .about-table td{color:var(--ink);padding:.5rem 1rem .5rem 0;border-bottom:1px solid var(--hair-soft);line-height:1.5;vertical-align:top;}
+  .about-table td:first-child{color:var(--ink-strong);font-weight:500;white-space:nowrap;padding-right:1.5rem;}
+
+  details.aslist{margin:6px 0 0;border:1px solid var(--hair);border-radius:4px;background:var(--panel);}
+  details.aslist>summary{cursor:pointer;list-style:none;padding:15px 20px;font-size:13.5px;color:var(--ink-strong);
+    font-weight:500;display:flex;align-items:center;justify-content:space-between;}
+  details.aslist>summary::-webkit-details-marker{display:none;}
+  details.aslist>summary::after{content:"+";color:var(--stone);font-size:16px;}
+  details.aslist[open]>summary::after{content:"–";}
+  .listbody{padding:2px 20px 20px;}
+  .listgrp{margin:16px 0 0;}
+  .listgrp>h3{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin:0 0 8px;}
+  .listgrp .entry{padding:12px 0;border-top:1px solid var(--hair-soft);}
+  .listgrp .entry h4{font-size:14px;font-weight:500;color:var(--ink-strong);margin:0 0 3px;}
+  .listgrp .entry .esub{font-size:12px;color:var(--stone);font-style:italic;margin:0 0 5px;}
+  .listgrp .entry p{font-size:13px;margin:0 0 6px;color:var(--ink);}
+  .listgrp .entry .cites{font-size:11.5px;color:var(--stone);}
+
+  .note{margin:22px 0 10px;padding:18px 20px;background:var(--panel);border:1px solid var(--hair-soft);
+    border-radius:4px;font-size:14px;color:var(--ink);max-width:820px;}
+  .note strong{color:var(--ink-strong);font-weight:600;}
+
+  .poem-title{font-size:22px;font-weight:600;color:var(--ink-strong);margin:0 0 2px;letter-spacing:-.01em;}
+  .poem-ded{font-size:13.5px;font-style:italic;color:var(--stone);margin:0 0 26px;}
+  .poem{max-width:600px;}
+  .poem p{font-size:15px;color:var(--ink);line-height:1.85;margin:0 0 1.2rem;}
+  .poem p em{font-style:italic;color:var(--stone);}
+  .principle{font-size:14px;color:var(--ink);max-width:660px;line-height:1.8;margin:6px 0 0;}
+  .credit{font-size:12.5px;color:var(--stone);margin:22px 0 0;}
+  .credit a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--hair);}
+  .credit a:hover{border-bottom-color:var(--stone);}
+
+  footer{border-top:1px solid var(--hair);padding:22px 0 46px;margin-top:44px;font-size:11.5px;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--stone);font-weight:600;}
+
+  @media (max-width:840px){
+    .stage{grid-template-columns:1fr;}
+    .canvas-wrap{height:56vh;min-height:420px;}
+    .panel{border-top:1px solid var(--hair);height:auto;max-height:none;min-height:0;}
+  }
+  .topbar{display:flex;align-items:baseline;justify-content:space-between;gap:16px 28px;
+    flex-wrap:wrap;padding:26px 0 18px;border-bottom:1px solid var(--hair);}
+  .mark{font-weight:600;font-size:15px;letter-spacing:.02em;color:var(--ink-strong);text-decoration:none;}
+  .navlinks{display:flex;flex-wrap:wrap;gap:20px;}
+  .navlinks a{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);
+    font-weight:600;text-decoration:none;transition:color .2s var(--ease);}
+  .navlinks a:hover{color:var(--ink);}
+  .navlinks a[aria-current="page"]{color:var(--ink-strong);}
+  .outlink{display:block;background:var(--panel);border:1px solid var(--hair);border-radius:8px;
+    padding:18px 20px;margin:0 0 8px;text-decoration:none;transition:border-color .2s var(--ease);}
+  .outlink:hover{border-color:var(--stone);}
+  .outlink .ol-k{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--stone);font-weight:600;display:block;margin:0 0 5px;}
+  .outlink .ol-t{font-size:16px;color:var(--ink-strong);font-weight:500;display:block;margin:0 0 5px;}
+  .outlink .ol-d{font-size:13.5px;color:var(--ink);display:block;}
+  .standard-list{list-style:none;padding:0;margin:0;}
+  .standard-list li{padding:12px 0;border-bottom:1px solid var(--hair-soft);font-size:14.5px;}
+  .standard-list li:last-child{border-bottom:none;}
+  .standard-list b{color:var(--ink-strong);font-weight:600;}
+  @media (max-width:680px){.wrap{padding:0 20px;}}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;}}
 </style>
 </head>
 <body>
   <div class="wrap">
-
     <nav class="topbar" aria-label="Studio Day">
       <a class="mark" href="index.html">Studio&nbsp;Day</a>
       <div class="navlinks">
@@ -60,519 +174,499 @@
     </nav>
 
     <header class="hero">
-      <p class="eyebrow"><span>Writing</span><span class="status">Dear Ordinary</span></p>
-      <h1>A map of <em>the inquiry</em></h1>
-      <p class="lede">Fifty-six weeks of writing that moves between scholarly work and studio practice. It is drawn as a map rather than a syllabus because the curriculum spirals instead of progressing. Eight constellations of equal dignity, thirty-five stars, and no correct order to meet them in. Tap any circle to read the idea and where it connects.</p>
+      <p class="eyebrow"><span>Writing</span><span class="status">Interactive</span></p>
+      <h1>What the writing <em>is doing</em></h1>
+      <p class="lede">Seven constellations covering where the writing comes from, how a sentence is made, where the archive lives, what forms the writing takes, what it owes to the people it cites, when it happens, and who it reaches. Some stars are settled and running. Others are open, and are here because they are the ones a practice like this eventually has to decide.</p>
     </header>
 
-    <section aria-label="The constellation of the inquiry">
-      <div class="controls">
-        <div class="chips" id="filters" role="group" aria-label="Filter by constellation"></div>
+    <a class="outlink" href="https://andrearobinstudio.github.io/dear-ordinary/star-chart.html" target="_blank" rel="noopener">
+      <span class="ol-k">The subject of the writing lives elsewhere</span>
+      <span class="ol-t">Dear Ordinary &middot; A Star Chart for Queering Contemplative Spirituality</span>
+      <span class="ol-d">Eight constellations, thirty-five stars, each with its scholarly anchor and sources. That chart holds what the writing is about. This one holds what the writing does.</span>
+    </a>
+
+    <div class="controls" role="region" aria-label="Map controls">
+      <div class="tf" id="filters" role="group" aria-label="Filter by constellation"></div>
+      <span class="spacer"></span>
+      <button class="linkbtn" id="reset" type="button">Reset view</button>
+      <div class="vtoggle" role="group" aria-label="Map view">
+        <button class="vbtn" id="v2d" type="button" aria-pressed="true">2D</button>
+        <button class="vbtn" id="v3d" type="button" aria-pressed="false">3D</button>
       </div>
+    </div>
 
-      <div class="stage">
-        <div>
-          <div class="cwrap" id="cwrap">
-            <canvas id="map" aria-label="A map of the writing inquiry. Interactive, with a readable list of every node below."></canvas>
-            <div class="tt" id="tt"><div class="k" id="tt-k"></div><div id="tt-n"></div></div>
-          </div>
-          <div class="maptools">
-            <button class="linkbtn" id="reset" type="button">Reset view</button>
-            <span class="count">Drag to move. Scroll to zoom.</span>
-          </div>
-          <div class="legend" id="legend"></div>
-        </div>
+    <div class="stage">
+      <div class="canvas-wrap" id="cwrap">
+        <canvas id="map" aria-label="A map of what writing does inside the studio practice. Interactive; a readable list of every star follows below."></canvas>
+        <div class="tt" id="tt"><div class="k" id="tt-k"></div><div class="n" id="tt-n"></div></div>
+      </div>
+      <aside class="panel" id="panel" aria-live="polite">
+        <div class="empty" id="empty"><strong>Select a star</strong>Tap any star to read what it holds and where it stands. Each one is marked either <em>running</em>, meaning the decision is made and in use, or <em>open</em>, meaning it is a real question this practice has not answered yet. Larger stars carry more weight; colour marks the constellation.</div>
+      </aside>
+    </div>
 
-        <div class="panel" id="panel" aria-live="polite">
-          <p class="panel-empty" id="panel-empty">Select a star. Larger circles hold more of the inquiry's weight, and colour marks which constellation an idea belongs to. Every star connects to others, and following those connections is closer to how the writing actually moves than reading it week by week.</p>
-          <div id="panel-content" hidden></div>
+    <div class="legend" aria-hidden="true">
+      <div class="grp">
+        <span class="lt">Star size · how much rests on it</span>
+        <div class="row">
+          <span class="li"><span class="sz" style="width:16px;height:16px"></span>Load-bearing</span>
+          <span class="li"><span class="sz" style="width:12px;height:12px"></span>Structural</span>
+          <span class="li"><span class="sz" style="width:9px;height:9px"></span>Working</span>
+          <span class="li"><span class="sz" style="width:6px;height:6px"></span>Detail</span>
         </div>
       </div>
-    </section>
+      <div class="grp">
+        <span class="lt">Colour · constellation</span>
+        <div class="row" id="legend-cats"></div>
+      </div>
+    </div>
 
-    <section class="essay">
-      <h2>Why it is a map</h2>
-      <p>The thesis argues that the contemplative journey is not a linear path toward a destination. It holds that the ordinary body, previously policed and wounded, can recognise itself as the primary site of the sacred. A curriculum that argued this in a numbered sequence would be contradicting itself in its own structure, so the fifty-six weeks are organised as eight constellations that the writing weaves between rather than climbs.</p>
-      <p>The working hypothesis is that by engaging in a non-linear art practice grounded in the Path to Good star chart, the ordinary body can recognise itself as the primary site of the sacred, turning the contemplative journey from a path of spiritual progress into a recursive process of recognition and somatic integration.</p>
+    <div class="note"><strong>How to read this.</strong> Drag to move; scroll to zoom. Switch between a flat <strong>2D</strong> view, where the horizontal axis runs private to public and the vertical runs recording to generating, and a <strong>3D</strong> view you can rotate through all three dimensions. Colour marks the constellation; larger stars carry more weight. Every star is marked <em>running</em> or <em>open</em>, and the open ones are not gaps to be embarrassed about. They are the questions a writing practice arrives at once the first ones are settled.</div>
 
-      <h2>Intimacy with the question</h2>
-      <p>The mentor for the writing is Maria Popova's The Marginalian, and what is being borrowed is a relationship rather than a style. Popova writes from inside a question she has not finished with, holding several thinkers in the same room and letting them disagree, and the reader is trusted to follow without being managed.</p>
-      <p>The register that follows from that has a few rules. The artists get space and the theory gets compressed. Where a reception is contested, the contest is named and left unresolved rather than tidied. The closing invitation is offered peer to peer rather than as instruction, and it releases the reader from obligation rather than recruiting them.</p>
-
-      <h2>The craft standard</h2>
-      <p>Every post is held to a written standard, checked before publishing rather than felt for. No bridging by geometry, which means no claim that two things occupy the same territory or sit at another end of something, because a spatial phrase asserts a relation instead of producing one. No reversal family, which covers the not this but that construction and the stripped conjunction pair that runs two sentences where one would do. Em dashes under five per thousand words. No self-description. A star to ground ratio under one in eight, so that most of what is on the page is load-bearing.</p>
-      <p>Anchors are checked character by character against the actual source. AI tools reliably produce confident, plausible and wrong citation details, and a citation carried forward from a draft without checking is the failure most likely to end up in print.</p>
-
-      <h2>Where it lives</h2>
-      <p>The markdown repository is the archive of record. Git gives dated version history, which matters for a thesis and as evidence of authorship. Publishing happens from the archive, never inside a platform, and at least one copy is kept outside GitHub.</p>
-      <p>Patreon is distribution. Its login gate keeps the writing out of the open crawl, which handles being taken about as well as anything can. Being lost is the likelier risk and the platform does nothing about it, which is what the repository is for. YouTube was considered as a writing home and rejected, since uploading grants a worldwide sublicensable licence and Google has confirmed it trains on the material.</p>
-
-      <h2>Why the book follows for free</h2>
-      <p>Because the writing already exists in a stable format, committed week by week, the annual book asks for selection and sequencing rather than new work. That is the reason a book can be completed every November by a practice that has thirty-five studio hours a month.</p>
-    </section>
-
-    <section class="essay">
+    <div class="section">
       <h2>Read it as a list</h2>
       <details class="aslist" id="aslist">
-        <summary>Open the full text of every star</summary>
-        <div id="listbody"></div>
+        <summary>Every star, in full, with its status and references</summary>
+        <div class="listbody" id="listbody"></div>
       </details>
-    </section>
+    </div>
 
-    <footer>
-      <span class="copy">© 2026 Andrea Robin Studio</span>
-      <div class="fnav">
-        <a href="index.html">Studio Day</a>
-        <a href="atlas.html">Atlas</a>
-        <a href="year.html">The Year</a>
-      </div>
-    </footer>
+    <div class="section">
+      <h2>The three dimensions</h2>
+      <table class="about-table">
+        <thead><tr><th>Axis</th><th>Poles</th></tr></thead>
+        <tbody>
+          <tr><td>X — Private ↔ Public</td><td>The notebook and the repository toward the page anyone can read</td></tr>
+          <tr><td>Y — Recording ↔ Generating</td><td>Writing that holds what happened, up toward writing that decides what gets made next</td></tr>
+          <tr><td>Z — Sentence ↔ Structure</td><td>The line, the clause and the word toward the architecture of a year</td></tr>
+        </tbody>
+      </table>
+    </div>
 
+    <div class="section">
+      <h2>What the writing is held to</h2>
+      <p>Checked before publishing rather than felt for. The list exists because these are failures that read as competent prose, so they survive a reread and get caught only by counting.</p>
+      <ul class="standard-list">
+        <li><b>No bridging by geometry.</b> No claim that two things occupy the same territory, sit at another end of something, or approach from a different angle. A spatial phrase asserts a relation instead of producing one, and there is usually no territory and no angle.</li>
+        <li><b>No reversal family.</b> This covers the not-this-but-that construction and the stripped conjunction pair, where two sentences are run in sequence to do the work of one.</li>
+        <li><b>Em dashes under five per thousand words.</b> A count rather than a feeling, because the em dash is the punctuation that hides a sentence which has not decided what it is.</li>
+        <li><b>No self-description.</b> The writing does not announce what it is about to do, and it does not tell the reader how to receive it.</li>
+        <li><b>Star to ground under one in eight.</b> Most of what is on the page has to be load-bearing. A memorable line surrounded by more memorable lines stops being memorable.</li>
+        <li><b>A 1,500 word floor, and 700 to 1,000 of body.</b> The artists get space. The theory gets compressed. If it runs long, the framework is cut before the artists are.</li>
+        <li><b>Anchors checked character by character.</b> Against the actual source, every time. AI tools produce confident, plausible and wrong citation details, and a citation carried forward from a draft is the failure most likely to reach print.</li>
+        <li><b>Contested reception named, not smoothed.</b> If a debate can be documented with named critics and named positions, it goes in and stays unresolved. If it cannot be documented, the tension is described in the work rather than in the reception.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>The foundational principle</h2>
+      <p class="principle">The writing is where the thinking happens. It is not a record of the paintings and it is not an argument for them; the two act on the same premise through different materials, which is why neither one has to explain the other. What the writing is for is the reach past the fact toward the truth behind it, and what it demonstrates is the thinking the work came out of.</p>
+      <p class="credit">Created by <a href="https://www.andrearobinstudio.com/" target="_blank" rel="noopener">Andrea Robin Studio</a></p>
+    </div>
+
+    <footer>Andrea Robin Studio · Studio Day · Writing</footer>
   </div>
 
 <script>
-(function(){
-"use strict";
-
-var CATS = {
-  craft:   {label:"The craft of it",     color:"#6f6a66"},
-  body:    {label:"The Body's Wisdom",   color:"#7d7469"},
-  hearth:  {label:"The Hearthstone",     color:"#a2917a"},
-  mystic:  {label:"The Mystical Thread", color:"#8f8798"},
-  engaged: {label:"The Engaged Path",    color:"#7f938c"},
-  waters:  {label:"The Wide Waters",     color:"#8496a0"},
-  dark:    {label:"The Dark Night",      color:"#a5867c"},
-  queer:   {label:"The Queer Path",      color:"#9a8fa5"},
-  making:  {label:"The Making",          color:"#9a9187"}
+const CATS = {
+  source:  {label:"The Reading",       color:"#8496a0"},
+  method:  {label:"The Sentence",      color:"#7d7469"},
+  keeping: {label:"The Archive",       color:"#7f938c"},
+  forms:   {label:"The Forms",         color:"#a2917a"},
+  owed:    {label:"What It Owes",      color:"#a5867c"},
+  rhythm:  {label:"The Rhythm",        color:"#8f8798"},
+  reach:   {label:"The Reach",         color:"#9d7f92"},
 };
+const CAT_ORDER = ["source","method","keeping","forms","owed","rhythm","reach"];
 
-var NODES = [
-  {id:"c0", cat:"craft", depth:6, name:"Dear Ordinary", sub:"Fifty-six weeks, eight constellations",
-   body:"A curriculum for a thesis inquiry that moves between scholarly writing and visual art practice. The thesis queers the contemplative journey, refusing to map it as a linear path toward a destination and insisting instead that the ordinary body can recognise itself as the primary site of the sacred. The art practice does not illustrate the thesis. It acts on the same premise through different materials.",
-   src:["The working hypothesis, stated in full on the repository README"],
-   connects:["c1","c2","c3","b0","h0","m0","e0","w0","d0","q0","k0"]},
+const STARS = [
+  /* ── THE READING ── */
+  { id:"question", cat:"source", r:9.5, x:-0.10, y:0.42, z:0.10, name:"Intimacy with the question", anchor:"Running \u00b7 Maria Popova, The Marginalian", desc:"The mentor for the writing, and what is borrowed is a relationship rather than a manner. Popova writes from inside a question she has not finished with, holds several thinkers in the same room and lets them disagree, and trusts the reader to follow without being managed. This is the north star. Where a post goes thin it is almost always because it began explaining instead of staying inside the question.", refs:"The Marginalian \u00b7 the register named in the post template, versions one and two" },
+  { id:"beside", cat:"source", r:7, x:0.30, y:0.30, z:0.55, name:"Writing standing beside the work", anchor:"Running \u00b7 Emma Webster, Lonescape (2021), Decimate (2026)", desc:"Lonescape is collected reflection on landscape and image-making, standing next to the paintings as its own artifact rather than documenting them. Decimate is a digital sketchbook published on the occasion of a show, carrying a title and an epigraph instead of a year. Both make the case that the writing is a second body of work rather than an appendix to the first.", refs:"Petzel, New York \u00b7 part of what prompted Dear Ordinary to start" },
+  { id:"already", cat:"source", r:6, x:0.10, y:-0.35, z:0.68, name:"A book from work already documented", anchor:"Running \u00b7 Florian Gadsby", desc:"A book a year, assembled from material captured because the practice captures material, rather than produced for the book. It is the reason an annual volume is affordable inside thirty-five studio hours a month. Nothing in it is made for it.", refs:"By My Hands (2024) \u00b7 documenting online since 2014" },
+  { id:"beginner", cat:"source", r:6.5, x:-0.42, y:0.55, z:-0.20, name:"Beginner's mind", anchor:"Running \u00b7 Shunryu Suzuki", desc:"In the beginner's mind there are many possibilities; in the expert's mind there are few. This is what keeps the writing honest and what makes it inviting, because a reader can feel when someone is seeking alongside them rather than delivering from above. It is also the permission to publish a question rather than a conclusion.", refs:"Suzuki (1970) Zen Mind, Beginner's Mind" },
+  { id:"chart", cat:"source", r:5.5, x:0.20, y:0.12, z:0.82, name:"The star chart as the subject", anchor:"Running \u00b7 Dear Ordinary star chart", desc:"Eight constellations and thirty-five stars, held as a separate document and linked rather than duplicated. That chart is what the writing is about. This one is what the writing does. Keeping them apart is what stops either from becoming a summary of the other.", refs:"andrearobinstudio.github.io/dear-ordinary/star-chart.html" },
+  { id:"readinglog", cat:"source", r:5, x:-0.62, y:0.20, z:-0.10, name:"A record of what was read", anchor:"Open \u00b7 no system in place", desc:"A writing practice runs on a reading practice, and the reading is currently untracked. A dated log of what was read and what it changed would make the influences visible to the writer as well as the reader, and would remove the annual scramble to remember where a thought came from.", refs:"Would sit in the Monday block \u00b7 low cost, no decision made" },
+  { id:"otherfields", cat:"source", r:5, x:-0.48, y:0.34, z:0.34, name:"Reading outside the field", anchor:"Open \u00b7 partly happening, not deliberate", desc:"The learning design decade is already the second half of an unusual pair, and it is the reason the inquiry has a methodology under it rather than an intuition. Reading deliberately outside painting is what keeps that pairing productive instead of incidental.", refs:"Compare Webster's years in set design and interactive advertising" },
 
-  {id:"c1", cat:"craft", depth:5, name:"Intimacy with the question", sub:"What is borrowed from The Marginalian",
-   body:"Maria Popova's The Marginalian is the mentor for the writing, and what is borrowed is a relationship rather than a style. Popova writes from inside a question she has not finished with, holds several thinkers in the same room and lets them disagree, and trusts the reader to follow without being managed. The register that follows gives the artists space and compresses the theory, names a contested reception rather than tidying it, and closes with an invitation offered peer to peer.",
-   src:["Maria Popova, The Marginalian"],
-   connects:["c0","c2","c4","k1"]},
+  /* ── THE SENTENCE ── */
+  { id:"standard", cat:"method", r:8.5, x:-0.35, y:-0.05, z:-0.72, name:"The craft standard", anchor:"Running \u00b7 written, counted, checked", desc:"A list of constructions that read as competent prose and are therefore invisible on a reread. Because they survive editing by feel, they are caught by counting instead. The standard is applied before publishing rather than aspired to.", refs:"Set out in full further down this page" },
+  { id:"geometry", cat:"method", r:6, x:-0.52, y:-0.22, z:-0.85, name:"No bridging by geometry", anchor:"Running \u00b7 zero tolerance", desc:"No claim that two things occupy the same territory, sit at another end of something, or arrive from a different angle. A spatial phrase asserts a relation instead of producing one, and there is generally no territory and no angle. The fix is always to state the actual cause.", refs:"Named in the Week 17 entry" },
+  { id:"reversal", cat:"method", r:6, x:-0.68, y:-0.10, z:-0.72, name:"The reversal family", anchor:"Running \u00b7 zero tolerance", desc:"Covers the not-this-but-that construction and the stripped conjunction pair, where two sentences run in sequence to do the work of one. Both produce a rhythm that feels like emphasis and delivers no additional information.", refs:"Checked by pattern count before publishing" },
+  { id:"ratio", cat:"method", r:6.5, x:-0.44, y:0.08, z:-0.55, name:"Star to ground", anchor:"Running \u00b7 under one in eight", desc:"Most of what is on the page has to be load-bearing. A memorable line surrounded by other memorable lines stops being memorable, and the reader loses the ability to tell what matters. This is the one part of the standard that cannot be counted mechanically and needs reading.", refs:"The essay pages are the ones worth checking by eye" },
+  { id:"template", cat:"method", r:6.5, x:-0.20, y:-0.12, z:0.48, name:"The shape of a post", anchor:"Running \u00b7 post template, versions one and two", desc:"Eight sections: the opening, the framework, the first artist, the second, the connection, the invitation, the keywords, the anchors. The shape means the writing starts from a question about content rather than a question about structure, every week, for fifty-six weeks.", refs:"Template v2 incorporates the Week 09 register shift" },
+  { id:"exemplar", cat:"method", r:5.5, x:-0.30, y:0.22, z:-0.34, name:"A held example of the voice", anchor:"Running \u00b7 Week 06 exemplar, Week 09 shift", desc:"One entry kept as the measure of the register, and one that marks where the register changed. When a draft is running lush, it is measured against the restraint of the exemplar rather than against a rule.", refs:"voice-exemplar-week-06 \u00b7 week-09-rupture-marginalian" },
+  { id:"editor", cat:"method", r:5, x:0.28, y:-0.30, z:-0.40, name:"A reader before it goes out", anchor:"Open \u00b7 currently nobody", desc:"Every post is currently written, checked and published by the same person. A standing reader who sees a draft before it publishes would catch what a self-check structurally cannot, and would change what the writing is willing to risk. It also introduces a dependency into a weekly rhythm, which is the reason it has not happened.", refs:"No decision made \u00b7 would need to survive the weekly cadence" },
 
-  {id:"c2", cat:"craft", depth:5, name:"The craft standard", sub:"Checked before publishing, not felt for",
-   body:"No bridging by geometry, which rules out claims that two things occupy the same territory or sit at another end of something, because a spatial phrase asserts a relation instead of producing one. No reversal family, covering the not this but that construction and the stripped conjunction pair. Em dashes under five per thousand words. No self-description. A star to ground ratio under one in eight, so most of the page is load-bearing.",
-   src:["The post template, versions one and two","The Week 09 register shift"],
-   connects:["c0","c1","c3","c4"]},
+  /* ── THE ARCHIVE ── */
+  { id:"archive", cat:"keeping", r:8, x:-0.78, y:-0.18, z:0.62, name:"The archive of record", anchor:"Running \u00b7 markdown repository, git history", desc:"The repository is the archive; the platform is only distribution. Git gives dated version history, which matters as evidence of authorship and as a record of how a thought changed. Publishing happens from the archive and never inside a platform, and at least one copy is kept outside the host.", refs:"Canadian copyright exists automatically from the moment of writing" },
+  { id:"distribution", cat:"keeping", r:6, x:-0.30, y:-0.42, z:0.40, name:"Distribution is not a home", anchor:"Running \u00b7 Patreon", desc:"The login gate keeps the writing out of the open crawl, which handles being taken about as well as anything can. Being lost is the likelier risk and the platform does nothing about it. Separating the two meanings of safe is what makes the arrangement legible.", refs:"Moved from Substack \u00b7 the archive handles permanence" },
+  { id:"licence", cat:"keeping", r:6, x:-0.55, y:-0.60, z:0.30, name:"Refusing a training licence", anchor:"Running \u00b7 YouTube rejected as a writing home", desc:"Uploading grants a worldwide, sublicensable, transferable licence, and Google has confirmed it trains on the material. The third-party training setting, off by default, does not cover Google's own models. The essays stay off it. A narrated video made from an essay is a different question and is treated as one.", refs:"Google to CNBC and to a federal court, June 2026" },
+  { id:"rights", cat:"keeping", r:5, x:-0.62, y:-0.48, z:0.72, name:"Licensing your own text", anchor:"Open \u00b7 nothing stated anywhere", desc:"No licence is currently declared on any of the writing. The default is all rights reserved, which is workable, but it leaves a reader who wants to quote or teach from it with no answer. A stated position, however restrictive, is more useful than silence.", refs:"noai and noimageai tags are in place; a text licence is not" },
+  { id:"deposit", cat:"keeping", r:5, x:-0.35, y:-0.72, z:0.85, name:"ISBN and legal deposit", anchor:"Open \u00b7 raised, not decided", desc:"Whether the annual book carries an ISBN and is deposited with Library and Archives Canada. An ISBN makes it findable and orderable; deposit places it in the national collection. Both are administrative rather than creative, and both are much easier to do at the first volume than retroactively at the fifth.", refs:"Still open alongside trim size, page count and print method" },
 
-  {id:"c3", cat:"craft", depth:4, name:"The archive of record", sub:"Markdown, git, dated history",
-   body:"The repository is the archive; the platform is only distribution. Git provides dated version history, which is valuable for a thesis and as evidence of authorship. Publishing happens from the archive and never inside a platform, and at least one copy is kept outside GitHub. Because the writing already exists in a stable format, the annual book asks for selection and sequencing rather than new work.",
-   src:["Canadian copyright exists automatically from the moment of writing"],
-   connects:["c0","c2"]},
+  /* ── THE FORMS ── */
+  { id:"essay", cat:"forms", r:8, x:0.42, y:0.05, z:0.20, name:"The weekly essay", anchor:"Running \u00b7 one a week, fifty-six weeks", desc:"The primary form and the one everything else is drawn from. Seven hundred to a thousand words of body, three artists, a framework compressed, an invitation offered peer to peer. Because it is committed to the archive as written, everything downstream of it is selection rather than production.", refs:"All fifty-six week files exist \u00b7 the curriculum is drafted" },
+  { id:"book", cat:"forms", r:7.5, x:0.58, y:-0.30, z:0.80, name:"The annual book", anchor:"Running \u00b7 completed every November", desc:"The writing, the process documentation and the year's works gathered into one volume, and the volume is sold. Closing the chapter is what it is for; selling it is how it reaches anyone. The November deadline exists so that December is genuinely clear.", refs:"Compilation sits in Monday blocks through October and November" },
+  { id:"sketchbook", cat:"forms", r:6.5, x:0.32, y:0.20, z:0.62, name:"What did not become the work", anchor:"Running \u00b7 the Decimate principle", desc:"The book holds the false starts, the abandoned pieces, the studies that were never released, and the studio log with the hours and materials in it. The finished work is available elsewhere. A sketchbook is cheaper to make, better to read, and does not compete with selling the paintings.", refs:"Webster's Decimate, $35, a digital sketchbook rather than a catalogue" },
+  { id:"video", cat:"forms", r:6, x:0.72, y:0.10, z:-0.10, name:"The essay as a doorway", anchor:"Running \u00b7 one essay a month becomes a narrated video", desc:"The essay is the source and the video is the doorway, with the full piece linked for anyone who wants to read it. This is what YouTube is for in the arrangement: search-based discovery, no posting schedule, and no writing living there.", refs:"Deferred until the Monday block can carry the editing" },
+  { id:"statement", cat:"forms", r:5.5, x:0.80, y:-0.20, z:0.10, name:"The artist statement", anchor:"Open \u00b7 no current version held to the standard", desc:"The statement is the one piece of writing that every application, gallery and studio visit asks for, and it is the one most often written under time pressure in a register the writer would not otherwise use. Writing it deliberately, to the same standard as an essay, would make it the shortest and hardest thing on this map.", refs:"Required by most of the funders on the Atlas" },
+  { id:"titles", cat:"forms", r:5, x:0.55, y:0.48, z:-0.62, name:"Titles as the smallest unit", anchor:"Open \u00b7 no convention decided", desc:"A title is the only writing that arrives attached to the work and travels with it everywhere. The studies series currently numbers rather than names. Whether a piece gets a title, and whether the title is descriptive or does its own work, is undecided and will be decided by default if it is not decided deliberately.", refs:"Flora Yukhnovich labels studies by year and nothing else" },
+  { id:"walltext", cat:"forms", r:5, x:0.86, y:-0.05, z:0.42, name:"Wall text and exhibition writing", anchor:"Open \u00b7 not yet needed", desc:"Writing that has to work standing up, in a room, next to the thing it describes, read by someone who did not choose to read it. A different constraint from the essay, and the form where the compression practised in the framework sections would pay off most.", refs:"Becomes live at the first juried or solo exhibition" },
+  { id:"grantwriting", cat:"reach", r:6, x:0.66, y:0.30, z:0.34, name:"The grant register", anchor:"Open \u00b7 the highest-value writing not yet being done", desc:"A different register from the essay: a panel reading quickly, against criteria, with no obligation to be persuaded. It is also the writing that returns the most hours to the practice, because a grant buys studio time and a sale consumes it. Practising it is a use of the Monday block that competes directly with everything else there.", refs:"Ranked first by hours returned on the Atlas" },
 
-  {id:"c4", cat:"craft", depth:4, name:"Anchors, and checking them", sub:"Character by character",
-   body:"Every citation is verified against the actual source before publishing. AI tools reliably produce confident, plausible and wrong citation details, including titles, years, journals and publishers, and a citation carried forward from a draft without checking is the failure most likely to reach print. Counterarguments and critics belong in the anchor list alongside the primary sources.",
-   src:["The fact-checking instructions held with the project"],
-   connects:["c1","c2","c5"]},
+  /* ── WHAT IT OWES ── */
+  { id:"anchors", cat:"owed", r:7, x:0.05, y:-0.55, z:0.05, name:"Anchors checked character by character", anchor:"Running \u00b7 against the actual source, every time", desc:"AI tools reliably produce confident, plausible and wrong citation details, including titles, years, journals and publishers. A citation carried forward from a draft without checking is the single failure most likely to reach print, and the one that would do the most damage to everything around it.", refs:"The fact-checking instructions held with the project" },
+  { id:"contested", cat:"owed", r:6, x:0.24, y:-0.42, z:0.24, name:"Contested reception, left contested", anchor:"Running \u00b7 named or not raised", desc:"Where an artist's reception sits inside a live debate, the debate is named with its critics and its positions, woven into the description of the work rather than appended to it, and left unresolved. Where it cannot be documented, the tension is described in the work instead. No invented controversy, and no invented resolution.", refs:"Post template, section four" },
+  { id:"three", cat:"owed", r:5.5, x:-0.05, y:-0.28, z:-0.15, name:"Three artists a week", anchor:"Running \u00b7 historical, contemporary, emerging", desc:"Meeting the territory across time rather than illustrating it with one example. The emerging artist is the one most often needing verification, since exhibition histories and representation change and a claim true at drafting may be false at publishing.", refs:"One hundred and sixty-eight entries across fifty-six weeks" },
+  { id:"permission", cat:"owed", r:5, x:0.34, y:-0.62, z:-0.05, name:"Quoting, and the right to", anchor:"Open \u00b7 no working rule", desc:"How much of someone else's text can be quoted, when permission is required rather than courteous, and what changes when the writing moves from a free post into a book that is sold. The answer differs between those two cases, and the book is the case where getting it wrong is expensive.", refs:"Becomes live at the first volume" },
+  { id:"access", cat:"owed", r:5, x:0.46, y:-0.50, z:-0.42, name:"Alt text and plain language", anchor:"Open \u00b7 practised, not systematic", desc:"Alt text has been written carefully for individual posts. Whether every image across every surface carries it, and whether the essays offer a plainer entry point for readers the register does not serve, is undecided. This is the part of the writing where fifteen years of accessibility work is most directly applicable and least applied.", refs:"Screen readers announce alt text in full \u00b7 order matters" },
 
-  {id:"c5", cat:"craft", depth:4, name:"Three artists a week", sub:"Historical, contemporary, emerging",
-   body:"Each week holds one historical artist, one contemporary and one emerging, so that the territory is met across time rather than illustrated by a single example. The emerging artist is the one that most often needs verifying, since exhibition histories and representation change and a claim that was true when drafted may not be true when published.",
-   src:["The artist reference, one hundred and sixty-eight entries across fifty-six weeks"],
-   connects:["c4","k1"]},
+  /* ── THE RHYTHM ── */
+  { id:"monday", cat:"rhythm", r:6.5, x:-0.70, y:0.15, z:-0.35, name:"Where the writing sits", anchor:"Running \u00b7 and the least protected block", desc:"Eight hours on Sunday for making, two to four on Monday evening for everything else. If each week is revised before it goes out, that is a weekly session with no slot in either block, and it is the thing most likely to quietly eat a Sunday. Publishing a finished piece from the archive is a twenty-minute task; revising one is not.", refs:"The capacity arithmetic \u00b7 nine to seventeen hours a month for all admin" },
+  { id:"november", cat:"rhythm", r:6, x:-0.20, y:-0.78, z:0.55, name:"Completed in November", anchor:"Running \u00b7 the one hard deadline", desc:"The book is finished and sent to print in November so that December is genuinely clear. December holds a birthday and the anniversary of a significant loss and is kept as a retreat. December is also a strong month for art sales, and the decision stands anyway.", refs:"Nothing in December should require her" },
+  { id:"log", cat:"rhythm", r:5, x:-0.85, y:-0.30, z:-0.12, name:"The studio log", anchor:"Open \u00b7 named as book material, not yet kept", desc:"Hours, materials, and what shifted. Private, undated in the sense of never published, and distinct from the essays. It is already listed as one of the three layers the annual book draws on, which means it is currently a promise rather than a practice.", refs:"Named in the documentation plan as a book input" },
+  { id:"unwritten", cat:"rhythm", r:5.5, x:-0.55, y:0.40, z:-0.60, name:"What is left unwritten", anchor:"Open \u00b7 no rule, and it needs one", desc:"A weekly public practice built on a body of work about wounding will produce material that should not be published, and the decision about which is which is currently made in the moment, weekly, by a tired person. A rule made in advance is worth more than a judgement made at the point of publishing.", refs:"The curriculum touches trauma and systemic harm throughout" },
 
-  {id:"b0", cat:"body", depth:5, name:"The body as primary text", sub:"Phase I, weeks one to seven",
-   body:"The opening argument is that you cannot sense another person's inner life if you were trained to ignore your own. That is a counselling claim, a disability studies claim and a painting claim at once, and the coincidence is the reason the three fields of study run alongside each other rather than competing.",
-   src:["Polyvagal theory","Interoception and contemplative neuroscience"],
-   connects:["c0","b1","b2","h0","k0"]},
-
-  {id:"b1", cat:"body", depth:3, name:"The window of tolerance", sub:"Making from where you actually are",
-   body:"The nervous system has a range within which it can stay present, and work made outside that range is different work. The practice invitation is to make from within the actual window rather than from where one wishes it were, letting a contracted mark or a small form stand as honesty rather than as failure.",
-   src:[],
-   connects:["b0","b2","d0"]},
-
-  {id:"b2", cat:"body", depth:3, name:"Trauma metabolized", sub:"Present, not resolved",
-   body:"What the body holds does not have to be explained, resolved or made beautiful in order to appear in the work. It has to be allowed to be present. The weight is permitted to stay.",
-   src:[],
-   connects:["b0","b1","d1","q0"]},
-
-  {id:"h0", cat:"hearth", depth:5, name:"Self-compassion as ground", sub:"Phase II, weeks eight to fourteen",
-   body:"The north star of the second phase. Self-compassion is treated as navigation rather than as consolation, which means it is what makes the rest of the inquiry survivable rather than a reward at the end of it.",
-   src:[],
-   connects:["c0","b0","h1","h2"]},
-
-  {id:"h1", cat:"hearth", depth:3, name:"Rupture and repair", sub:"The long arc",
-   body:"Rupture is not the failure of a relationship but a recurring condition of one, and repair is the practice that follows it. The arc is long, and treating it as long is what stops a single rupture from being read as an ending.",
-   src:[],
-   connects:["h0","h2"]},
-
-  {id:"h2", cat:"hearth", depth:3, name:"Recognition", sub:"The human in you is the human in me",
-   body:"Recognition is the movement from seeing another person as an instance of a category to meeting them as a particular. It is the ethical centre of the second phase and the thing the portrait practice is actually attempting.",
-   src:[],
-   connects:["h0","h1","e0"]},
-
-  {id:"m0", cat:"mystic", depth:5, name:"The Mystical Thread", sub:"Phase III, weeks fifteen to twenty-one",
-   body:"Via negativa, kenosis, non-dual awareness and discernment. The tradition of unknowing, approached as a working method rather than as a set of beliefs. What it offers the studio is permission for a work to hold a question without resolving it.",
-   src:["The Cloud of Unknowing","Th\u00e9r\u00e8se of Lisieux, the little way"],
-   connects:["c0","m1","m2","w0"]},
-
-  {id:"m1", cat:"mystic", depth:3, name:"Kenosis", sub:"Self-emptying",
-   body:"The emptying out of the self so that something else can be present. In a studio it names the condition where the maker stops arranging the outcome, and it is also the week whose language the craft standard was first tested against.",
-   src:[],
-   connects:["m0","m2","k0"]},
-
-  {id:"m2", cat:"mystic", depth:3, name:"The mystery held openly", sub:"Not resolved, not abandoned",
-   body:"Holding a question open is a discipline rather than an absence of conviction. The alternative is not certainty but premature closure, and closure in a work of art is usually visible as a kind of tightness.",
-   src:[],
-   connects:["m0","m1","w1"]},
-
-  {id:"e0", cat:"engaged", depth:5, name:"The Engaged Path", sub:"Phase IV, weeks twenty-two to twenty-eight",
-   body:"Liberation theology and lo cotidiano, the theology of the everyday. The claim is that inner devotion and outer transformation are one continuous act rather than two competing demands on the same hours.",
-   src:["Ada Mar\u00eda Isasi-D\u00edaz on lo cotidiano"],
-   connects:["c0","h2","e1","e2"]},
-
-  {id:"e1", cat:"engaged", depth:3, name:"No specialness required", sub:"Fidelity to the unremarkable",
-   body:"Nothing new is required. The same ordinary things, attended to with complete fidelity, are inexhaustible. Morandi's forty years of bottles is the historical case, and it is also the argument for a studies series that makes the same size of thing every month.",
-   src:[],
-   connects:["e0","k0","k1"]},
-
-  {id:"e2", cat:"engaged", depth:3, name:"The body's honest response", sub:"To outer reality",
-   body:"Not protest art and not illustration of a position, but what the body actually holds about what is happening. The distinction matters because the first two produce work that argues, and the third produces work that testifies.",
-   src:[],
-   connects:["e0","q1"]},
-
-  {id:"w0", cat:"waters", depth:5, name:"The Wide Waters", sub:"Phase V, weeks twenty-nine to thirty-five",
-   body:"Earth as theological partner rather than as setting. Interbeing, and the mystery held openly. The natural world is approached as a body that has been through something structurally like a human feeling, for far longer than there have been humans to feel it.",
-   src:["Thich Nhat Hanh on interbeing"],
-   connects:["c0","m0","w1"]},
-
-  {id:"w1", cat:"waters", depth:3, name:"Other bodies", sub:"Company, not metaphor",
-   body:"Other bodies of the natural world are sites of wisdom rather than symbols for what we feel. Sitting with what one actually does can make a human version of that feeling easier to be with. Not easier to solve. Easier to keep company with.",
-   src:[],
-   connects:["w0","m2"]},
-
-  {id:"d0", cat:"dark", depth:5, name:"The Dark Night", sub:"Phase VI, weeks thirty-six to forty-two",
-   body:"Grief as sacred work, and the descent treated as part of the practice rather than as an interruption to it. This phase holds the December question in the year's calendar, which is why December is protected rather than optimised.",
-   src:["John of the Cross, the dark night of the soul"],
-   connects:["c0","b1","d1","d2"]},
-
-  {id:"d1", cat:"dark", depth:3, name:"The wound that has been generative", sub:"What it made possible",
-   body:"Not a work that explains the wound, but a work that demonstrates what the wound made possible. What has this let you see, make or offer that you could not otherwise have seen, made or offered.",
-   src:[],
-   connects:["d0","b2","q0"]},
-
-  {id:"d2", cat:"dark", depth:3, name:"Non-extractive love", sub:"Giving itself away",
-   body:"A work that is completed by being received, touched, taken or consumed, and diminished in the receiving. The diminishment is the point. It is also the ethical test the studies series is priced against.",
-   src:[],
-   connects:["d0","e1"]},
-
-  {id:"q0", cat:"queer", depth:5, name:"The Queer Path", sub:"Phase VII, weeks forty-three to forty-nine",
-   body:"Second-satan trauma, exile, body theology and queer mysticism. The phase that names what the whole thesis is arguing against: the systems that taught a body to treat itself as a problem to be corrected.",
-   src:[],
-   connects:["c0","b0","b2","d1","q1"]},
-
-  {id:"q1", cat:"queer", depth:3, name:"Exile as a place to work from", sub:"Not a condition to escape",
-   body:"The body marked by exclusion has also been given, by that same marking, a particular quality of vision. The claim is not that exclusion is a gift. It is that the seeing it produced is real and is usable.",
-   src:[],
-   connects:["q0","e2"]},
-
-  {id:"k0", cat:"making", depth:5, name:"The Making", sub:"Phase VIII, weeks fifty to fifty-six",
-   body:"Art as contemplation and process as prayer. The synthesis phase, and the one that closes the loop by making the studio practice itself the subject rather than the illustration.",
-   src:[],
-   connects:["c0","b0","m1","e1","k1","k2"]},
-
-  {id:"k1", cat:"making", depth:4, name:"Process over product", sub:"What the hand does when nobody is deciding",
-   body:"The practice is not trying to make a picture of the feeling or of the subject. It is following, letting an unlifted line move the way the thing moves, doubling back and pressing dark and wandering off. If the line stays a line and never becomes a rendering, it is doing what it is for.",
-   src:[],
-   connects:["k0","c1","c5","e1"]},
-
-  {id:"k2", cat:"making", depth:4, name:"Beginner's mind", sub:"The condition the whole thing runs on",
-   body:"In the beginner's mind there are many possibilities; in the expert's mind there are few. It is what keeps the work honest and what makes space for the not-knowing the mystical thread points toward. It is also what makes the project inviting, because people can feel when someone is seeking alongside them rather than delivering from above.",
-   src:["Shunryu Suzuki, Zen Mind, Beginner's Mind"],
-   connects:["k0","m0"]}
+  /* ── THE REACH ── */
+  { id:"peer", cat:"reach", r:7, x:0.62, y:0.55, z:-0.30, name:"Offered peer to peer", anchor:"Running \u00b7 the closing move of every post", desc:"The invitation describes where the writer is starting and leaves space for the reader to find their own, then releases them from obligation. Genuinely open rather than performatively humble. The reader's experience is not being managed.", refs:"Post template, section six" },
+  { id:"onevoice", cat:"reach", r:5.5, x:0.78, y:0.38, z:-0.55, name:"One voice across every surface", anchor:"Open \u00b7 currently drifting", desc:"The essays are held to a standard. The captions, the listing descriptions, the emails and the site copy are not. A reader who arrives through a caption and stays for an essay meets two different writers, and the caption is the one they met first.", refs:"Delmaire's captions are candid; Neumann's are four silent lines" },
+  { id:"generative", cat:"reach", r:6.5, x:0.35, y:0.85, z:0.15, name:"Writing that decides the next work", anchor:"Open \u00b7 the largest unclaimed use", desc:"Currently the writing follows the studio week and reflects on it. The practice invitation at the end of each entry is already an instruction for making, addressed to a reader. Turning it inward, so that the week's question sets what happens on Sunday, would make the writing generative rather than reflective and would close the loop the whole project assumes.", refs:"The art practice does not illustrate the thesis; it acts on the same premise" },
+  { id:"talk", cat:"reach", r:5, x:0.90, y:0.20, z:-0.20, name:"Writing for the voice", anchor:"Open \u00b7 no version exists", desc:"An artist talk is written to be heard once, without rereading, by people who cannot scroll back. Sentence length, repetition and signposting all invert. It is also the form that a taught session, a studio visit and a narrated video all quietly depend on.", refs:"The narrated video already needs this and is using essay prose" },
 ];
 
-var NODEMAP = {};
-NODES.forEach(function(n){ NODEMAP[n.id] = n; });
+const LINES = [
+  ['question','beside'],['question','beginner'],['question','standard'],['question','peer'],
+  ['question','exemplar'],['question','otherfields'],
+  ['beside','book'],['beside','sketchbook'],['beside','chart'],
+  ['already','book'],['already','sketchbook'],['already','log'],
+  ['beginner','peer'],['beginner','unwritten'],['beginner','generative'],
+  ['chart','essay'],['chart','archive'],
+  ['readinglog','otherfields'],['readinglog','log'],['readinglog','anchors'],
+  ['otherfields','generative'],
+  ['standard','geometry'],['standard','reversal'],['standard','ratio'],
+  ['standard','exemplar'],['standard','editor'],['standard','onevoice'],
+  ['template','essay'],['template','three'],['template','peer'],['template','contested'],
+  ['exemplar','ratio'],['editor','unwritten'],
+  ['archive','distribution'],['archive','licence'],['archive','rights'],
+  ['archive','book'],['archive','essay'],['archive','monday'],
+  ['distribution','licence'],['distribution','rights'],
+  ['licence','video'],['rights','deposit'],['deposit','book'],
+  ['essay','video'],['essay','book'],['essay','monday'],['essay','three'],
+  ['book','sketchbook'],['book','november'],['book','permission'],['book','log'],
+  ['sketchbook','log'],['video','talk'],['video','monday'],
+  ['statement','grantwriting'],['statement','walltext'],['statement','onevoice'],
+  ['titles','onevoice'],['titles','generative'],
+  ['walltext','talk'],['grantwriting','monday'],['grantwriting','peer'],
+  ['anchors','contested'],['anchors','three'],['anchors','permission'],
+  ['contested','three'],['permission','book'],
+  ['access','onevoice'],['access','walltext'],['access','peer'],
+  ['monday','november'],['monday','log'],['monday','unwritten'],
+  ['november','log'],['unwritten','peer'],
+  ['peer','generative'],['peer','onevoice'],['generative','essay'],
+  ['generative','titles'],['onevoice','talk'],
+];
 
-var cv = document.getElementById("map");
-var ctx = cv.getContext("2d");
-var wrap = document.getElementById("cwrap");
-var tt = document.getElementById("tt");
-var ttk = document.getElementById("tt-k");
-var ttn = document.getElementById("tt-n");
-var panelEmpty = document.getElementById("panel-empty");
-var panelContent = document.getElementById("panel-content");
-var filters = document.getElementById("filters");
-var legend = document.getElementById("legend");
+/* ── build adjacency (connects) from LINES ── */
+const nodeMap = {};
+STARS.forEach(n => { nodeMap[n.id] = n; n.connects = []; });
+LINES.forEach(([a,b]) => {
+  if(nodeMap[a] && nodeMap[b]){ nodeMap[a].connects.push(b); nodeMap[b].connects.push(a); }
+});
+STARS.forEach(n => { n.connects = [...new Set(n.connects)]; });
+const NODES = STARS;
 
-var view = {x:0, y:0, k:1};
-var selected = null, hovered = null, activeCat = "all";
-var dpr = Math.max(1, window.devicePixelRatio || 1);
-var W = 0, H = 0;
+/* ── reference-facing UI: filters, legend, list ── */
+(function buildLegendCats(){
+  const row = document.getElementById("legend-cats");
+  CAT_ORDER.forEach(c => {
+    const span = document.createElement("span");
+    span.className = "li";
+    span.innerHTML = '<span class="sw" style="background:'+CATS[c].color+'"></span>'+CATS[c].label;
+    row.appendChild(span);
+  });
+})();
 
-/* deterministic polar layout: each category gets a sector, nodes placed within it */
-function layout(){
-  var cats = Object.keys(CATS);
-  var byCat = {};
-  cats.forEach(function(c){ byCat[c] = []; });
-  NODES.forEach(function(n){ byCat[n.cat].push(n); });
+(function buildFilters(){
+  const box = document.getElementById("filters");
+  const mk = (key,label,color) => {
+    const b = document.createElement("button");
+    b.className = "fbtn"; b.type = "button";
+    b.setAttribute("aria-pressed", key==="all" ? "true":"false");
+    b.dataset.f = key;
+    b.innerHTML = (color? '<span class="dot" style="--sw:'+color+'"></span>':'') + label;
+    b.addEventListener("click", () => setFilter(key));
+    box.appendChild(b);
+  };
+  mk("all","All");
+  CAT_ORDER.forEach(c => mk(c, CATS[c].label, CATS[c].color));
+})();
 
-  cats.forEach(function(c, ci){
-    var list = byCat[c];
-    var base = (ci / cats.length) * Math.PI * 2 - Math.PI / 2;
-    list.forEach(function(n, i){
-      if (n.id === "c0"){ n.x = 0; n.y = 0; return; }
-      var ring = 150 + (i % 3) * 78 + (n.depth >= 5 ? 0 : 46);
-      var spread = 0.30;
-      var a = base + ((i / Math.max(1, list.length)) - 0.5) * spread * 2;
-      n.x = Math.cos(a) * ring;
-      n.y = Math.sin(a) * ring;
+function refItems(refs){ return refs ? refs.split(" · ").map(s => s.trim()).filter(Boolean) : []; }
+
+(function buildList(){
+  const body = document.getElementById("listbody");
+  CAT_ORDER.forEach(c => {
+    const grp = document.createElement("div");
+    grp.className = "listgrp";
+    grp.innerHTML = '<h3 style="color:'+CATS[c].color+'">'+CATS[c].label+'</h3>';
+    NODES.filter(n => n.cat===c).forEach(n => {
+      const e = document.createElement("div");
+      e.className = "entry";
+      const cites = refItems(n.refs).join(" · ");
+      e.innerHTML = '<h4>'+n.name+'</h4>'+
+        (n.anchor? '<div class="esub">'+n.anchor+'</div>':'')+
+        '<p>'+n.desc+'</p>'+
+        (cites ? '<div class="cites">'+cites+'</div>' : '');
+      grp.appendChild(e);
     });
+    body.appendChild(grp);
   });
+})();
 
-  /* light relaxation so nothing overlaps */
-  for (var pass = 0; pass < 140; pass++){
-    for (var i = 0; i < NODES.length; i++){
-      for (var j = i + 1; j < NODES.length; j++){
-        var a = NODES[i], b = NODES[j];
-        if (a.id === "c0" || b.id === "c0") continue;
-        var dx = b.x - a.x, dy = b.y - a.y;
-        var d = Math.sqrt(dx * dx + dy * dy) || 0.01;
-        var min = rad(a) + rad(b) + 34;
-        if (d < min){
-          var push = (min - d) / 2 / d;
-          a.x -= dx * push; a.y -= dy * push;
-          b.x += dx * push; b.y += dy * push;
-        }
-      }
+/* ============================================================
+   THE MAP — canvas engine (2D + 3D)
+   ============================================================ */
+(function(){
+  const wrap = document.getElementById("cwrap");
+  const canvas = document.getElementById("map");
+  const ctx = canvas.getContext("2d");
+  const tt = document.getElementById("tt");
+
+  // layout: the chart's own coordinates, scaled to working space (y up)
+  const S = 300;
+  NODES.forEach(n => { n.px = n.x*S; n.py = -n.y*S; n.pz = n.z*S; });
+  const MAXR = Math.max(...NODES.map(n => Math.hypot(n.px,n.py))) || 1;
+  function baseR(n){ return 6 + (n.r-4.5)*1.9; }
+
+  // view state
+  let is3D=false, filter="all", selected=null, hovered=null, inited=false;
+  let fitZoom=1, zoom=1, targetZoom=1;
+  let panX=0, panY=0, targetPanX=0, targetPanY=0;
+  let rotX=-0.35, rotY=0.5, tRotX=-0.35, tRotY=0.5;
+  let W=0,H=0,DPR=1;
+
+  function resize(){
+    DPR = Math.min(window.devicePixelRatio||1, 2);
+    W = wrap.clientWidth; H = wrap.clientHeight;
+    canvas.width = W*DPR; canvas.height = H*DPR;
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    fitZoom = Math.max(0.4, Math.min(1.5, (Math.min(W,H)*0.46)/MAXR));
+    if(!inited){ zoom = targetZoom = fitZoom; inited = true; }
+  }
+  window.addEventListener("resize", resize);
+
+  function project(n){
+    let x=n.px, y=n.py, z=n.pz, scale=1;
+    if(is3D){
+      const cy=Math.cos(rotY), sy=Math.sin(rotY);
+      let x1 = x*cy - z*sy, z1 = x*sy + z*cy;
+      const cx=Math.cos(rotX), sx=Math.sin(rotX);
+      let y1 = y*cx - z1*sx, z2 = y*sx + z1*cx;
+      const persp = 620/(620+z2);
+      x=x1*persp; y=y1*persp; scale=persp; z=z2;
     }
+    return {sx: W/2 + (x+panX)*zoom, sy: H/2 + (y+panY)*zoom, scale, z};
   }
-}
-function rad(n){ return 7 + n.depth * 3.2; }
-
-function resize(){
-  var r = wrap.getBoundingClientRect();
-  W = r.width; H = 520;
-  cv.width = W * dpr; cv.height = H * dpr;
-  cv.style.height = H + "px";
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  draw();
-}
-
-function toScreen(n){
-  return {x: W / 2 + (n.x + view.x) * view.k, y: H / 2 + (n.y + view.y) * view.k};
-}
-
-function visible(n){ return activeCat === "all" || n.cat === activeCat; }
-
-function draw(){
-  ctx.clearRect(0, 0, W, H);
-
-  /* links */
-  NODES.forEach(function(n){
-    n.connects.forEach(function(cid){
-      var m = NODEMAP[cid];
-      if (!m || m.id < n.id) return;
-      var p = toScreen(n), q = toScreen(m);
-      var touch = selected && (n.id === selected || m.id === selected);
-      var dim = !visible(n) && !visible(m);
-      ctx.beginPath();
-      ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
-      ctx.strokeStyle = touch ? "rgba(69,67,68,.42)" : (dim ? "rgba(162,159,159,.07)" : "rgba(162,159,159,.20)");
-      ctx.lineWidth = touch ? 1.4 : 1;
-      ctx.stroke();
-    });
-  });
-
-  /* nodes */
-  NODES.forEach(function(n){
-    var p = toScreen(n), r = rad(n) * view.k;
-    var alpha = visible(n) ? 1 : 0.2;
-    if (selected && n.id !== selected){
-      var sel = NODEMAP[selected];
-      alpha = (sel.connects.indexOf(n.id) !== -1) ? Math.min(alpha, 0.92) : Math.min(alpha, 0.42);
+  function projRaw(n){
+    let x=n.px, y=n.py, z=n.pz;
+    if(is3D){
+      const cy=Math.cos(rotY), sy=Math.sin(rotY);
+      let x1 = x*cy - z*sy, z1 = x*sy + z*cy;
+      const cx=Math.cos(rotX), sx=Math.sin(rotX);
+      let y1 = y*cx - z1*sx, z2 = y*sx + z1*cx;
+      const persp = 620/(620+z2);
+      x=x1*persp; y=y1*persp;
     }
-    ctx.globalAlpha = alpha;
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
-    ctx.fillStyle = CATS[n.cat].color;
-    ctx.fill();
-    if (n.id === selected || n.id === hovered){
-      ctx.lineWidth = 2;
-      ctx.strokeStyle = "#454344";
-      ctx.stroke();
-    }
-    if (n.depth >= 5 && view.k > 0.72){
-      ctx.globalAlpha = alpha * 0.9;
-      ctx.font = "600 11px Asap, sans-serif";
-      ctx.fillStyle = "#454344";
-      ctx.textAlign = "center";
-      ctx.fillText(n.name, p.x, p.y + r + 14);
-    }
-    ctx.globalAlpha = 1;
-  });
-}
-
-function hitTest(mx, my){
-  for (var i = NODES.length - 1; i >= 0; i--){
-    var n = NODES[i];
-    var p = toScreen(n), r = rad(n) * view.k + 3;
-    if ((mx - p.x) * (mx - p.x) + (my - p.y) * (my - p.y) <= r * r) return n.id;
+    return {x, y};
   }
-  return null;
-}
+  function nodeRadius(n, sc){ return baseR(n)*zoom*(is3D?(0.6+sc*0.7):1); }
+  function focusOn(id){ const n=nodeMap[id]; if(!n) return; const r=projRaw(n); targetPanX=-r.x; targetPanY=-r.y; }
+  function visible(n){ return filter==="all" || n.cat===filter; }
 
-function relPos(e){
-  var r = cv.getBoundingClientRect();
-  var t = e.touches ? e.touches[0] : e;
-  return {x: t.clientX - r.left, y: t.clientY - r.top};
-}
+  let lastPts = [];
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    const pts = NODES.filter(visible).map(n => ({n, p:project(n)}));
+    if(is3D) pts.sort((a,b)=> b.p.z - a.p.z);
+    const pMap = {}; pts.forEach(o => pMap[o.n.id]=o.p);
 
-var dragging = false, moved = false, last = null;
-
-cv.addEventListener("mousedown", function(e){
-  dragging = true; moved = false; last = relPos(e); cv.classList.add("dragging");
-});
-window.addEventListener("mouseup", function(){
-  dragging = false; cv.classList.remove("dragging");
-});
-cv.addEventListener("mousemove", function(e){
-  var p = relPos(e);
-  if (dragging && last){
-    var dx = p.x - last.x, dy = p.y - last.y;
-    if (Math.abs(dx) + Math.abs(dy) > 2) moved = true;
-    view.x += dx / view.k; view.y += dy / view.k;
-    last = p; draw(); tt.classList.remove("on");
-    return;
-  }
-  var id = hitTest(p.x, p.y);
-  if (id !== hovered){ hovered = id; draw(); }
-  if (id){
-    var n = NODEMAP[id];
-    ttk.textContent = CATS[n.cat].label;
-    ttn.textContent = n.name;
-    tt.style.left = p.x + "px";
-    tt.style.top = p.y + "px";
-    tt.classList.add("on");
-    cv.style.cursor = "pointer";
-  } else {
-    tt.classList.remove("on");
-    cv.style.cursor = dragging ? "grabbing" : "grab";
-  }
-});
-cv.addEventListener("mouseleave", function(){
-  tt.classList.remove("on"); hovered = null; draw();
-});
-cv.addEventListener("click", function(e){
-  if (moved) return;
-  var p = relPos(e);
-  var id = hitTest(p.x, p.y);
-  if (id) select(id);
-});
-cv.addEventListener("wheel", function(e){
-  e.preventDefault();
-  var f = e.deltaY < 0 ? 1.12 : 0.89;
-  view.k = Math.max(0.45, Math.min(2.6, view.k * f));
-  draw();
-}, {passive:false});
-
-/* touch */
-cv.addEventListener("touchstart", function(e){
-  dragging = true; moved = false; last = relPos(e);
-}, {passive:true});
-cv.addEventListener("touchmove", function(e){
-  if (!dragging) return;
-  var p = relPos(e);
-  var dx = p.x - last.x, dy = p.y - last.y;
-  if (Math.abs(dx) + Math.abs(dy) > 2) moved = true;
-  view.x += dx / view.k; view.y += dy / view.k;
-  last = p; draw();
-}, {passive:true});
-cv.addEventListener("touchend", function(e){
-  dragging = false;
-  if (!moved && last){
-    var id = hitTest(last.x, last.y);
-    if (id) select(id);
-  }
-}, {passive:true});
-
-document.getElementById("reset").addEventListener("click", function(){
-  view = {x:0, y:0, k:1}; selected = null;
-  panelContent.hidden = true; panelEmpty.hidden = false;
-  draw();
-});
-
-function select(id){
-  selected = id;
-  var n = NODEMAP[id];
-  var conns = n.connects.map(function(cid){
-    var m = NODEMAP[cid];
-    if (!m) return "";
-    return '<button class="cbtn" data-go="' + cid + '" style="--sw:' + CATS[m.cat].color + '">' +
-           '<span class="cd"></span>' + m.name + '</button>';
-  }).join("");
-
-  var srcs = n.src && n.src.length
-    ? '<h3>Anchors</h3><ul class="srclist">' +
-      n.src.map(function(s){ return "<li>" + s + "</li>"; }).join("") + '</ul>'
-    : "";
-
-  panelEmpty.hidden = true;
-  panelContent.hidden = false;
-  panelContent.innerHTML =
-    '<p class="p-eyebrow">' + CATS[n.cat].label + '</p>' +
-    '<h2 class="p-title">' + n.name + '</h2>' +
-    '<p class="p-sub">' + n.sub + '</p>' +
-    '<p>' + n.body + '</p>' +
-    srcs +
-    '<h3>Connects to</h3><div class="conns">' + conns + '</div>';
-
-  Array.prototype.forEach.call(panelContent.querySelectorAll("[data-go]"), function(b){
-    b.addEventListener("click", function(){ select(b.getAttribute("data-go")); });
-  });
-  draw();
-}
-
-function buildFilters(){
-  var html = '<button class="chip is-active" data-cat="all" aria-pressed="true">All</button>';
-  Object.keys(CATS).forEach(function(k){
-    html += '<button class="chip" data-cat="' + k + '" aria-pressed="false">' +
-            '<span class="dot" style="background:' + CATS[k].color + '"></span>' +
-            CATS[k].label + '</button>';
-  });
-  filters.innerHTML = html;
-  Array.prototype.forEach.call(filters.querySelectorAll(".chip"), function(btn){
-    btn.addEventListener("click", function(){
-      activeCat = btn.getAttribute("data-cat");
-      Array.prototype.forEach.call(filters.querySelectorAll(".chip"), function(b){
-        var on = b === btn;
-        b.classList.toggle("is-active", on);
-        b.setAttribute("aria-pressed", on ? "true" : "false");
+    // edges
+    const seen = new Set();
+    ctx.lineWidth = 1;
+    pts.forEach(({n}) => {
+      n.connects.forEach(cid => {
+        const key = [n.id,cid].sort().join("-");
+        if(seen.has(key)) return; seen.add(key);
+        const t = nodeMap[cid]; if(!t || !visible(t)) return;
+        const a=pMap[n.id], b=pMap[cid]; if(!a||!b) return;
+        const focus = selected||hovered;
+        let op = 0.12;
+        if(focus){ op = (n.id===focus||cid===focus) ? 0.5 : 0.06; }
+        ctx.strokeStyle = "rgba(93,90,91,"+op+")";
+        ctx.beginPath(); ctx.moveTo(a.sx,a.sy); ctx.lineTo(b.sx,b.sy); ctx.stroke();
       });
-      draw();
     });
-  });
 
-  legend.innerHTML = Object.keys(CATS).map(function(k){
-    return '<span class="lg"><span class="sw" style="background:' + CATS[k].color + '"></span>' +
-           CATS[k].label + '</span>';
-  }).join("");
-}
+    // nodes
+    pts.forEach(({n,p}) => {
+      const r = nodeRadius(n,p.scale);
+      const col = CATS[n.cat].color;
+      let alpha = 0.95, ring = 0.9;
+      if(selected){
+        if(n.id===selected){ alpha=1; }
+        else if(nodeMap[selected].connects.includes(n.id)){ alpha=0.95; }
+        else { alpha=0.35; ring=0.35; }
+      } else if(hovered){
+        alpha = (n.id===hovered) ? 1 : 0.5;
+      }
+      const g = ctx.createRadialGradient(p.sx,p.sy,0,p.sx,p.sy,r*2.1);
+      g.addColorStop(0, hexA(col, 0.16*alpha));
+      g.addColorStop(1, hexA(col, 0));
+      ctx.fillStyle=g;
+      ctx.beginPath(); ctx.arc(p.sx,p.sy,r*2.1,0,Math.PI*2); ctx.fill();
 
-function buildList(){
-  var body = document.getElementById("listbody");
-  body.innerHTML = Object.keys(CATS).map(function(c){
-    var list = NODES.filter(function(n){ return n.cat === c; });
-    if (!list.length) return "";
-    return '<h3 style="color:' + CATS[c].color + '">' + CATS[c].label + '</h3>' +
-      list.map(function(n){
-        return '<p><span class="ln">' + n.name + '.</span> ' + n.sub + '. ' + n.body + '</p>';
-      }).join("");
-  }).join("");
-}
+      ctx.fillStyle = hexA(col, alpha);
+      ctx.beginPath(); ctx.arc(p.sx,p.sy,r,0,Math.PI*2); ctx.fill();
 
-layout();
-buildFilters();
-buildList();
-resize();
-window.addEventListener("resize", resize);
+      ctx.lineWidth = (n.id===selected||n.id===hovered)?1.6:1;
+      ctx.strokeStyle = hexA(shade(col,-22), ring);
+      ctx.beginPath(); ctx.arc(p.sx,p.sy,r,0,Math.PI*2); ctx.stroke();
+
+      if(n.id===selected || n.id===hovered){
+        ctx.fillStyle="rgba(69,67,68,0.92)";
+        ctx.font='600 12px Asap, sans-serif';
+        ctx.textAlign="center";
+        ctx.fillText(n.name, p.sx, p.sy - r - 8);
+      }
+    });
+    lastPts = pts.map(o => ({id:o.n.id, x:o.p.sx, y:o.p.sy, r:nodeRadius(o.n,o.p.scale)}));
+  }
+
+  function hitTest(mx,my){
+    let best=null, bd=1e9;
+    for(let i=lastPts.length-1;i>=0;i--){
+      const p=lastPts[i];
+      const d=Math.hypot(mx-p.x,my-p.y);
+      if(d <= p.r+6 && d<bd){ bd=d; best=p.id; }
+    }
+    return best;
+  }
+
+  function hexA(hex,a){ const c=hx(hex); return "rgba("+c[0]+","+c[1]+","+c[2]+","+a.toFixed(3)+")"; }
+  function shade(hex,d){ const c=hx(hex); return "#"+c.map(v=>clamp(v+d).toString(16).padStart(2,"0")).join(""); }
+  function hx(hex){ hex=hex.replace("#",""); return [0,2,4].map(i=>parseInt(hex.substr(i,2),16)); }
+  function clamp(v){ return Math.max(0,Math.min(255,v)); }
+
+  function tick(){
+    zoom += (targetZoom-zoom)*0.16;
+    panX += (targetPanX-panX)*0.16;
+    panY += (targetPanY-panY)*0.16;
+    if(is3D){ rotX += (tRotX-rotX)*0.12; rotY += (tRotY-rotY)*0.12; }
+    draw();
+    requestAnimationFrame(tick);
+  }
+
+  let dragging=false, moved=0, last={x:0,y:0};
+  function localXY(e){
+    const r=canvas.getBoundingClientRect();
+    const cx = (e.touches? e.touches[0].clientX : e.clientX) - r.left;
+    const cy = (e.touches? e.touches[0].clientY : e.clientY) - r.top;
+    return {x:cx, y:cy};
+  }
+  function onDown(e){ const p=localXY(e); dragging=true; moved=0; last=p; canvas.classList.add("grabbing"); }
+  function onMove(e){
+    const p=localXY(e);
+    if(dragging){
+      const dx=p.x-last.x, dy=p.y-last.y; moved+=Math.abs(dx)+Math.abs(dy); last=p;
+      if(is3D){ tRotY += dx*0.006; tRotX += dy*0.006; tRotX=Math.max(-Math.PI/2,Math.min(Math.PI/2,tRotX)); }
+      else { targetPanX += dx/zoom; targetPanY += dy/zoom; panX=targetPanX; panY=targetPanY; }
+      tt.classList.remove("show");
+      return;
+    }
+    const id=hitTest(p.x,p.y);
+    if(id!==hovered){ hovered=id; }
+    if(id){
+      const n=nodeMap[id];
+      document.getElementById("tt-k").textContent = CATS[n.cat].label;
+      document.getElementById("tt-n").textContent = n.name;
+      tt.style.left=(p.x+14)+"px"; tt.style.top=(p.y-6)+"px";
+      tt.classList.add("show"); canvas.classList.add("pointing");
+    } else { tt.classList.remove("show"); canvas.classList.remove("pointing"); }
+  }
+  function onUp(e){
+    canvas.classList.remove("grabbing");
+    if(dragging && moved<5){
+      const p = e.changedTouches ? {x:e.changedTouches[0].clientX-canvas.getBoundingClientRect().left,
+                                    y:e.changedTouches[0].clientY-canvas.getBoundingClientRect().top}
+                                 : last;
+      const id=hitTest(p.x,p.y);
+      if(id) openPanel(id); else closePanel();
+    }
+    dragging=false;
+  }
+  canvas.addEventListener("mousedown",onDown);
+  window.addEventListener("mousemove",onMove);
+  window.addEventListener("mouseup",onUp);
+  canvas.addEventListener("mouseleave",()=>{hovered=null;tt.classList.remove("show");});
+  canvas.addEventListener("touchstart",e=>{onDown(e);},{passive:true});
+  canvas.addEventListener("touchmove",e=>{e.preventDefault();onMove(e);},{passive:false});
+  canvas.addEventListener("touchend",onUp);
+  canvas.addEventListener("wheel",e=>{
+    e.preventDefault();
+    targetZoom *= e.deltaY>0 ? 0.9 : 1.1;
+    targetZoom = Math.max(0.35, Math.min(3.2, targetZoom));
+  },{passive:false});
+
+  function openPanel(id){
+    selected=id; focusOn(id); const n=nodeMap[id];
+    const col=CATS[n.cat].color;
+    const items = refItems(n.refs);
+    const srcHtml = items.length ? items.map(s=>"<li>"+s+"</li>").join("") : "";
+    const conns = n.connects.map(cid=>{
+      const cn=nodeMap[cid]; if(!cn) return "";
+      return '<button class="chip" data-go="'+cid+'"><span class="cd" style="--sw:'+CATS[cn.cat].color+'"></span>'+cn.name+'</button>';
+    }).join("");
+    const panel=document.getElementById("panel");
+    panel.innerHTML =
+      '<div class="p-tag" style="color:'+col+'">'+CATS[n.cat].label+'</div>'+
+      '<h3 class="p-title">'+n.name+'</h3>'+
+      (n.anchor? '<p class="p-sub">'+n.anchor+'</p>':'')+
+      '<p class="p-body">'+n.desc+'</p>'+
+      (srcHtml? '<div class="p-label">References</div><ul class="p-src">'+srcHtml+'</ul>':'')+
+      '<div class="p-label">Connected stars</div><div class="p-conns">'+conns+'</div>';
+    panel.querySelectorAll(".chip").forEach(b=>b.addEventListener("click",()=>openPanel(b.dataset.go)));
+    panel.scrollTop=0;
+  }
+  function closePanel(){
+    selected=null;
+    document.getElementById("panel").innerHTML =
+      '<div class="empty"><strong>Select a star</strong>Tap any star to read its anchor, description, and sources. Larger stars hold more depth; colour marks the constellation. In 2D, drag to move and scroll to zoom; in 3D, drag to rotate.</div>';
+  }
+
+  window.setFilter = function(key){
+    filter=key;
+    document.querySelectorAll(".fbtn").forEach(b=>b.setAttribute("aria-pressed", b.dataset.f===key?"true":"false"));
+    if(selected && !visible(nodeMap[selected])) closePanel();
+    resetView(false);
+  };
+  function setView(v3){
+    is3D=v3;
+    document.getElementById("v2d").setAttribute("aria-pressed", (!v3).toString());
+    document.getElementById("v3d").setAttribute("aria-pressed", v3.toString());
+    resetView(false);
+    if(selected) focusOn(selected);
+  }
+  document.getElementById("v2d").addEventListener("click",()=>setView(false));
+  document.getElementById("v3d").addEventListener("click",()=>setView(true));
+  function resetView(clearSel){
+    targetZoom = fitZoom; targetPanX=0; targetPanY=0; tRotX=-0.35; tRotY=0.5;
+    if(!is3D){ rotX=-0.35; rotY=0.5; }
+  }
+  document.getElementById("reset").addEventListener("click",()=>{ resetView(); closePanel(); });
+
+  resize();
+  requestAnimationFrame(tick);
 })();
 </script>
 </body>
