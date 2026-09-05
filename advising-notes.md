@@ -65,3 +65,7 @@ Decided September 2026. No outreach to Arts Umbrella, Kroma or Opus until the st
 ## No names, no laurels
 
 Decided September 2026. The site is a reference for Andrea alone, so it never names private people (the high-school teacher, the paint maker, sitters, friends) and never recites achievements (how she was admitted, prizes, awards). She knows them. The record of why the practice is serious lives in these notes, not on the pages. Her teacher's line: don't rest on your laurels.
+
+## This year: making and being seen
+
+Decided September 2026, on the teacher's question. Three changes: a critic (assignment zero) sees the month's sheets every month; twenty weekday minutes of hands, feet and heads run under the Sundays; Foundations moves to 2028 and Patreon is fortnightly until the log shows three months of Sundays kept. Do not add programme this year. The site takes five minutes on Sunday and is closed.

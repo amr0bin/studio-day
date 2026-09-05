@@ -65,15 +65,19 @@
         </ol>
       </div>
       <div class="order-col">
+        <h2>Tuesday to Friday, twenty minutes</h2>
+        <ol class="runsheet">
+          <li><span>a.m.</span><div>Before anything else: hands, feet, heads, from life or the mirror. A cheap sketchbook, never the good paper. Nothing kept, nothing photographed, nothing posted. This is what rebuilds the hand; the Sundays only keep it.</div></li>
+        </ol>
         <h2>Monday evening</h2>
         <ol class="runsheet">
           <li><span>1</span><div>Record shot of every sheet from Sunday, on the copy stand, same settings.</div></li>
           <li><span>2</span><div>Catalogue entry per sheet. Same fields every time. Nothing is decided about showing it.</div></li>
-          <li><span>3</span><div>The week's Patreon piece, from Sunday's sentence and the researcher's journal.</div></li>
-          <li><span>4</span><div>One named person written to. A collector or a reader; not an institution until the rhythm has held.</div></li>
+          <li><span>3</span><div>Every second Monday, the Patreon piece, from the fortnight's sentences. Weekly again once the log shows three months of Sundays kept.</div></li>
+          <li><span>4</span><div>One named person written to. A collector or a reader; not an institution until the rhythm has held. Once a month, the sheets to the critic.</div></li>
           <li><span>5</span><div>Check the <a class="inline" href="calendar.html">Calendar</a> for anything inside thirty days.</div></li>
         </ol>
-        <p class="order-foot">Capacity holds two of making, video and selling admin. Not three. Anything new waits until the thing before it is easy.</p>
+        <p class="order-foot">Capacity holds two of making, video and selling admin. Not three. This year: making, and being seen. Foundations waits for 2028. The site takes five minutes on Sunday morning and is then closed.</p>
       </div>
     </section>
 
@@ -205,12 +209,13 @@ Array.prototype.forEach.call(document.querySelectorAll(".card-tile > img"), func
   var dayEl = document.getElementById("today-day"), noteEl = document.getElementById("today-note");
   if (dow===0){ dayEl.textContent = ord + " Sunday of the month"; noteEl.textContent = (nth<=2) ? "A studies Sunday. Six sheets is the ceiling; four is a good day." : "Held for larger work, unless stock for the release is thin."; }
   else if (dow===1){ dayEl.textContent = "Monday evening"; noteEl.textContent = "Record shots, catalogue, the week's writing, one letter."; }
-  else { dayEl.textContent = days[dow]; noteEl.textContent = "Not a studio day. Nothing here needs you before Sunday."; }
+  else if (dow===6){ dayEl.textContent = "Saturday"; noteEl.textContent = "Tear paper, lay the palette, set the kettle for tomorrow. Twenty minutes, then close this."; }
+  else { dayEl.textContent = days[dow] + " morning"; noteEl.textContent = "Twenty minutes: hands, feet, heads, from life or the mirror. Kept nowhere. Then close this."; }
   var m = now.getMonth();
   var monthNote = {
-    0:"Winter. Studies. Build stock.", 1:"Studies. Prepare the Foundations module.", 2:"Studies. BC Arts Council results due late March.",
+    0:"Winter. Studies. Build stock.", 1:"Studies. The critic sees the first quarter.", 2:"Studies. BC Arts Council results due late March.",
     3:"Studies. Kingston entries open mid-month.", 4:"Studies. Salt Spring closes on the last day.", 5:"Studies. Drawing Prize deadline if entering.",
-    6:"Foundations module recorded. Studies halve.", 7:"Foundations module recorded. Studies halve.", 8:"Kingston deadline on the 1st. Vermont on the 30th.",
+    6:"Studies. Foundations is 2028.", 7:"Studies. Foundations is 2028.", 8:"Kingston deadline on the 1st. Vermont on the 30th.",
     9:"Studies resume. Book compilation begins on Mondays.", 10:"Book completed. Nothing new started.", 11:"Wintering. Nothing that needs me."
   };
   document.getElementById("today-month").textContent = months[m] + " " + now.getFullYear();
