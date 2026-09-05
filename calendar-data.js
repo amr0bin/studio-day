@@ -19,6 +19,19 @@ window.STUDIO_CALENDAR = [
     check: "whether two weeks away from work is possible in that window"
   },
   {
+    id: "casc-2026-10",
+    name: "City of Vancouver · CASC (through a sponsor)",
+    kind: "grant",
+    date: "2026-10-07",
+    opens: "2026-08-26",
+    status: "verified",
+    verified: "2026-09-05",
+    url: "https://vancouver.ca/people-programs/cultural-grants-program.aspx",
+    fit: "project grants $2,500 to $15,000 for 2027 activity in Vancouver; individuals from equity-denied communities apply through a sponsor organisation",
+    needs: "a sponsor organisation willing to apply on the project's behalf, a project with cash expenses to cover up to 75%, VanApply submission",
+    check: "whether the series qualifies for the sponsored route, and whether Arts Umbrella would sponsor; this cycle is probably too soon"
+  },
+  {
     id: "bcac-pd-2026",
     name: "BC Arts Council · Professional Development",
     kind: "grant",
@@ -223,10 +236,10 @@ window.STUDIO_ROLLING = [
     note: "Representational painting and drawing only; the research report puts the first-application age window at 18 to 41. Confirm the age rule on the foundation's site before anything else; it decides whether this is the best grant on the list or closed."
   },
   {
-    name: "City of Vancouver cultural grants",
-    status: "unverified",
-    verified: "",
-    url: "https://vancouver.ca/people-programs/cultural-grants.aspx",
-    note: "The municipal layer for a downtown Vancouver resident. Whether any stream pays individual artists, and the 2026/27 dates, still to be read on the city's page."
+    name: "City of Vancouver · Communities and Artists Shifting Culture (CASC)",
+    status: "verified",
+    verified: "2026-09-05",
+    url: "https://vancouver.ca/people-programs/cultural-grants-program.aspx",
+    note: "Project grants of $2,500 to $15,000 for organisations. Individual artists from equity-denied communities may apply through a sponsor organisation; Arts Umbrella is the obvious sponsor if the series qualifies. 2027 projects: opens 26 August 2026, closes 7 October 2026, with a second 2027 intake to be announced. Not a door on your own."
   }
 ];

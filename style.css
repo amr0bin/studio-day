@@ -425,3 +425,16 @@ footer .copy{font-size:12px;color:var(--stone);}
 .rolling-list .flag{margin-left:0;}
 @media(max-width:720px){ .cal-blank,.cal-day{min-height:56px;padding:4px 5px;} .cal-ev{font-size:10px;padding:2px 4px;} }
 .rolling-list .u-fit{grid-column:1 / span 2;}
+
+/* ── STUDIES LOG ── */
+.log{max-width:760px;margin:6px 0 44px;}
+.log-add{display:grid;grid-template-columns:52px 140px 1fr 2fr 120px auto;gap:8px;align-items:center;margin:0 0 14px;}
+.log-num{font-size:13px;letter-spacing:.08em;color:var(--stone);font-weight:600;}
+.log-add input,.log-add select,.log-table select{font-family:inherit;font-size:14px;color:var(--ink);background:#fff;border:1px solid var(--hair);border-radius:6px;padding:7px 9px;}
+.log-table{width:100%;border-collapse:collapse;font-size:14.5px;}
+.log-table th{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);font-weight:600;text-align:left;padding:8px 8px;border-bottom:1px solid var(--hair);}
+.log-table td{padding:8px 8px;border-bottom:1px solid var(--hair-soft);vertical-align:middle;}
+.log-table td[contenteditable]{min-width:120px;outline:none;} .log-table td[contenteditable]:focus{background:var(--panel);}
+.log-del{font-family:inherit;background:none;border:0;color:var(--stone);font-size:16px;cursor:pointer;}
+.log-foot{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-size:12px;letter-spacing:.08em;color:var(--stone);}
+@media(max-width:720px){ .log-add{grid-template-columns:1fr 1fr;} .log-num{grid-column:1 / span 2;} }
