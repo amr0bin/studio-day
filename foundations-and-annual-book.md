@@ -46,6 +46,8 @@ This solves the "what's this year's course" question permanently, builds a coher
 
 Eighteen hours is substantial. Frank's courses are four sessions of roughly two and a half hours, so ten. Nearly double supports a higher price and makes the annual module a real course rather than a workshop.
 
+**Eight hours a module, three of them filmed.** Decided September 2026. Only what needs a demonstration or a face is recorded; everything else is a page, a worksheet or an image sequence. Eighteen hours was the Foundation-year rhythm transposed directly and would have cost the spring's Mondays; the attempt and the adjustment were the point, not the hours.
+
 **Recorded first, then flipped.** Decided September 2026. The first module is recorded, not taught live: students work at their own pace and the module stays on sale. A live six-week cohort is the commitment most likely to break once graduate coursework begins. The second stage, once a module exists and the rhythm has proved itself, is a flipped classroom: the recordings as preparation, then critique sessions at weekly or bi-weekly intervals, online or in person at the studio table. Those sessions are where the shop years at Emily Carr come in: facilitating a student's own problem rather than lecturing at it. Recording cost is the open question (see the arithmetic); the cheapest test is a fixed camera and minimal editing.
 
 ### The arithmetic

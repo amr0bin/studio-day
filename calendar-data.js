@@ -131,6 +131,19 @@ window.STUDIO_CALENDAR = [
     check: ""
   },
   {
+    id: "ars-2027",
+    name: "Art Rental & Sales · Vancouver Art Gallery open call",
+    kind: "open",
+    date: "2027-04-30",
+    opens: "2027-04-01",
+    status: "expected",
+    verified: "2026-09-05",
+    url: "https://artrentalandsales.com/pages/submissions",
+    fit: "juried consignment program for BC-based artists, rental and sale, ten minutes from home",
+    needs: "the application package posted in April; recent work; one application a year; rental exclusivity; D-rings and wire",
+    check: "the 2026 call closed and the page says check back April 2027; the 30 April deadline is the standing one"
+  },
+  {
     id: "kingston-2027-open",
     name: "Kingston Prize · entries open",
     kind: "window",

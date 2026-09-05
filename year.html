@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noai, noimageai" />
 <title>The Year · Studio Day</title>
-<meta name="description" content="Twelve months, each with its own weight. Studies through the spring, teaching in summer, the book completed in November, December kept clear." />
+<meta name="description" content="September 2026 to December 2027 in three lanes: make, share, relationships." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
@@ -56,11 +56,29 @@
     </nav>
 
     <header class="hero">
-      <p class="eyebrow"><span>The Year</span><span class="status">Twelve months</span></p>
-      <h1>Twelve months, <em>each with its own weight</em></h1>
-      <p class="lede">The year is not twelve equal months. Three of them make, two prepare, two teach, four gather, and one is kept empty. Knowing which is which in advance is what stops the studio from being asked to do everything at once. Choose a month to see what runs, what pauses, and what has to be finished before it ends.</p>
+      <p class="eyebrow"><span>The Year</span><span class="status">September 2026 to December 2027</span></p>
+      <h1>Sixteen months, <em>three lanes</em></h1>
+      <p class="lede">What is made, what is shared with collectors and learners, and which relationships get a next step, month by month across the actual span rather than an abstract year. Two things run every week regardless: one Patreon piece, written from Sunday's sentence, and one named person written to on Monday. The dated column is drawn from the Calendar and updates with it.</p>
     </header>
 
+    <p class="cap-rule">Capacity holds two of making, video and selling admin. Not three. Anything new waits until the thing before it is easy.</p>
+
+    <div class="lanes-wrap">
+      <table class="lanes" id="lanes">
+        <thead><tr><th>Month</th><th>Make</th><th>Share</th><th>Relationships</th><th>Dated</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <figure class="photo-hero">
+      <img src="images/photo-legs-sand.jpg" alt="Four legs standing close on sand in a rock hollow, a patch of sunlight on the ground beside them." />
+      <figcaption>One fixed deadline in November, and one month kept entirely clear.</figcaption>
+    </figure>
+
+    <section class="essay">
+      <h2>The rhythm underneath</h2>
+      <p>The lanes above are this span. The wheel below is the shape any year takes: three months make, two prepare, two teach, four gather, one is kept empty. When the lanes and the wheel disagree, the wheel is the rule and the lanes are the exception that has to justify itself.</p>
+    </section>
     <section class="stage" aria-label="The year, month by month">
       <div>
         <div class="controls">
@@ -75,12 +93,9 @@
       </div>
     </section>
 
-    <figure class="photo-hero">
-      <img src="images/photo-legs-sand.jpg" alt="Four legs standing close on sand in a rock hollow, a patch of sunlight on the ground beside them." />
-      <figcaption>One fixed deadline in November, and one month kept entirely clear.</figcaption>
-    </figure>
-
-    <section class="essay">
+    <details class="fold">
+      <summary>Why this stands</summary>
+      <section class="essay">
       <h2>How the year is held</h2>
       <p>The year has one fixed deadline and one protected month. The book is completed in November. December is wintering.</p>
       <p>December holds a birthday and the anniversary of a significant family loss, and it is kept as a retreat with no commitments to anyone else wherever that is possible. The November deadline exists so that December is genuinely clear. That means no launches, no live sessions, and no drops requiring fulfilment in December. Anything already recorded can keep selling on its own. Nothing should need her.</p>
@@ -97,6 +112,7 @@
       <h2>The leverage</h2>
       <p>One year of work produces four outputs: the paintings, the studies series, the course, and the book. The course footage comes from sessions taught live rather than filmed separately. The book comes from writing and photographs that already exist. Neither is a new production project.</p>
     </section>
+    </details>
 
     <div class="printsheet" id="printsheet" aria-hidden="true"></div>
 
@@ -384,6 +400,39 @@ document.getElementById("printsheet").innerHTML =
       '<p class="pml"><b>Monday.</b> ' + mo.monday + '</p>' +
     '</div>';
   }).join("");
+})();
+</script>
+
+<script src="calendar-data.js"></script>
+<script>
+(function(){
+  var Y=[
+    ["2026-09","Studies resume on the first Sunday. Tear a month of paper. Number from S001.","Patreon weekly resumes. No release yet; stock first.","Register the series with Arts Umbrella. First letter to Kevin at Kroma: the practice, the paint, nothing asked."],
+    ["2026-10","Build stock: four or five Sundays toward twenty to thirty sheets. Test scan against photograph on the first Monday.","Premise written by the 4th. Release day and hour proposed by the 1st of November.","BC Arts Council registration. Find out whether the Emily Carr-era shows paid CARFAC. Read the Opus demo-artist terms."],
+    ["2026-11","Studies. Book compiled on Mondays from the year's archive.","First release, proposed for Saturday the 7th at 10:00 Pacific. Book completed by month end.","Visit the Culture Crawl, 19 to 22. First donation report to Arts Umbrella after the release."],
+    ["2026-12","Kept clear. Nothing that needs her.","No release. One year-end letter to the list.","Tax question to the accountant with the year-end books."],
+    ["2027-01","Full pace. Two Sundays studies, two larger work.","Release. Book to the list.","Banff decision if applying. BC Arts Council results expected late March."],
+    ["2027-02","Studies. Note the direction of this year's Foundations module.","Release.","Royal Society of Portrait Painters entry if a pencil portrait from life is ready."],
+    ["2027-03","Studies. Module subject decided and named.","Release.","Prepare the Art Rental & Sales package from the readiness kit. Vermont second window."],
+    ["2027-04","Studies at pace; module preparation begins on Mondays.","Release.","Art Rental & Sales submission by the 30th. Kingston entries open mid-month."],
+    ["2027-05","Studies halve. Module outline finished.","Release, smaller.","Salt Spring deadline on the 31st."],
+    ["2027-06","Studies halve. Module rehearsed, not recorded.","Release, smaller.","Drawing Prize only if a specific drawing justifies the freight."],
+    ["2027-07","Foundations module recorded. Studies halve.","Patreon carries the module's process. Release, smaller.","Quiet. Nothing new started."],
+    ["2027-08","Recording finished and edited minimally.","Module on sale by month end, priced low to the first ten.","Ask the first ten by name. The Emily Carr network first."],
+    ["2027-09","Studies resume at full pace.","Release. First module testimonials.","Kingston deadline on the 1st. Vermont on the 30th. Second letter to Kroma, this one with an ask."],
+    ["2027-10","Studies. Book compilation begins on Mondays.","Release.","BC Arts Council registration if not already held; Visual Artists intake expected December."],
+    ["2027-11","Book completed.","Release. Book announced to the list.","Culture Crawl. Donation report."],
+    ["2027-12","Kept clear.","No release. Year-end letter.","Decide two Sundays or four on the log. Decide whether the second module is live-crit."]
+  ];
+  var months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+  var cal=(window.STUDIO_CALENDAR||[]);
+  var tb=document.querySelector('#lanes tbody');
+  var now=new Date(), cur=now.getFullYear()+"-"+String(now.getMonth()+1).padStart(2,"0");
+  tb.innerHTML=Y.map(function(r){
+    var ym=r[0], d=cal.filter(function(e){return e.date.slice(0,7)===ym;}).sort(function(a,b){return a.date<b.date?-1:1;});
+    var dated=d.map(function(e){return '<a href="calendar.html#'+e.id+'">'+parseInt(e.date.slice(8),10)+' · '+e.name.split(" · ")[0]+'</a>'+(e.status==="expected"?' <span class="flag exp">expected</span>':'');}).join('<br>');
+    return '<tr'+(ym===cur?' class="now"':'')+'><th>'+months[parseInt(ym.slice(5),10)-1]+' '+ym.slice(0,4)+'</th><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+r[3]+'</td><td class="dated">'+(dated||'<span class="none">—</span>')+'</td></tr>';
+  }).join('');
 })();
 </script>
 </body>

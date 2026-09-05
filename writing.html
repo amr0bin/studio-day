@@ -4,12 +4,13 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Writing · Studio Day</title>
-<meta name="description" content="What writing does inside the studio practice: where it comes from, how it is made, where it lives, and what forms it takes. Seven constellations, in two dimensions or three." />
+<meta name="description" content="Dear Ordinary week by week, and the landscape of fine art writing: forms, scholars, programs, in case the door opens." />
 <meta property="og:title" content="Writing · Studio Day" />
 <meta property="og:description" content="What writing does inside the studio practice. Seven constellations: The Reading, The Sentence, The Archive, The Forms, What It Owes, The Rhythm, The Reach." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
 <style>
   :root{--paper:#ffffff;--ink:#4e453c;--ink-strong:#2b2219;--stone:#7d7164;
     --hair:#e5ded1;--hair-soft:#f0eae0;--panel:#f8f4ec;--accent:#1a4a78;
@@ -207,10 +208,47 @@
     </nav>
 
     <header class="hero">
-      <p class="eyebrow"><span>Writing</span><span class="status">Interactive</span></p>
-      <h1>What the writing <em>is doing</em></h1>
-      <p class="lede">Seven constellations covering where the writing comes from, how a sentence is made, where the archive lives, what forms the writing takes, what it owes to the people it cites, when it happens, and who it reaches. Some stars are settled and running. Others are open, and are here because they are the ones a practice like this eventually has to decide.</p>
+      <p class="eyebrow"><span>Writing</span><span class="status">Weekly, and in case the door opens</span></p>
+      <h1>The week's piece, <em>and the landscape it sits in</em></h1>
+      <p class="lede">Two things live here. Dear Ordinary, fifty-six weeks on the body as the site of the sacred, written one week at a time from Sunday's sentence and posted to Patreon. And the landscape of fine art writing at graduate level and beyond: what the forms are, who wrote the texts the field stands on, and where it is taught, so that if study or teaching in fine art ever opens, the ground is already known. Each text below was checked against its publisher or a library record.</p>
     </header>
+
+    <section class="do">
+      <div class="do-head">
+        <p class="cards-head">Dear Ordinary</p>
+        <label class="do-start">Week one posted on <input type="date" id="do-start"></label>
+      </div>
+      <div class="do-now" id="do-now"></div>
+      <div class="do-phases" id="do-phases"></div>
+    </section>
+
+    <figure class="photo-hero">
+      <img src="images/photo-profile-rock.jpg" alt="A person in profile against an ochre rock face, hair lit gold, the face turned down and away." />
+      <figcaption>The curriculum spirals rather than progressing, so it is drawn as a map.</figcaption>
+    </figure>
+
+    <section class="essay">
+      <h2>The landscape</h2>
+      <p>Read in this order if reading from nothing: Loveless for the Canadian frame, Berger and Bell for the sentence, Bryson for the table of things. The rest is the shelf a graduate program would assume.</p>
+    </section>
+
+    <dl class="settled">
+      <div><dt>The forms</dt><dd>Statement, artist's essay, criticism, art history, research-creation, exegesis<span>Research-creation is the Canadian term, the one SSHRC funds and Concordia teaches: research that combines creative and scholarly practice, with the inquiry set inside the making. Dear Ordinary is already this in all but name.</span></dd></div>
+      <div><dt>Practice as research</dt><dd>Frayling, <em>Research in Art and Design</em> (RCA Research Papers, 1993) · Sullivan, <em>Art Practice as Research: Inquiry in the Visual Arts</em> (SAGE, 2nd ed. 2010) · Barrett and Bolt, <em>Practice as Research</em> (I.B. Tauris, 2007) · Nelson, <em>Practice as Research in the Arts</em> (Palgrave, 2013; 2nd ed. 2022) · Smith and Dean, <em>Practice-led Research, Research-led Practice</em> (Edinburgh UP, 2009)<span>The founding argument, and the four handbooks that followed it.</span></dd></div>
+      <div><dt>Research-creation</dt><dd>Chapman and Sawchuk, "Research-Creation: Intervention, Analysis and 'Family Resemblances'," <em>Canadian Journal of Communication</em> 37.1 (2012) · Loveless, <em>How to Make Art at the End of the World: A Manifesto for Research-Creation</em> (Duke UP, 2019)<span>The article Concordia points applicants to, and the book that made the field's case. Loveless is at the University of Alberta.</span></dd></div>
+      <div><dt>The doctorate question</dt><dd>Elkins, ed., <em>Artists with PhDs</em> (New Academia, 2nd ed. 2014) · Borgdorff, <em>The Conflict of the Faculties</em> (Leiden UP, 2012, open access) · Macleod and Holdridge, <em>Thinking Through Art</em> (Routledge, 2006) · Biggs and Karlsson, <em>The Routledge Companion to Research in the Arts</em> (2011)<span>What a studio doctorate is, argued for and against by the people who built the programs.</span></dd></div>
+      <div><dt>Writing about painting</dt><dd>Elkins, <em>What Painting Is</em> (Routledge, 1998) · Bell, <em>What Is Painting?</em> (Thames &amp; Hudson, 1999) · Clark, <em>The Sight of Death</em> (Yale UP, 2006) · Graw, <em>The Love of Painting</em> (Sternberg, 2018) · Wollheim, <em>Painting as an Art</em> (Princeton, 1987) · Hockney and Gayford, <em>A History of Pictures</em> (Thames &amp; Hudson, 2016)<span>Clark's book is the model for writing that stays in front of one painting for a long time.</span></dd></div>
+      <div><dt>The figure, the face, the table</dt><dd>Fried, <em>Absorption and Theatricality</em> (California, 1980) · Alpers, <em>The Art of Describing</em> (Chicago, 1983) · West, <em>Portraiture</em> (Oxford, 2004) · Brilliant, <em>Portraiture</em> (Reaktion, 1991) · Bryson, <em>Looking at the Overlooked: Four Essays on Still Life Painting</em> (Reaktion, 1990)<span>Bryson is the still-life book. West and Brilliant are two different books with the same title; keep them apart.</span></dd></div>
+      <div><dt>The sentence</dt><dd>Berger, <em>Ways of Seeing</em> (Penguin, 1972) and <em>Bento's Sketchbook</em> (Verso, 2011) · Popova, <em>The Marginalian</em><span>Nelson, Laing, Solnit and Als belong on this shelf too; their editions were not checked this pass and are recorded as unread.</span></dd></div>
+      <div><dt>Journals</dt><dd><em>Journal for Artistic Research</em> (open access, with the Research Catalogue) · <em>Journal of Visual Art Practice</em> (Routledge) · <em>Art Journal</em> (CAA) · <em>Studies in Art Education</em> (NAEA) · <em>RACAR</em> (Universities Art Association of Canada)<span>Read JAR first; it is where practice-based writing is published as practice.</span></dd></div>
+      <div><dt>Where it is taught</dt><dd>Emily Carr low-residency MFA · Concordia MFA, Humanities PhD research-creation stream, INDI · University of Alberta<span>Canadian, verified, and on the Atlas. NSCAD, UBC, OCAD, York, Guelph, Victoria, SFU and the programs abroad are on the Atlas's still-to-read list.</span></dd></div>
+      <div><dt>The funding rule</dt><dd>SSHRC research-creation requires affiliation with an eligible Canadian institution<span>Which is the concrete reason a future MFA or PhD affiliation is what would unlock funded studio time, rather than a grant applied for alone.</span></dd></div>
+    </dl>
+
+    <section class="essay">
+      <h2>What the writing does</h2>
+      <p>The chart below maps the writing's own workings: where it comes from, how a sentence is made, where the archive lives, what it owes, when it happens and who it reaches. Settled stars are running; open ones are decisions still to make.</p>
+    </section>
 
     <a class="outlink" href="https://andrearobinstudio.github.io/dear-ordinary/star-chart.html" target="_blank" rel="noopener">
       <span class="ol-k">The subject of the writing lives elsewhere</span>
@@ -264,11 +302,11 @@
       </details>
     </div>
 
-    <div class="section">
-    <figure class="photo-hero">
-      <img src="images/photo-profile-rock.jpg" alt="A person in profile against an ochre rock face, hair lit gold, the face turned down and away." />
-      <figcaption>The curriculum spirals rather than progressing, so it is drawn as a map.</figcaption>
-    </figure>
+    
+
+    <details class="fold">
+      <summary>Why this stands</summary>
+      ure>
 
       <h2>The three dimensions</h2>
       <table class="about-table">
@@ -306,6 +344,9 @@
       <p class="principle">The writing is where the thinking happens. It is not a record of the paintings and it is not an argument for them; the two act on the same premise through different materials, which is why neither one has to explain the other. What the writing is for is the reach past the fact toward the truth behind it, and what it demonstrates is the thinking the work came out of.</p>
       <p class="credit">Created by <a href="https://www.andrearobinstudio.com/" target="_blank" rel="noopener">Andrea Robin Studio</a></p>
     </div>
+
+
+    </details>
 
     <footer>
       <span class="copy">© 2026 Andrea Robin Studio</span>
@@ -718,6 +759,27 @@ function refItems(refs){ return refs ? refs.split(" · ").map(s => s.trim()).fil
 
   resize();
   requestAnimationFrame(tick);
+})();
+</script>
+
+<script src="dear-ordinary-index.js"></script>
+<script>
+(function(){
+  var W=window.DEAR_ORDINARY||[], now=document.getElementById('do-now'), ph=document.getElementById('do-phases'), inp=document.getElementById('do-start');
+  var KEY='studio-do-start'; try{inp.value=localStorage.getItem(KEY)||'';}catch(e){}
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+  function cur(){ if(!inp.value) return null; var d=new Date(inp.value+'T12:00:00'); var n=Math.floor((Date.now()-d)/(7*86400000))+1; return (n>=1&&n<=56)?n:null; }
+  function render(){
+    var n=cur();
+    if(!inp.value){ now.innerHTML='<p class="do-note">Enter the date week one was posted and this panel will show the current week.</p>'; }
+    else if(!n){ now.innerHTML='<p class="do-note">Outside the fifty-six weeks.</p>'; }
+    else { var w=W[n-1]; now.innerHTML='<p class="p-eyebrow">This week · '+n+' of 56 · '+esc(w.phase)+'</p><p class="do-title">'+esc(w.title)+'</p><p class="do-star">'+esc(w.star)+'</p>'; }
+    var groups={}; var order=[];
+    W.forEach(function(w){ var k=w.phase.split(' (')[0]||'Integration'; if(!groups[k]){groups[k]=[];order.push(k);} groups[k].push(w); });
+    ph.innerHTML=order.map(function(k){ return '<details class="do-phase"'+(groups[k].some(function(w){return w.n===n;})?' open':'')+'><summary>'+esc(k)+' <span class="do-n">'+groups[k].length+' weeks</span></summary><ol>'+groups[k].map(function(w){return '<li'+(w.n===n?' class="now"':'')+'><span>'+String(w.n).padStart(2,'0')+'</span>'+esc(w.title)+'</li>';}).join('')+'</ol></details>'; }).join('');
+  }
+  inp.addEventListener('change',function(){ try{localStorage.setItem(KEY,inp.value);}catch(e){} render(); });
+  render();
 })();
 </script>
 </body>

@@ -14,5 +14,19 @@ Entries read on the organisation's own site, with the date. Distances are from T
 
 **City of Vancouver cultural grants** — CASC is for organisations; individuals from equity-denied communities apply through a sponsor. 2027 intake closes 7 October 2026. Recorded on the Calendar. Source: https://vancouver.ca/people-programs/cultural-grants-program.aspx. Verified 2026-09-05.
 
-## Still to verify in this batch
-Federation of Canadian Artists (Granville Island; the research report read it, I have not); Eastside Culture Crawl; Emily Carr Continuing Studies; Winsor, Bau-Xi, Equinox and Monte Clark galleries; Vancouver Art Gallery and the Audain.
+**Federation of Canadian Artists** — 1241 Cartwright Street, Granville Island. Registered charity, 1941; Federation Gallery with twice-monthly juried member shows; three international opens a year (Painting on the Edge, AIRS, the Mail-in show); education program open to all; membership open to all. Test passed: (b). Source: https://artists.ca/about. Verified 2026-09-05.
+
+**Eastside Culture Crawl** — East Vancouver, 19 to 22 November 2026, thirtieth year. Registration requires a studio inside the Eastside boundary, so it is a place to visit, not to show from the West End. Source: https://culturecrawl.ca/ (for-artists pages). Verified 2026-09-05.
+
+**Emily Carr University, Continuing Studies** — short courses year-round; Continuing Studies instructor postings, including a Drawing Instructor, appear on ecuad.peopleadmin.ca and ask for a short teaching statement with a portfolio link. The posting itself could not be fetched (site blocks automated reading); seen in search results only. Test passed: (a). Source: https://www.ecuad.ca/academics/continuing-studies. Verified 2026-09-05; the posting is to be read by hand.
+
+**Bau-Xi Gallery** — 3045 Granville Street. Since 1965; figurative and still-life painting named on its own painting page. Test passed: (b). Source: https://bau-xi.com/en-us/pages/painting. Verified 2026-09-05.
+
+**Audain Art Museum** — 4350 Blackcomb Way, Whistler. Largest permanent display of Emily Carr; Tanabe centenary retrospective from 16 September 2026. Test passed: (c). Source: https://audainartmuseum.com/. Verified 2026-09-05.
+
+**Monte Clark Gallery** — read on its own site (monteclarkgallery.com, shows at Livingspace, 1706 W 1st). Program is mostly photography and conceptual work; does not clearly pass a test. Left off the map.
+
+**Art Rental & Sales, Vancouver Art Gallery** — first floor, 750 Hornby Street. Juried consignment program for BC-based artists; one call a year, deadline 30 April, decision within eight weeks; rental exclusivity; D-rings and wire. Test passed: (b). Source: https://artrentalandsales.com/pages/submissions. Verified 2026-09-05. Ten minutes on foot from Thurlow and Pendrell.
+
+## Still to read
+Vancouver Art Gallery; Equinox; Winsor (secondary sources only so far). Then the Canada batch: NSCAD, UBC, OCAD, Guelph, York, Alberta, Victoria, SFU; National Gallery, AGO, Montreal Museum of Fine Arts; Banff's own deadlines page.
