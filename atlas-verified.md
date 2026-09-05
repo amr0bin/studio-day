@@ -96,5 +96,35 @@ Libraries still to read: Banff's Paul D. Fleck Library, AGO's E.P. Taylor Librar
 
 Added as candidates from Frank's CV: Zeuxis (still-life association), Gage Academy of Art, Seattle.
 
+## The peer group, 5 September 2026
+
+Read: the SFU School for the Contemporary Arts PhD students page and faculty page, and the UBC AHVA people page. Purpose: what the people who would be doctoral peers in five years have done, so the map can say which of their doors open to a figurative painter and which do not.
+
+**The Polygon Gallery** — own Lind Biennial page and 17 February 2026 press release: Philip B. Lind Emerging Artist Prize, $25,000, biennial, emerging BC artists in film, photography or video, nominated longlist of about sixty, international jury; 2026 Biennial 4 December 2026 to 7 February 2027, winner 21 January 2027. Solid. Not a painting door; on the map so it is never planned around.
+
+**UBC AHVA graduate programs** — own admissions page and grad.ubc.ca program pages: all programs open 15 October, close 8 January, one September intake; PhD in Art History normally requires an MA in Art History and a second language, part-time possible within six years; Diploma in Art History for holders of a first degree in another field, apply by 1 August. Teaching-stream professoriate seen on the people page. Solid.
+
+**SFU SIAT** — own admissions and calendar pages: MA/MSc thesis or project, PhD; supervisor to be found before applying; 2026 intake 1 November to 15 January. Solid.
+
+**SSHRC CGRS-M** — own program page: deadline 1 December 2026, 8 pm Eastern, for the 2027–28 year; $27,000; via the Research Portal. On the Calendar.
+
+**SFU SCA** — the PhD entry now carries what the cohort page shows: no figurative painters among twenty; a shared record of artist-run centres, Canada Council, SSHRC, sessional teaching at Emily Carr and UBC. Sources added.
+
+Added as candidates, addresses placed from memory, to be read: Western Front, Artspeak, Access Gallery, Or Gallery, the Gibson Art Museum at SFU. Updated with what the cohort pages show: CAG, Belkin, Surrey Art Gallery, Nanaimo Art Gallery, Cité internationale des arts.
+
+Not on the map, by decision: the VIVA Award (Shadbolt Foundation, nomination-only, mid-career) and the Scotiabank New Generation Photography Award; the Guggenheim, which two SFU faculty hold, is a nominated fellowship for established artists and belongs to a later decade.
+
+**University of Victoria** — a mentor's public profile in Art History & Visual Studies read on 5 September 2026: MEd Counselling Psychology, RCC, Interdisciplinary PhD, adjunct appointment. The entry now covers the MFA, AHVS, the MEd and the Interdisciplinary PhD; programs' formats and deadlines still to read. Candidate.
+
+## The route, 5 September 2026
+
+**Leeds, MSc Disability Studies, Rights and Inclusion (online)** — own course page: 24 months part-time, September and March starts, nine eight-week modules plus a 45-credit applied project, about twenty hours a week, weekly webinar in the Leeds working day (recorded), £12,750 by module, entry on a degree plus experience, no closing date printed. Solid. Not SSHRC-eligible.
+
+**UBC Counselling Psychology, MA and MEd** — own application pages: opens about 18 September, closes 1 December, references 15 December; B+; five prerequisite courses by 31 December of the application year; September intake only. Solid.
+
+**Vancouver Art Therapy Institute** — own FAQ, streams and requirements pages, and the Granville Island directory: 18-month diploma, blended, 600-hour placement, master's prerequisite (bachelor's plus eight to ten years' experience case by case), applications close 30 March. Solid. Street unit on the Island still to read.
+
+Calendar corrected: the SSHRC master's entries for 2026 and 2027 removed; the scholarship is for Canadian universities and applies to the UBC MA in 2030, not to Leeds. A Leeds application target added for late May 2027, expected, until the portal gives a date.
+
 ## Still to read
 UBC, Guelph, York, Alberta, Victoria, SFU. Then the museums abroad, the galleries that show the reference artists, and the US residencies.

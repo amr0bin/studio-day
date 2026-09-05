@@ -97,6 +97,56 @@ window.STUDIO_CALENDAR = [
     check: "the round to aim for, with a year of studies behind it"
   },
   {
+    id: "ahva-2027",
+    name: "UBC AHVA · MFA, MA Art History, MA Critical & Curatorial Studies, PhD Art History",
+    kind: "window",
+    date: "2027-01-08",
+    opens: "2026-10-15",
+    status: "verified",
+    verified: "2026-09-05",
+    url: "https://ahva.ubc.ca/graduate/admissions/",
+    fit: "one September intake a year, every program on the same date; three references, writing sample, statement; the art-history PhD wants an art-history MA and a second language",
+    needs: "not an application this year; recorded so the date is known. The Diploma in Art History, the bridge from a BFA, has a separate 1 August deadline through Enrolment Services",
+    check: "the date recurs each January; reread in October 2029 for the term-four decision"
+  },
+  {
+    id: "siat-2027",
+    name: "SFU SIAT · MA, MSc and PhD",
+    kind: "window",
+    date: "2027-01-15",
+    opens: "2026-11-01",
+    status: "expected",
+    verified: "2026-09-05",
+    url: "https://www.sfu.ca/siat/programs/graduate/admissions.html",
+    fit: "September intake; thesis applicants are expected to have a supervisor agreed before applying; portfolio or interview possible at the later stage",
+    needs: "not an application this year; recorded so the date is known",
+    check: "the 2026 intake ran 1 November to 15 January; confirm the 2027 window when posted"
+  },
+  {
+    id: "lind-biennial-2026",
+    name: "The Polygon · Lind Biennial opens",
+    kind: "window",
+    date: "2026-12-04",
+    status: "verified",
+    verified: "2026-09-05",
+    url: "https://thepolygon.ca/the-lind-biennial/",
+    fit: "five nominated finalists in film, photography and video, on view to 7 February 2027; winner announced 21 January 2027; by donation",
+    needs: "nothing to enter; a SeaBus ticket. The prize is nomination-only and lens-based, so this is a room to see, not a door",
+    check: "go on a weekday in December before wintering; it is a Seminar-course afternoon, not an application"
+  },
+  {
+    id: "leeds-2027",
+    name: "Leeds · MSc Disability Studies, Rights and Inclusion, application target",
+    kind: "window",
+    date: "2027-05-31",
+    status: "expected",
+    verified: "2026-09-05",
+    url: "https://courses.leeds.ac.uk/d326/disability-studies-rights-and-inclusion-online-msc",
+    fit: "online, part-time, 24 months from September 2027; £12,750 payable by module; entry on a degree plus relevant experience; a self-set target, since the course page prints no closing date",
+    needs: "the online application form with proof of identity; transcripts; a statement; a possible online interview. The one-page statement from the readiness kit is the same document with the field changed",
+    check: "email onlineadmissions@leeds.ac.uk when the 2027/28 portal opens for the actual closing date, and move this entry to it. Not SSHRC-eligible: a UK university"
+  },
+  {
     id: "bcac-pd-2026",
     name: "BC Arts Council · Professional Development",
     kind: "grant",
@@ -299,6 +349,27 @@ window.STUDIO_CALENDAR = [
 
 // Rolling or undated. Shown in a separate list, never on the grid.
 window.STUDIO_ROLLING = [
+  {
+    name: "SSHRC · Canada Graduate Research Scholarship, Master's: for the UBC counselling MA, not for Leeds",
+    status: "verified",
+    verified: "2026-09-05",
+    url: "https://sshrc-crsh.canada.ca/en/funding/opportunities/canada-graduate-research-scholarships/masters-program.aspx",
+    note: "$27,000 for one year of a research master's at a Canadian university; 1 December, 8 pm Eastern, for the following September. The Leeds MSc does not qualify. The UBC MA in Counselling Psychology does, and its own application closes the same day, so the earliest date on the route is 1 December 2030. Recorded here so the date is known; it moves to the grid when that year's Calendar is built."
+  },
+  {
+    name: "SFU School for the Contemporary Arts · 611 Talks, Desire Line Sessions, and the autumn graduate information sessions",
+    status: "verified",
+    verified: "2026-09-05",
+    url: "https://www.sfu.ca/sca/events---news/events.html",
+    note: "Free, downtown, twenty minutes' walk. The 611 Talks are visiting artists; Desire Line Sessions are alumni and faculty in conversation; a graduate-programs information session is posted each autumn ahead of the 1 October PhD opening and the 15 February MFA/MA deadline. These are where the doctoral cohort is met: in a room, years before an application. One a term is enough."
+  },
+  {
+    name: "UBC AHVA and the Belkin · department talks and openings",
+    status: "verified",
+    verified: "2026-09-05",
+    url: "https://ahva.ubc.ca/news-events/",
+    note: "The events page lists talks, visiting artists and Belkin openings. Two a year keeps the department a known room rather than a name on a form."
+  },
   {
     name: "Canada Council · Explore and Create: Artistic Creation",
     status: "verified",
