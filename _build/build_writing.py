@@ -56,7 +56,6 @@ s = swap('''  <div class="wrap">
         <a href="year.html">The Year</a>
         <a href="studies.html">Studies</a>
         <a href="teaching.html">Teaching</a>
-        <a href="support.html">Support</a>
       </div>
     </nav>
 

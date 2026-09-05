@@ -17,12 +17,15 @@
   .seg:hover .segfill{fill:var(--hair-soft);}
   .seg.is-sel .segfill{fill:var(--ink-strong);}
   .seg.is-dim{opacity:.28;}
-  .seg .seglabel{font-size:13px;font-weight:600;fill:var(--ink);letter-spacing:.04em;
-    text-anchor:middle;dominant-baseline:middle;pointer-events:none;transition:fill .2s var(--ease);}
+  .seg:focus{outline:none;}
+  .seg:focus-visible .segfill{stroke:var(--ink-strong);stroke-width:2.5;}
+  .seg .seglabel{font-size:13.5px;font-weight:600;fill:var(--ink);letter-spacing:.03em;
+    text-anchor:middle;pointer-events:none;transition:fill .2s var(--ease);}
   .seg.is-sel .seglabel{fill:#fff;}
-  .seg .segsub{font-size:8.5px;font-weight:600;fill:var(--stone);letter-spacing:.1em;
-    text-anchor:middle;dominant-baseline:middle;pointer-events:none;text-transform:uppercase;}
-  .seg.is-sel .segsub{fill:rgba(255,255,255,.72);}
+  .seg .segsub{font-size:8px;font-weight:600;fill:var(--stone);letter-spacing:.09em;
+    text-anchor:middle;pointer-events:none;text-transform:uppercase;transition:fill .2s var(--ease);}
+  .seg:hover .segsub{fill:var(--ink);}
+  .seg.is-sel .segsub{fill:rgba(255,255,255,.75);}
   .phase-arc{fill:none;stroke-width:3;stroke-linecap:butt;opacity:.55;transition:opacity .2s var(--ease);}
   .phase-arc.is-dim{opacity:.12;}
   .hubtext{font-size:10px;font-weight:600;letter-spacing:.2em;fill:var(--stone);
@@ -48,7 +51,6 @@
         <a href="year.html" aria-current="page">The Year</a>
         <a href="studies.html">Studies</a>
         <a href="teaching.html">Teaching</a>
-        <a href="support.html">Support</a>
       </div>
     </nav>
 
@@ -207,7 +209,7 @@ var chipwrap = document.getElementById("phasechips");
 var selected = -1;
 var activePhase = "all";
 
-var CX = 260, CY = 260, R_OUT = 196, R_IN = 116, R_LAB = 168, R_SUB = 140, R_ARC = 212;
+var CX = 260, CY = 260, R_OUT = 198, R_IN = 112, R_LAB = 155, R_ARC = 214;
 
 function mk(tag, attrs){
   var el = document.createElementNS("http://www.w3.org/2000/svg", tag);
@@ -250,23 +252,28 @@ function buildWheel(){
   // month segments
   MONTHS.forEach(function(mo, i){
     var a1 = i * 30, a2 = a1 + 30, mid = a1 + 15;
-    var g = mk("g", {class:"seg", "data-i":i, role:"option", tabindex:"-1",
+    var g = mk("g", {class:"seg", "data-i":i, role:"option", tabindex:(i === 0 ? "0" : "-1"),
       "aria-label": mo.m + ". " + mo.title, "aria-selected":"false"});
     g.appendChild(mk("path", {d: sector(a1 + 0.6, a2 - 0.6), class:"segfill"}));
 
+    // both lines share one point and stack vertically on screen, so they
+    // never collide at the three and nine o'clock positions.
     var lp = pt(CX, CY, R_LAB, mid);
-    var lab = mk("text", {x: lp[0].toFixed(1), y: lp[1].toFixed(1), class:"seglabel"});
+    var lx = lp[0].toFixed(1);
+
+    var lab = mk("text", {x: lx, y: (lp[1] - 3).toFixed(1), class:"seglabel"});
     lab.textContent = mo.abbr;
     g.appendChild(lab);
 
-    var sp = pt(CX, CY, R_SUB, mid);
-    var sub = mk("text", {x: sp[0].toFixed(1), y: sp[1].toFixed(1), class:"segsub"});
+    var sub = mk("text", {x: lx, y: (lp[1] + 11).toFixed(1), class:"segsub"});
     sub.textContent = mo.title.split(",")[0];
     g.appendChild(sub);
 
     g.addEventListener("click", function(){ select(i); });
     g.addEventListener("keydown", function(e){
-      if (e.key === "Enter" || e.key === " "){ e.preventDefault(); select(i); }
+      if (e.key === "Enter" || e.key === " "){ e.preventDefault(); select(i); return; }
+      if (e.key === "ArrowRight" || e.key === "ArrowDown"){ e.preventDefault(); select((i + 1) % 12); }
+      if (e.key === "ArrowLeft"  || e.key === "ArrowUp"){ e.preventDefault(); select((i + 11) % 12); }
     });
     wheel.appendChild(g);
   });
@@ -321,6 +328,9 @@ function select(i){
     var on = +g.getAttribute("data-i") === i;
     g.classList.toggle("is-sel", on);
     g.setAttribute("aria-selected", on ? "true" : "false");
+    g.setAttribute("tabindex", on ? "0" : "-1");
+    if (on && document.activeElement !== g &&
+        wheel.contains(document.activeElement)) g.focus();
   });
 
   panelEmpty.hidden = true;

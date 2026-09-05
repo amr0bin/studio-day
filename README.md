@@ -20,7 +20,6 @@ do not have to be made again.
 | `documentation.html` | **The capture setup, decided once.** Six rigs that between them feed the website, grant applications, the annual book, video and teaching. Filter by what you need. |
 | `year.html` | **The year.** Twelve months on a wheel, each with what runs, what pauses, the milestone, and how the Monday block is spent. |
 | `atlas.html` | **The atlas.** The artists the practice is in conversation with, and the funders, prizes and residencies that return hours to it. One world map, two layers. |
-| `support.html` | **Not in this repository.** It is linked from the nav on all seven pages. If it does not exist, delete that one line from each page. |
 
 ## Assets
 
@@ -50,6 +49,20 @@ GitHub Pages from publishing the folder.
 
 **Editing `atlas.html` or `writing.html` by hand will be overwritten** the next
 time their build script runs. Change the script instead.
+
+---
+
+## A note on Support
+
+`support.html` was linked from the nav on every page and had nothing to say. It is
+out of the nav now, in the pages and in the two build scripts, so it will not
+return on the next rebuild. The file itself is untouched, wherever it lives.
+
+If it comes back, the two things it could hold that nothing else does are: how
+someone actually buys work, since the originals are sold by PDF catalogue and
+email rather than through a cart and that is not written down anywhere public;
+and what the practice supports, since part of every studies sale goes to Arts
+Umbrella and that is currently only recorded on the Atlas.
 
 ---
 
@@ -95,7 +108,6 @@ The deck is also 11 MB, which is most of the repository's weight.
 
 ## Still open
 
-- Whether `support.html` exists, and what it holds.
 - Two atlas entries are flagged `verify`: Caitlin Winner's and Zoey Frank's base
   locations.
 - Four people are held in the atlas but not placed on the map, because their base
