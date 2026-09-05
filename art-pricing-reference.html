@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art Pricing Reference</title>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-secondary: #f4f4f2;
+    --text: #4a4948;
+    --text-muted: #7a7877;
+    --text-light: #a29f9e;
+    --accent: #a29f9f;
+    --accent-dark: #6e6b6b;
+    --accent-light: #d6d4d4;
+    --border: #e0dedc;
+    --border-strong: #c8c5c3;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Asap', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+
+  .doc-header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .doc-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .doc-header p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 2.5rem 0 1rem;
+  }
+
+  .formula-bar {
+    background: var(--bg-secondary);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    margin-bottom: 1.25rem;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+  .formula-bar strong { color: var(--text); font-weight: 600; }
+  .formula-eq {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: var(--accent-dark);
+    margin-top: 6px;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+  .metric {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .metric-label { font-size: 12px; color: var(--text-muted); margin-bottom: 3px; }
+  .metric-value { font-size: 20px; font-weight: 600; color: var(--text); }
+  .metric-sub { font-size: 11px; color: var(--text-light); margin-top: 2px; }
+
+  .tier-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+  }
+  .tier-header {
+    background: var(--bg-secondary);
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .tier-icon { font-size: 20px; margin-top: 1px; color: var(--accent); }
+  .tier-title { font-size: 15px; font-weight: 600; color: var(--text); }
+  .tier-desc { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .tier-body { padding: 16px 18px; }
+
+  .price-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .price-table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-light);
+    padding: 0 8px 10px 0;
+    border-bottom: 1px solid var(--border-strong);
+  }
+  .price-table td {
+    padding: 9px 8px 9px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: middle;
+  }
+  .price-table tr:last-child td { border-bottom: none; }
+  .price-table .floor { color: var(--text-muted); }
+  .price-table .sell { font-weight: 600; color: var(--text); }
+  .price-table .note-col { font-size: 12px; color: var(--text-light); }
+  .price-table .spacer td { padding: 4px 0; border-bottom: none; }
+
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 20px;
+    margin-left: 7px;
+    vertical-align: middle;
+  }
+  .badge-entry { background: #e8f0f8; color: #3a6fa8; }
+  .badge-best  { background: #e6f0e8; color: #3a7a45; }
+  .badge-top   { background: #f5f0e0; color: #8a7030; }
+
+  .rule-box {
+    background: #faf9f7;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent-dark);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    margin: 14px 0 0;
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+  .rule-box strong { color: var(--text); font-weight: 600; }
+  .rule-box .rule-title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-dark);
+    margin-bottom: 8px;
+  }
+
+  .membership-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .mem-card {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .mem-title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .mem-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13.5px;
+    padding: 4px 0;
+  }
+  .mem-row span:last-child { font-weight: 600; }
+  .mem-savings {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: #5a8a60;
+  }
+
+  .surface-note {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 14px;
+    padding: 12px 14px;
+    background: var(--bg-secondary);
+    border-radius: 6px;
+    line-height: 1.6;
+  }
+  .surface-note strong { font-weight: 600; color: var(--text); }
+
+  .finishing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  .finishing-item {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+  .finishing-item .item-name { font-weight: 600; color: var(--text); }
+  .finishing-item .item-cost { color: var(--accent-dark); font-size: 13px; margin-top: 2px; }
+
+  .channel-bar {
+    background: var(--bg-secondary);
+    border-left: 3px solid var(--accent-light);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    margin-bottom: 1rem;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+  .channel-bar strong { color: var(--text); font-weight: 600; }
+  .channel-eq {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: var(--accent-dark);
+    margin-top: 4px;
+  }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+  .footnote {
+    font-size: 12px;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+  .footnote p { margin-bottom: 5px; }
+
+  @media print {
+    body { padding: 1.5rem; }
+    .tier-card, .rule-box { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <h1>My Art Pricing Reference</h1>
+  <p>My floor cost formula · size tiers · surface premiums · studies · card packs · how I review prices over time · finishing · channel adjustments · tax and deductions &nbsp;·&nbsp; All prices CAD</p>
+</div>
+
+<p class="section-label">My pricing formula</p>
+<div class="formula-bar">
+  <strong>My floor cost</strong> = materials per piece + (my hourly rate × hours per piece) + overhead per piece<br>
+  <strong>My price</strong> = floor × 1.30 (minimum) to floor × 1.50 (maximum)<br>
+  <strong>My price reviews</strong> = I periodically reassess my prices based on my costs, my practice, and what my work is doing — not on a fixed schedule, and never communicated as pressure to buyers<br>
+  <span style="font-size:12px; color: var(--text-light);">I never price anything below my floor. Each piece within an edition holds one consistent price for all copies.</span>
+</div>
+
+<p class="section-label">My monthly cost baseline</p>
+<div class="metrics-grid">
+  <div class="metric">
+    <div class="metric-label">Materials / month</div>
+    <div class="metric-value">~$375</div>
+    <div class="metric-sub">midpoint of $250–$500</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Materials / piece</div>
+    <div class="metric-value">~$62</div>
+    <div class="metric-sub">÷ 6 pieces/month</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Studio overhead / mo</div>
+    <div class="metric-value">~$500+</div>
+    <div class="metric-sub">1/3 of my rent ($1,500+)</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Overhead / piece</div>
+    <div class="metric-value">~$83</div>
+    <div class="metric-sub">÷ 6 pieces/month</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">My hourly rate</div>
+    <div class="metric-value">~$62/hr</div>
+    <div class="metric-sub">midpoint of $50–$75</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Time / piece</div>
+    <div class="metric-value">varies</div>
+    <div class="metric-sub">I track my actuals</div>
+  </div>
+</div>
+<div class="surface-note" style="margin-bottom:0;">
+  <strong>My time estimates per piece type:</strong> Print ~1 hr · Original 4×6" ~4 hrs · Original 8×10" ~6 hrs · Original 11×14" ~8 hrs. <em>I update these as I track my actual hours — they feed every price below.</em>
+</div>
+
+<hr>
+
+<p class="section-label">How I review and adjust prices over time</p>
+<div class="tier-card">
+  <div class="tier-header">
+    <div class="tier-icon">↑</div>
+    <div>
+      <div class="tier-title">My price review approach</div>
+      <div class="tier-desc">Applies to prints and originals · no increases between editions of the same work</div>
+    </div>
+  </div>
+  <div class="tier-body">
+    <div class="rule-box" style="margin-top:0;">
+      <div class="rule-title">Prints — edition of 10</div>
+      Every print in an edition holds one consistent price for all 10 copies. When I release a new edition, I look back at the previous one. If at least 6 copies sold, I take that as a signal that my pricing is working and my practice is moving — and I set the new edition's price 10–15% higher. If fewer than 6 sold, I hold the price and think about whether the work, the format, or something else needs to shift first.<br><br>
+      This is an internal review I do for myself. I don't communicate it to buyers.
+    </div>
+    <div class="rule-box">
+      <div class="rule-title">Originals — per size and surface type</div>
+      I track sales quietly by size and surface (e.g. all 8×10" linen pieces). When I feel my work at a given size and surface is consistently finding homes — roughly after 4–6 have sold — I raise my starting price for the next piece of that type by 10–15%. The increase reflects my growing practice, not a reaction to any individual sale.<br><br>
+      I don't raise prices on work that's already listed. A piece holds its price until it sells or I retire it.
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<p class="section-label">Tier 1 — My limited edition prints</p>
+<div class="tier-card">
+  <div class="tier-header">
+    <div class="tier-icon">◻</div>
+    <div>
+      <div class="tier-title">Numbered prints · edition of 10</div>
+      <div class="tier-desc">High quality limited edition paper · my print cost ~$17 midpoint · +$5 finishing kit · one consistent price per edition for all 10 copies</div>
+    </div>
+  </div>
+  <div class="tier-body">
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th style="width:36%;">Size</th>
+          <th style="width:18%;">My floor</th>
+          <th style="width:24%;">My price</th>
+          <th>Next edition if 6+ sold</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Small 4×6" <span class="badge badge-entry">entry</span></td>
+          <td class="floor">~$50</td>
+          <td class="sell">$90–$110</td>
+          <td class="note-col">~$99–$127</td>
+        </tr>
+        <tr>
+          <td>Medium 8×10"</td>
+          <td class="floor">~$70</td>
+          <td class="sell">$125–$150</td>
+          <td class="note-col">~$138–$173</td>
+        </tr>
+        <tr>
+          <td>Large 11×14" <span class="badge badge-best">best value</span></td>
+          <td class="floor">~$85</td>
+          <td class="sell">$155–$185</td>
+          <td class="note-col">~$171–$213</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="surface-note">
+      All 10 copies of an edition are priced the same. I always display the edition number (e.g. 3/10) on the listing and on the piece itself. When I release a new edition, I review my sales from the previous one before setting the new price.
+    </div>
+  </div>
+</div>
+
+<p class="section-label">Tier 2 — My original paintings and drawings</p>
+<div class="tier-card">
+  <div class="tier-header">
+    <div class="tier-icon">✦</div>
+    <div>
+      <div class="tier-title">Original works · one of a kind</div>
+      <div class="tier-desc">I price by size and surface · my panel work commands a premium · a listed price holds until the piece sells</div>
+    </div>
+  </div>
+  <div class="tier-body">
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th style="width:36%;">Size + surface</th>
+          <th style="width:18%;">My floor</th>
+          <th style="width:24%;">My current price</th>
+          <th>After review (+10–15%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>4×6" · cotton paper</td>
+          <td class="floor">~$155</td>
+          <td class="sell">$200–$230</td>
+          <td class="note-col">~$220–$265</td>
+        </tr>
+        <tr>
+          <td>4×6" · unprimed linen</td>
+          <td class="floor">~$175</td>
+          <td class="sell">$225–$260</td>
+          <td class="note-col">~$248–$299</td>
+        </tr>
+        <tr>
+          <td>4×6" · cradled panel</td>
+          <td class="floor">~$200</td>
+          <td class="sell">$260–$300</td>
+          <td class="note-col">~$286–$345</td>
+        </tr>
+        <tr class="spacer"><td colspan="4"></td></tr>
+        <tr>
+          <td>8×10" · cotton paper</td>
+          <td class="floor">~$220</td>
+          <td class="sell">$285–$330</td>
+          <td class="note-col">~$314–$380</td>
+        </tr>
+        <tr>
+          <td>8×10" · unprimed linen</td>
+          <td class="floor">~$250</td>
+          <td class="sell">$325–$375</td>
+          <td class="note-col">~$358–$431</td>
+        </tr>
+        <tr>
+          <td>8×10" · cradled panel</td>
+          <td class="floor">~$285</td>
+          <td class="sell">$370–$430</td>
+          <td class="note-col">~$407–$495</td>
+        </tr>
+        <tr class="spacer"><td colspan="4"></td></tr>
+        <tr>
+          <td>11×14" · cotton paper</td>
+          <td class="floor">~$285</td>
+          <td class="sell">$370–$430</td>
+          <td class="note-col">~$407–$495</td>
+        </tr>
+        <tr>
+          <td>11×14" · unprimed linen</td>
+          <td class="floor">~$320</td>
+          <td class="sell">$415–$480</td>
+          <td class="note-col">~$457–$552</td>
+        </tr>
+        <tr>
+          <td>11×14" · cradled panel <span class="badge badge-top">top tier</span></td>
+          <td class="floor">~$370</td>
+          <td class="sell">$480–$555</td>
+          <td class="note-col">~$528–$638</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="surface-note">
+      <strong>My surface premium logic:</strong> Cotton paper is my base price. Unprimed linen adds $20–30. Exhibition cradled panel adds $50–70. I apply this consistently across all sizes.<br><br>
+      <strong>Price reviews for originals:</strong> I periodically review my prices per size and surface type based on how my practice is developing. Any increase applies to new work only — I never change the price on a piece that's already listed.
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<p class="section-label">My finishing kit — prints</p>
+<div class="finishing-grid">
+  <div class="finishing-item">
+    <div class="item-name">Thank you card</div>
+    <div class="item-cost">~$0.50–$1.00</div>
+  </div>
+  <div class="finishing-item">
+    <div class="item-name">Glassine envelope</div>
+    <div class="item-cost">~$0.30–$0.60</div>
+  </div>
+  <div class="finishing-item">
+    <div class="item-name">Backing board (acid-free)</div>
+    <div class="item-cost">~$0.15–$0.30</div>
+  </div>
+  <div class="finishing-item">
+    <div class="item-name">Rigid mailer (Uline)</div>
+    <div class="item-cost">~$1.50–$2.50</div>
+  </div>
+</div>
+<div class="surface-note">
+  <strong>My total per print:</strong> ~$2.50–$4.50 CAD · I round this to a flat <strong>$5 addition to my floor cost</strong> across all print sizes. Already included in my Tier 1 floor costs above. I include a backing board with every print to keep it flat in transit and to signal care when my customer opens the package.
+</div>
+
+<hr>
+
+<p class="section-label">My channel adjustments</p>
+<div class="channel-bar">
+  <strong>Direct (Shopify / my website):</strong> I use my prices as listed above.<br>
+  <strong>Gallery or shop (40–50% commission):</strong> I gross up my price so my net is always protected.
+  <div class="channel-eq">My gallery list price = my target net ÷ (1 − commission rate)</div>
+  <span style="font-size:12px; color: var(--text-light);">Example: I want to net $300 → I list at $545 for a 45% commission gallery.</span>
+</div>
+<div class="surface-note">
+  I keep my direct and gallery list prices publicly consistent. If a gallery lists a piece at $545, I match that price on my website — or I negotiate exclusivity terms with the gallery.
+</div>
+
+<hr>
+
+<hr>
+
+<!-- TIER 4: STUDIES -->
+<p class="section-label">Tier 3 — Studies (irregular batch drops)</p>
+<div class="tier-card">
+  <div class="tier-header">
+    <div class="tier-icon">✎</div>
+    <div>
+      <div class="tier-title">Original studies · 4×6" · cotton paper · one of a kind</div>
+      <div class="tier-desc">Process work released in irregular batches as they accumulate · priced below standard originals · minimum $125 · no print editions made from studies</div>
+    </div>
+  </div>
+  <div class="tier-body">
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th style="width:36%;">Size + surface</th>
+          <th style="width:18%;">My floor</th>
+          <th style="width:24%;">My price</th>
+          <th>After review (+10–15%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>4×6" study · cotton paper</td>
+          <td class="floor">~$62</td>
+          <td class="sell">$125–$150</td>
+          <td class="note-col">~$138–$173</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="surface-note">
+      <strong>Why studies are priced lower than standard originals:</strong> Studies are process work — genuine and complete in themselves, but made as experimentation rather than as finished pieces. Pricing them at 40–50% of my equivalent standard original is honest and consistent. A study at $125–$150 is accessible to collectors who love my work but aren't ready for a $200+ original. It is not a discount — it is an accurate reflection of what the work is.<br><br>
+      <strong>How I release them:</strong> I accumulate studies naturally as part of making each series. When I have enough to form a meaningful batch — whatever that looks like — I release them all at once as a drop on Shopify. No fixed schedule, no announcement in advance beyond listing them. I don't make print editions from studies — the study itself is the thing.<br><br>
+      <strong>Floor cost note:</strong> Studies take less time than finished originals (~1–2 hrs vs 4–8 hrs) and use the same cotton paper. My floor is therefore lower — primarily materials (~$10–15 per sheet) plus ~1.5 hrs at $62/hr plus overhead share (~$83). Total floor: ~$62 per study at the low end of time.
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- TIER 5: CARD PACKS -->
+<p class="section-label">Tier 4 — Card packs (printed reproductions · Shopify)</p>
+<div class="tier-card">
+  <div class="tier-header">
+    <div class="tier-icon">▦</div>
+    <div>
+      <div class="tier-title">Printed art card packs · 4×6" · quality card stock</div>
+      <div class="tier-desc">Reproductions of my work printed on quality matte card stock · sold in packs via Shopify · most accessible price point · no subscription required</div>
+    </div>
+  </div>
+  <div class="tier-body">
+    <table class="price-table">
+      <thead>
+        <tr>
+          <th style="width:36%;">Pack size</th>
+          <th style="width:18%;">Floor cost</th>
+          <th style="width:24%;">My price</th>
+          <th>Profit per pack</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pack of 6 cards</td>
+          <td class="floor">~$12–15</td>
+          <td class="sell">$42–$50</td>
+          <td class="note-col positive">~$27–$38</td>
+        </tr>
+        <tr>
+          <td>Pack of 8 cards</td>
+          <td class="floor">~$15–19</td>
+          <td class="sell">$52–$62</td>
+          <td class="note-col positive">~$33–$47</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="surface-note">
+      <strong>Floor cost breakdown per pack of 6:</strong> Printing ~$0.75/card × 6 = $4.50 · cellophane or kraft wrap ~$0.50 · backing board ~$0.20 · rigid mailer ~$2.00 · thank you card ~$0.75 · Shopify fee on $46 sale ~$1.63 · total ~$9.18 per pack sold. Margin is strong — card packs are my most efficient product per unit of time once files are prepared.<br><br>
+      <strong>What I print on:</strong> Quality 14–16pt matte card stock — not my limited edition fine art paper. That distinction is important. Fine art prints are a separate tier with their own premium paper. Card packs are beautiful, accessible reproductions at an everyday price point.<br><br>
+      <strong>Printer options in Canada:</strong> Zoom Printing, Laser Sharp (lasersharp.ca), or Copy Cave offer quality short-run card printing at reasonable prices. I order in batches of 25–50 per design to keep inventory manageable while achieving a reasonable per-unit cost.<br><br>
+      <strong>How I release them:</strong> One pack per series or themed grouping. I list them permanently on Shopify — they are not limited editions or batch drops. When a pack sells out I decide whether to reprint based on demand. Shipping is passed to the buyer.
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<p class="section-label">Tax — BC and Canada</p>
+<div class="tier-card">
+  <div class="tier-header">
+    <div class="tier-icon">◈</div>
+    <div>
+      <div class="tier-title">GST, PST, and what applies to my work</div>
+      <div class="tier-desc">Verify specifics with a Canadian accountant familiar with artist taxation</div>
+    </div>
+  </div>
+  <div class="tier-body">
+    <div class="rule-box" style="margin-top:0;">
+      <div class="rule-title">GST — Federal (5%)</div>
+      I only need to collect and remit GST once my worldwide revenue exceeds <strong>$30,000 CAD</strong> in a single calendar quarter or over four consecutive quarters. Below that threshold I am a "small supplier" and registration is optional. Once I cross it I must register with the CRA within 29 days and add 5% GST to Canadian sales.<br><br>
+      <strong>The upside of registering:</strong> I can claim GST back on all my business expenses — materials, supplies, shipping, studio costs — which reduces what I owe. For US and international buyers, GST does not apply as these are exports.
+    </div>
+    <div class="rule-box">
+      <div class="rule-title">BC PST (7%)</div>
+      Original artwork created and sold by the artist is <strong>PST exempt in BC</strong> under the BC Provincial Sales Tax Act. This applies to my paintings and drawings. Limited edition fine art prints are generally also exempt as reproductions of my original work, but I will confirm this with the BC Ministry of Finance or a tax professional before collecting or exempting PST on prints.
+    </div>
+    <div class="rule-box">
+      <div class="rule-title">Canadian tax deductions available to self-employed artists</div>
+      As a self-employed artist working from a home studio I can deduct the following business expenses against my income — keeping receipts for all of these is essential:<br><br>
+      <strong>Home studio (1/3 of apartment):</strong> I can deduct 1/3 of my rent, utilities, internet, and tenant's insurance as a business expense.<br><br>
+      <strong>Art materials and supplies:</strong> Paints, paper, canvas, linen, panels, inks, brushes, printing costs — all deductible.<br><br>
+      <strong>Finishing and shipping supplies:</strong> Glassine, backing boards, mailers, postage, packaging — all deductible.<br><br>
+      <strong>Equipment and tools:</strong> Camera, lighting, computer used for my practice, editing software, website and Shopify fees — deductible (larger purchases may need to be depreciated over time).<br><br>
+      <strong>Professional development:</strong> Art books, courses, workshops, museum memberships relevant to my practice — deductible.<br><br>
+      <strong>Marketing and promotion:</strong> Kit email platform, Format website, photography of work, printing of promotional materials — deductible.<br><br>
+      <strong>Business use of vehicle</strong> (if applicable): Trips to art supply stores, post office, galleries — deductible at the business-use percentage.<br><br>
+      I file a T2125 (Statement of Business or Professional Activities) with my personal tax return each year to report income and claim these deductions. Working with an accountant familiar with Canadian artist taxation is strongly recommended — there are nuances around the distinction between a business and a hobby under CRA rules, and maintaining consistent records of income and expenses protects me.
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="footnote">
+  <p>All prices in CAD. My floors use midpoint estimates: $375 materials, $62/hr labour, $500+ studio overhead ÷ 6 pieces/month.</p>
+  <p>My four tiers: Tier 1 (limited edition prints, ed. of 10) · Tier 2 (original paintings and drawings) · Tier 3 (studies, irregular batch drops) · Tier 4 (card packs, printed reproductions on quality card stock).</p>
+  <p>My markup is 30–50% above floor on originals and prints. Studies priced at $125 minimum selling price · floor cost ~$62 · strong margin above 30–50% target. Card packs priced for strong margin on printed reproductions.</p>
+  <p>Each print edition holds one consistent price for all 10 copies. Price reviews happen privately and apply to new work only — never communicated to buyers.</p>
+  <p>I refine my floor costs as I track my actual hours per piece and actual materials spend each month.</p>
+  <p>Last updated: May 2026</p>
+</div>
+
+</body>
+</html>

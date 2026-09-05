@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Example Scenario — Cotton Paper Series Launch</title>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-secondary: #f4f4f2;
+    --text: #4a4948;
+    --text-muted: #7a7877;
+    --text-light: #a29f9e;
+    --accent: #a29f9f;
+    --accent-dark: #6e6b6b;
+    --accent-light: #d6d4d4;
+    --border: #e0dedc;
+    --border-strong: #c8c5c3;
+    --green: #3a7a45;
+    --green-bg: #e6f0e8;
+    --amber: #8a6a20;
+    --amber-bg: #f5f0e0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Asap', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+
+  .doc-header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .doc-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .doc-header p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 2.5rem 0 1rem;
+  }
+
+  .intro {
+    background: var(--bg-secondary);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+  .intro strong { color: var(--text); font-weight: 600; }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+  .metric {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .metric-label { font-size: 12px; color: var(--text-muted); margin-bottom: 3px; }
+  .metric-value { font-size: 22px; font-weight: 600; color: var(--text); }
+  .metric-sub { font-size: 11px; color: var(--text-light); margin-top: 2px; }
+  .metric-value.positive { color: var(--green); }
+
+  .card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+  }
+  .card-header {
+    background: var(--bg-secondary);
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .card-icon { font-size: 18px; color: var(--accent); margin-top: 2px; }
+  .card-title { font-size: 15px; font-weight: 600; color: var(--text); }
+  .card-desc { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .card-body { padding: 16px 18px; }
+
+  .price-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .price-table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-light);
+    padding: 0 10px 10px 0;
+    border-bottom: 1px solid var(--border-strong);
+  }
+  .price-table td {
+    padding: 9px 10px 9px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+  }
+  .price-table tr:last-child td { border-bottom: none; }
+  .price-table .muted { color: var(--text-muted); }
+  .price-table .strong { font-weight: 600; }
+  .price-table .positive { color: var(--green); font-weight: 600; }
+
+  .total-bar {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    background: var(--bg-secondary);
+    padding: 11px 18px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text);
+    border-top: 1px solid var(--border);
+  }
+  .total-bar .positive { color: var(--green); }
+
+  .summary-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .summary-table td {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .summary-table tr:last-child td { border-bottom: none; }
+  .summary-table .s-label { color: var(--text-muted); }
+  .summary-table .s-value { text-align: right; font-weight: 600; color: var(--text); }
+  .summary-table .s-positive { text-align: right; font-weight: 600; color: var(--green); font-size: 18px; }
+  .summary-table .s-deduct { text-align: right; color: var(--text-muted); }
+
+  .surface-note {
+    font-size: 13px;
+    color: var(--text-muted);
+    padding: 12px 18px;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    line-height: 1.6;
+  }
+  .surface-note strong { font-weight: 600; color: var(--text); }
+
+  .responsibility-list { list-style: none; padding: 0; margin: 0; }
+  .responsibility-list li {
+    display: flex;
+    gap: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13.5px;
+    line-height: 1.6;
+    align-items: flex-start;
+  }
+  .responsibility-list li:last-child { border-bottom: none; }
+  .resp-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+    color: var(--accent-dark);
+    margin-top: 1px;
+  }
+  .resp-title { font-weight: 600; color: var(--text); display: block; margin-bottom: 2px; }
+  .resp-detail { color: var(--text-muted); }
+
+  .optim-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 1rem;
+  }
+  .optim-card {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .optim-card-title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .optim-card strong { color: var(--text); font-weight: 600; }
+
+  .context-bar {
+    background: var(--bg-secondary);
+    border-left: 3px solid var(--accent-light);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  .context-bar strong { color: var(--text); font-weight: 600; }
+
+  .alert {
+    background: var(--amber-bg);
+    border-left: 3px solid var(--amber);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--amber);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  .alert strong { font-weight: 600; }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+  .footnote {
+    font-size: 12px;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+  .footnote p { margin-bottom: 5px; }
+
+  @media print {
+    body { padding: 1.5rem; }
+    .card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <h1>Example Scenario — Cotton Paper Series</h1>
+  <p>A complete sell-out over 3 months · income projection · responsibilities · financial optimisation · All prices CAD</p>
+</div>
+
+<div class="intro">
+  <strong>What this document is:</strong> A worked example of what a full launch and sell-out of my cotton paper series could look like financially, what my responsibilities are as the artist and sole trader running this practice, and how I can make the most of this financially — with integrity, and without any pressure tactics of any kind. Numbers are based on my actual pricing structure and costs. This is a best-case scenario; real results will vary.
+</div>
+
+<!-- SERIES OVERVIEW -->
+<p class="section-label">The series at a glance</p>
+<div class="metrics-grid">
+  <div class="metric">
+    <div class="metric-label">Originals</div>
+    <div class="metric-value">18</div>
+    <div class="metric-sub">6 per size · cotton paper</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Print editions</div>
+    <div class="metric-value">18</div>
+    <div class="metric-sub">10 copies each = 180 prints</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Timeline</div>
+    <div class="metric-value">3 months</div>
+    <div class="metric-sub">Full sell-out assumed</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Studio days</div>
+    <div class="metric-value">18</div>
+    <div class="metric-sub">6 days/month × 3 months</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Total revenue</div>
+    <div class="metric-value positive">$30,018</div>
+    <div class="metric-sub">Originals + prints combined</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Total profit</div>
+    <div class="metric-value positive">$12,849</div>
+    <div class="metric-sub">After costs and fees</div>
+  </div>
+</div>
+
+<!-- ORIGINALS -->
+<p class="section-label">Originals — 18 pieces, cotton paper</p>
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">✦</div>
+    <div>
+      <div class="card-title">Original paintings and drawings · cotton paper · launch prices</div>
+      <div class="card-desc">6 pieces per size · mid-point of launch price range · 1 Shopify transaction per piece</div>
+    </div>
+  </div>
+  <div class="card-body" style="padding: 0;">
+    <table class="price-table" style="padding: 0 18px;">
+      <thead>
+        <tr style="padding: 0 18px;">
+          <th style="padding-left:18px; width:30%;">Size</th>
+          <th>Qty</th>
+          <th>Price each</th>
+          <th>Floor cost</th>
+          <th>Shopify fee</th>
+          <th>Profit each</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding-left:18px;">4×6" cotton paper</td>
+          <td class="muted">6</td>
+          <td class="muted">$215</td>
+          <td class="muted">−$155</td>
+          <td class="muted">−$6.54</td>
+          <td class="positive">$53.46</td>
+        </tr>
+        <tr>
+          <td style="padding-left:18px;">8×10" cotton paper</td>
+          <td class="muted">6</td>
+          <td class="muted">$308</td>
+          <td class="muted">−$220</td>
+          <td class="muted">−$9.23</td>
+          <td class="positive">$78.77</td>
+        </tr>
+        <tr>
+          <td style="padding-left:18px;">11×14" cotton paper</td>
+          <td class="muted">6</td>
+          <td class="muted">$400</td>
+          <td class="muted">−$285</td>
+          <td class="muted">−$11.90</td>
+          <td class="positive">$103.10</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total-bar" style="grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;">
+      <span>Originals total</span>
+      <span>18 pieces</span>
+      <span>$5,538</span>
+      <span>−$3,960</span>
+      <span>−$167</span>
+      <span class="positive">$1,422</span>
+    </div>
+  </div>
+</div>
+
+<!-- PRINTS -->
+<p class="section-label">Prints — 180 copies across 18 editions of 10</p>
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">◻</div>
+    <div>
+      <div class="card-title">Limited edition prints · one edition per original · 10 copies each</div>
+      <div class="card-desc">Consistent price per edition for all 10 copies · $5 finishing kit included in floor cost</div>
+    </div>
+  </div>
+  <div class="card-body" style="padding: 0;">
+    <table class="price-table" style="padding: 0 18px;">
+      <thead>
+        <tr>
+          <th style="padding-left:18px; width:30%;">Size</th>
+          <th>Qty</th>
+          <th>Price each</th>
+          <th>Floor cost</th>
+          <th>Shopify fee</th>
+          <th>Profit each</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding-left:18px;">4×6" print</td>
+          <td class="muted">60</td>
+          <td class="muted">$100</td>
+          <td class="muted">−$50</td>
+          <td class="muted">−$3.20</td>
+          <td class="positive">$46.80</td>
+        </tr>
+        <tr>
+          <td style="padding-left:18px;">8×10" print</td>
+          <td class="muted">60</td>
+          <td class="muted">$138</td>
+          <td class="muted">−$70</td>
+          <td class="muted">−$4.30</td>
+          <td class="positive">$63.70</td>
+        </tr>
+        <tr>
+          <td style="padding-left:18px;">11×14" print</td>
+          <td class="muted">60</td>
+          <td class="muted">$170</td>
+          <td class="muted">−$85</td>
+          <td class="muted">−$5.23</td>
+          <td class="positive">$79.77</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total-bar" style="grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;">
+      <span>Prints total</span>
+      <span>180 copies</span>
+      <span>$24,480</span>
+      <span>−$12,300</span>
+      <span>−$758</span>
+      <span class="positive">$11,427</span>
+    </div>
+  </div>
+</div>
+
+<!-- FULL SUMMARY -->
+<p class="section-label">Full series summary</p>
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">◈</div>
+    <div>
+      <div class="card-title">Complete sell-out · 3 months · cotton paper series</div>
+      <div class="card-desc">Shipping passed to buyer · GST not yet applicable at this stage · card pack income not included</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <table class="summary-table">
+      <tbody>
+        <tr>
+          <td class="s-label">Gross revenue — originals (18 pieces)</td>
+          <td class="s-value">$5,538</td>
+        </tr>
+        <tr>
+          <td class="s-label">Gross revenue — prints (180 copies)</td>
+          <td class="s-value">$24,480</td>
+        </tr>
+        <tr>
+          <td class="s-label">Total gross revenue</td>
+          <td class="s-value">$30,018</td>
+        </tr>
+        <tr>
+          <td class="s-label">Total floor costs (materials + time + overhead)</td>
+          <td class="s-deduct">−$16,260</td>
+        </tr>
+        <tr>
+          <td class="s-label">Total Shopify transaction fees</td>
+          <td class="s-deduct">−$925</td>
+        </tr>
+        <tr style="border-top: 1.5px solid var(--border-strong);">
+          <td class="s-label" style="font-weight:600; color:var(--text); padding-top:14px;">Total profit</td>
+          <td class="s-positive">$12,849</td>
+        </tr>
+        <tr>
+          <td class="s-label">Monthly average (over 3 months)</td>
+          <td class="s-value" style="color:var(--green);">~$4,283/mo</td>
+        </tr>
+        <tr>
+          <td class="s-label">Effective margin</td>
+          <td class="s-value" style="color:var(--green);">~43%</td>
+        </tr>
+        <tr>
+          <td class="s-label">Effective hourly rate (144 studio hours)</td>
+          <td class="s-value" style="color:var(--green);">~$89/hr</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="surface-note">
+    <strong>Context:</strong> The median annual income from artistic practice alone for professional Canadian artists is $15,000–$20,000 (Canada Council for the Arts). This single series, at full sell-out, would represent $12,849 — before studies and card pack income, before future series at higher prices, and before any tax deductions on expenses.
+  </div>
+</div>
+
+<div class="alert">
+  <strong>GST note:</strong> This series grosses ~$30,018 — very close to the $30,000 GST registration threshold. I register for a GST number proactively before this series sells through, to avoid registering late and facing penalties. See my tax reference document for details.
+</div>
+
+<hr>
+
+<!-- RESPONSIBILITIES -->
+<p class="section-label">My responsibilities — what running this practice actually requires</p>
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">☰</div>
+    <div>
+      <div class="card-title">What I commit to doing to make this work</div>
+      <div class="card-desc">Organised by area · realistic and honest about the time involved</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <ul class="responsibility-list">
+      <li>
+        <div class="resp-icon">✦</div>
+        <div>
+          <span class="resp-title">Make the work</span>
+          <span class="resp-detail">6 studio days per month, consistently. I produce 6 pieces per month and choose 1 as the postcard image for a card pack design. The work itself is the foundation of everything else. No marketing substitutes for a strong, consistent body of work.</span>
+        </div>
+      </li>
+      <li>
+        <div class="resp-icon">◷</div>
+        <div>
+          <span class="resp-title">Track my time and costs accurately</span>
+          <span class="resp-detail">I keep a simple log of actual hours per piece and actual materials costs each month. This is how I refine my floor costs and make sure my pricing stays honest. Without this, my numbers are guesses.</span>
+        </div>
+      </li>
+      <li>
+        <div class="resp-icon">◻</div>
+        <div>
+          <span class="resp-title">Photograph and list work promptly</span>
+          <span class="resp-detail">Good photography of my work is non-negotiable. I photograph each piece when it's finished, write a short honest description, and list it on Shopify within a few days of completion. Sitting on finished work delays income unnecessarily.</span>
+        </div>
+      </li>
+      <li>
+        <div class="resp-icon">✉</div>
+        <div>
+          <span class="resp-title">Pack and ship card pack orders promptly</span>
+          <span class="resp-detail">When a card pack order comes in, I ship within 3–5 business days. Each pack is wrapped neatly, backed with a board, placed in a rigid mailer, and includes a thank you card. This is how people become repeat buyers — a good unboxing experience matters even at an accessible price point.</span>
+        </div>
+      </li>
+      <li>
+        <div class="resp-icon">↗</div>
+        <div>
+          <span class="resp-title">Pack and ship orders carefully and promptly</span>
+          <span class="resp-detail">Every print ships in my finishing kit: glassine envelope, acid-free backing board, rigid mailer, and a handwritten thank you card. I aim to ship within 3–5 business days of an order. This is how people become repeat buyers — not from marketing, but from a genuinely good experience receiving my work.</span>
+        </div>
+      </li>
+      <li>
+        <div class="resp-icon">◈</div>
+        <div>
+          <span class="resp-title">Send quarterly emails to my mailing list</span>
+          <span class="resp-detail">Four times a year, I send a simple honest email through Kit: what I've been making, what's available, what's coming. No sales language. No countdown timers. Just a note from me about my work. This is how I stay in touch with people who care about what I do.</span>
+        </div>
+      </li>
+      <li>
+        <div class="resp-icon">▶</div>
+        <div>
+          <span class="resp-title">Post YouTube process videos when I have something genuine to share</span>
+          <span class="resp-detail">I don't post on a schedule for its own sake. When I have a process, a idea, or a story worth sharing, I film and edit it. YouTube's search-based discovery means a good video keeps finding people long after I post it. Quality over frequency.</span>
+        </div>
+      </li>
+      <li>
+        <div class="resp-icon">☰</div>
+        <div>
+          <span class="resp-title">Keep clean financial records every month</span>
+          <span class="resp-detail">I record all income and expenses monthly, keep all receipts (digital or photographed), download my Shopify statements, and file everything in a folder organised by year and month. At tax time I hand this to my accountant — it should require no heroic effort because I've stayed on top of it throughout the year.</span>
+        </div>
+      </li>
+      <li>
+        <div class="resp-icon">◈</div>
+        <div>
+          <span class="resp-title">File my taxes correctly and on time</span>
+          <span class="resp-detail">I file a T2125 with my personal T1 return each year, claiming all legitimate deductions. I pay any balance owing by April 30. I monitor my revenue against the $30,000 GST threshold and register proactively when approaching it. I work with a Canadian accountant familiar with artist taxation.</span>
+        </div>
+      </li>
+      <li>
+        <div class="resp-icon">↑</div>
+        <div>
+          <span class="resp-title">Review my prices periodically</span>
+          <span class="resp-detail">After each print edition, I check how many sold. If at least 6 of 10 copies sold, my next edition for that size launches at 10–15% more. For originals, I review prices per surface type as my practice develops. This is a private, internal review — I never communicate it to buyers as a sales tactic.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<hr>
+
+<!-- FINANCIAL OPTIMISATION -->
+<p class="section-label">How I optimise financially — without compromising my integrity</p>
+
+<div class="context-bar">
+  My approach to financial optimisation is simple: <strong>make the most of what I'm already doing, price my work honestly, reduce unnecessary costs, and keep more of what I earn through legitimate tax deductions.</strong> I don't use pressure tactics, artificial scarcity, countdown timers, or manipulative language of any kind — ever.
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">◈</div>
+    <div>
+      <div class="card-title">Pricing and income optimisation</div>
+      <div class="card-desc">Things I do to earn fairly from my work — all grounded in real value</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <ul class="responsibility-list">
+      <li>
+        <div class="resp-icon">1</div>
+        <div>
+          <span class="resp-title">Price prints first, originals second</span>
+          <span class="resp-detail">Prints generate ~$11,400 of this scenario's $12,849 profit because the floor cost is low and the volume is high. Prints are my most efficient income source. I make sure every original has a print edition — this is the single biggest financial lever I have, and it requires no compromise at all.</span>
+        </div>
+      </li>
+      <li>
+        <div class="resp-icon">2</div>
+        <div>
+          <span class="resp-title">Raise prices at the right moments, not randomly</span>
+          <span class="resp-detail">When a print edition sells well (6+ of 10), my next edition launches 10–15% higher. When originals of a given size and surface sell consistently, I raise my starting price for the next piece of that type. These increases reflect my growing practice and track record — they are honest and earned.</span>
+        </div>
+      </li>
+      <li>
+        <div class="resp-icon">3</div>
+        <div>
+          <span class="resp-title">Treat card packs as my most accessible entry point</span>
+          <span class="resp-detail">Card packs are my lowest price point and the easiest way for someone new to my work to own a piece of it. A buyer who starts with a $42 card pack and loves it is a future print or original buyer. I keep them well-stocked and easy to find on my Shopify store.</span>
+        </div>
+      </li>
+      <li>
+        <div class="resp-icon">4</div>
+        <div>
+          <span class="resp-title">Build my mailing list consistently</span>
+          <span class="resp-detail">Email converts better than any social platform. Every person who buys from me, signs up from my website, or finds me through YouTube is a potential list subscriber. I grow this list steadily and treat it with care — four honest emails a year about real work, nothing more.</span>
+        </div>
+      </li>
+      <li>
+        <div class="resp-icon">5</div>
+        <div>
+          <span class="resp-title">Pass shipping costs to the buyer</span>
+          <span class="resp-detail">I charge actual shipping at checkout rather than absorbing it into my prices or offering free shipping. This protects my margins, especially on international orders where Canada Post rates are significant ($45+). Buyers understand this — it is standard practice for independent artists.</span>
+        </div>
+      </li>
+      <li>
+        <div class="resp-icon">6</div>
+        <div>
+          <span class="resp-title">Offer card pack buyers a loyalty path</span>
+          <span class="resp-detail">Card pack buyers who move on to prints or originals are my most engaged collectors. I don&#39;t offer a formal discount programme — I simply make it easy for them to find my other work from the same shop, and let the quality of the work do the rest.</span>
+        </div>
+      </li>
+      <li>
+        <div class="resp-icon">8</div>
+        <div>
+          <span class="resp-title">Release studies as irregular batch drops</span>
+          <span class="resp-detail">I make studies as part of my practice anyway — they are already being created. When a natural batch accumulates, I photograph them, list them all at once on Shopify, and let them find buyers at their own pace. Studies are priced at $125 minimum — honest and genuinely profitable since their floor cost is ~$62 ($125–$150 for a 4×6" on cotton paper · minimum selling price $125) — honest, accessible, and genuinely profitable since their floor cost is lower. No schedule, no announcement pressure, no print editions. The study is the thing.</span>
+        </div>
+      </li>
+      <li>
+        <div class="resp-icon">9</div>
+        <div>
+          <span class="resp-title">Sell card packs — printed reproductions, always profitable</span>
+          <span class="resp-detail">A recurring membership where I lose $6–11 per member per month is not sustainable. Instead, I sell printed art card packs via Shopify — quality 4×6" reproductions of my work on matte card stock, sold in packs of 6 at $42–$50 or packs of 8 at $52–$62. My cost per pack of 6 is ~$10–12 including printing, packaging, and Shopify fees, giving me a margin of ~$30–38 per pack. Buyers get something beautiful and affordable. I earn rather than lose on every transaction. No ongoing fulfilment commitment.</span>
+        </div>
+      </li>
+      <li>
+        <div class="resp-icon">10</div>
+        <div>
+          <span class="resp-title">Gross up prices for galleries and shops</span>
+          <span class="resp-detail">If a gallery or shop takes 40–50% commission, I calculate my list price so that my net after commission equals what I would earn selling direct. I never give a gallery my direct price — that would mean earning half what my work is worth. My gallery list price = my target net ÷ (1 − commission rate).</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">↓</div>
+    <div>
+      <div class="card-title">Tax and expense optimisation</div>
+      <div class="card-desc">Keeping more of what I earn through legitimate deductions — see my full tax reference document</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="optim-grid">
+      <div class="optim-card">
+        <div class="optim-card-title">Claim my home studio</div>
+        I deduct <strong>1/3 of my rent, utilities, and internet</strong> as a business expense — this is the single largest annual deduction available to me. At $1,500+ rent, that's $500+/month or $6,000+/year off my taxable income.
+      </div>
+      <div class="optim-card">
+        <div class="optim-card-title">Deduct all materials</div>
+        Every paint, canvas, panel, paper, ink, and brush is a deductible business expense. I keep every receipt. At $375/month in materials, that's $4,500/year in deductions.
+      </div>
+      <div class="optim-card">
+        <div class="optim-card-title">Deduct platform fees</div>
+        Shopify fees ($925 in this scenario alone), Format subscription, Kit email platform, and domain costs are all deductible. I save all invoices automatically.
+      </div>
+      <div class="optim-card">
+        <div class="optim-card-title">Buy supplies before December 31</div>
+        If I need materials, equipment, or supplies for my practice, buying before year-end means I deduct them in the current tax year rather than waiting until next year.
+      </div>
+      <div class="optim-card">
+        <div class="optim-card-title">Register for GST at the right time</div>
+        Once registered, I claim back GST on all business expenses (Input Tax Credits). On $375/month in materials alone, that's roughly $225/year back from the CRA — plus GST on all other deductible expenses.
+      </div>
+      <div class="optim-card">
+        <div class="optim-card-title">Deduct my accountant</div>
+        The cost of my accountant is itself a deductible business expense. Good tax advice pays for itself — the deductions it protects far outweigh the fee.
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- REALISTIC CONTEXT -->
+<p class="section-label">Realistic expectations — what this scenario assumes and what might differ</p>
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">◈</div>
+    <div>
+      <div class="card-title">What to expect vs. this best-case model</div>
+      <div class="card-desc">Honest context for a first launch</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <ul class="responsibility-list">
+      <li>
+        <div class="resp-icon">~</div>
+        <div>
+          <span class="resp-title">Full sell-out in 3 months is optimistic for a first launch</span>
+          <span class="resp-detail">A more realistic first-series sell-through rate is 50–70%. At 60% sell-through, profit would be approximately $7,700 — still a strong result. The scenario above is a ceiling, not a guarantee. Each subsequent series tends to sell faster as my audience grows.</span>
+        </div>
+      </li>
+      <li>
+        <div class="resp-icon">~</div>
+        <div>
+          <span class="resp-title">Originals may take longer to sell than prints</span>
+          <span class="resp-detail">Prints are more accessible in price and collectors buy them more readily. Originals require more trust and often more time. I don't worry if an original sits for a few months — I don't discount it or chase the sale. I let it find the right person at the right time.</span>
+        </div>
+      </li>
+      <li>
+        <div class="resp-icon">~</div>
+        <div>
+          <span class="resp-title">My audience needs time to build</span>
+          <span class="resp-detail">193 visitors/month at launch with no active shop is a seed, not a crowd. The mailing list and YouTube channel both take time to develop. Series 2 and 3 will reach more people than Series 1 — this is normal and expected. Consistency over time is the strategy.</span>
+        </div>
+      </li>
+      <li>
+        <div class="resp-icon">~</div>
+        <div>
+          <span class="resp-title">Floor costs may be higher or lower than estimated</span>
+          <span class="resp-detail">My floor costs use midpoint estimates. Once I track actual hours and actual materials spend for one full series, I'll have real numbers to work with. If my floors are higher, I adjust prices accordingly — I never sell below floor.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<hr>
+
+<!-- OPERATING COSTS -->
+<p class="section-label">My monthly operating costs</p>
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">◈</div>
+    <div>
+      <div class="card-title">Fixed costs — every month regardless of sales</div>
+      <div class="card-desc">These run whether I sell anything or not · my baseline to cover before I profit</div>
+    </div>
+  </div>
+  <div class="card-body" style="padding:0;">
+    <table class="price-table" style="padding:0 18px;">
+      <thead>
+        <tr>
+          <th style="padding-left:18px; width:45%;">Item</th>
+          <th>Monthly cost</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding-left:18px;">Studio rent (1/3 of apartment)</td>
+          <td class="muted">~$500</td>
+          <td class="muted">Based on $1,500+ total rent · fully deductible</td>
+        </tr>
+        <tr>
+          <td style="padding-left:18px;">Art materials</td>
+          <td class="muted">~$375</td>
+          <td class="muted">Midpoint estimate · fully deductible</td>
+        </tr>
+        <tr>
+          <td style="padding-left:18px;">Shopify Basic subscription</td>
+          <td class="muted">~$39</td>
+          <td class="muted">Fully deductible</td>
+        </tr>
+        <tr>
+          <td style="padding-left:18px;">Format website subscription</td>
+          <td class="muted">~$15–25</td>
+          <td class="muted">Fully deductible</td>
+        </tr>
+        <tr>
+          <td style="padding-left:18px;">Adobe Photography plan (Lightroom + Photoshop)</td>
+          <td class="muted">~$20–22</td>
+          <td class="muted">For editing and photographing work · deductible</td>
+        </tr>
+        <tr>
+          <td style="padding-left:18px;">Internet (1/3 business use)</td>
+          <td class="muted">~$25–35</td>
+          <td class="muted">Business portion only · deductible</td>
+        </tr>
+        <tr>
+          <td style="padding-left:18px;">Kit email platform</td>
+          <td class="muted">Free</td>
+          <td class="muted">Free under 10,000 contacts · deductible when paid</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total-bar" style="grid-template-columns: 2fr 1fr 1fr;">
+      <span>Total fixed monthly operating costs</span>
+      <span style="color:var(--green);">~$974–$1,001</span>
+      <span class="muted" style="font-weight:400; font-size:12px;">~$11,700/year</span>
+    </div>
+  </div>
+  <div class="surface-note">
+    <strong>Variable costs</strong> (only when I sell): Shopify transaction fees (2.9% + $0.30 per order) · finishing kit per print ($5 flat) · card pack orders (finishing kit + postage per order). These scale with sales volume and are all fully deductible.
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">◈</div>
+    <div>
+      <div class="card-title">My operating buffer target</div>
+      <div class="card-desc">How much I save before I feel financially stable</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="metrics-grid">
+      <div class="metric">
+        <div class="metric-label">3-month buffer</div>
+        <div class="metric-value">~$2,940</div>
+        <div class="metric-sub">Minimum safety net</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">6-month buffer</div>
+        <div class="metric-value positive">~$5,880</div>
+        <div class="metric-sub">Target — genuine stability</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">From series 1 reinvestment</div>
+        <div class="metric-value">~$3,877</div>
+        <div class="metric-sub">At 50/50 split</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Buffer funded after series 1</div>
+        <div class="metric-value positive">~66%</div>
+        <div class="metric-sub">Nearly a full 3-month buffer</div>
+      </div>
+    </div>
+    <div style="background:var(--bg-secondary); border-radius:8px; padding:14px 16px; font-size:13px; color:var(--text-muted); line-height:1.8;">
+      By the end of series 2, with consistent reinvestment, I should have my 6-month operating buffer fully funded. At that point I can begin shifting the pay/reinvest split more toward paying myself.
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- STARTUP GEAR -->
+<p class="section-label">Initial gear investment — one-time startup costs</p>
+<div class="context-bar">
+  These are one-time purchases I make before or during my first series. All are fully deductible as business expenses — larger items (MacBook Pro, camera) may need to be depreciated over time via Capital Cost Allowance rather than expensed in year one. My accountant will confirm which applies. All prices are approximate CAD including tax.
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">◻</div>
+    <div>
+      <div class="card-title">Recommended gear — practical and capable without overspending</div>
+      <div class="card-desc">Built for photographing artwork, editing, video for YouTube, and running my practice efficiently</div>
+    </div>
+  </div>
+  <div class="card-body" style="padding:0;">
+    <table class="price-table" style="padding:0 18px;">
+      <thead>
+        <tr>
+          <th style="padding-left:18px; width:32%;">Item</th>
+          <th style="width:18%;">Est. cost</th>
+          <th>Why this choice</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding-left:18px;"><strong>MacBook Pro 14" M5</strong><br><span style="font-size:11px; color:var(--text-light);">16GB RAM · 512GB SSD · base model</span></td>
+          <td class="muted">~$2,399</td>
+          <td class="muted">Handles photo editing, video editing for YouTube, and running my shop with ease. The Liquid Retina XDR display is accurate enough for colour-critical work. More than sufficient for my needs for 5+ years.</td>
+        </tr>
+        <tr>
+          <td style="padding-left:18px;"><strong>Sony ZV-E10 II or similar APS-C mirrorless</strong><br><span style="font-size:11px; color:var(--text-light);">Body + 16–50mm kit lens</span></td>
+          <td class="muted">~$1,100–$1,300</td>
+          <td class="muted">Excellent image quality for photographing flat artwork and shooting YouTube process videos. Lightweight, capable, and widely supported. A macro or 50mm prime lens can be added later for close-up detail shots.</td>
+        </tr>
+        <tr>
+          <td style="padding-left:18px;"><strong>Sturdy tripod</strong><br><span style="font-size:11px; color:var(--text-light);">e.g. Manfrotto Befree or equivalent</span></td>
+          <td class="muted">~$200–$280</td>
+          <td class="muted">Essential for photographing artwork flat and consistently. Also used for YouTube filming. Buy once, use for years.</td>
+        </tr>
+        <tr>
+          <td style="padding-left:18px;"><strong>Two daylight LED panels</strong><br><span style="font-size:11px; color:var(--text-light);">e.g. Neewer or Elgato panels</span></td>
+          <td class="muted">~$150–$250</td>
+          <td class="muted">Consistent, glare-free lighting for artwork photography is critical. Two panels at 45° angles eliminate shadow and colour cast. Far better than window light for reproducible results.</td>
+        </tr>
+        <tr>
+          <td style="padding-left:18px;"><strong>Work table</strong><br><span style="font-size:11px; color:var(--text-light);">Solid, adjustable height preferred</span></td>
+          <td class="muted">~$200–$400</td>
+          <td class="muted">A dedicated, stable work surface for creating and photographing work. IKEA BEKANT or similar adjustable options work well for a studio apartment setup.</td>
+        </tr>
+        <tr>
+          <td style="padding-left:18px;"><strong>External hard drive (2TB)</strong><br><span style="font-size:11px; color:var(--text-light);">e.g. Samsung T7 SSD</span></td>
+          <td class="muted">~$120–$160</td>
+          <td class="muted">For backing up photos, artwork files, and video footage. Non-negotiable — losing images of sold work is a real and painful risk without backup.</td>
+        </tr>
+        <tr>
+          <td style="padding-left:18px;"><strong>SD cards (2× 64GB or 128GB)</strong></td>
+          <td class="muted">~$40–$60</td>
+          <td class="muted">Always have a spare. Shoot on one, back up to the other.</td>
+        </tr>
+        <tr>
+          <td style="padding-left:18px;"><strong>Colour calibration card or grey card</strong><br><span style="font-size:11px; color:var(--text-light);">e.g. X-Rite ColorChecker Passport</span></td>
+          <td class="muted">~$90–$150</td>
+          <td class="muted">For accurate colour in artwork photographs — essential when selling work online where colour fidelity builds buyer trust.</td>
+        </tr>
+        <tr>
+          <td style="padding-left:18px;"><strong>Adobe Photography Plan</strong><br><span style="font-size:11px; color:var(--text-light);">Lightroom + Photoshop · annual</span></td>
+          <td class="muted">~$240–$265/yr</td>
+          <td class="muted">Industry standard for photo editing. Lightroom for culling and colour correction, Photoshop for any retouching. ~$20–22/month ongoing.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total-bar" style="grid-template-columns: 2fr 1fr 1fr;">
+      <span>Total estimated startup gear</span>
+      <span style="color:var(--green);">~$4,540–$5,065</span>
+      <span class="muted" style="font-weight:400; font-size:12px;">All deductible · verify CCA with accountant</span>
+    </div>
+  </div>
+  <div class="surface-note">
+    <strong>What I don't need right away:</strong> A colour-calibrated external monitor (the MacBook Pro display is accurate enough to start), a professional microphone for YouTube (the MacBook's built-in mics are decent for voiceover to start), or any furniture beyond a solid work table. I add these as the practice grows and revenue supports it.<br><br>
+    <strong>Where to save money:</strong> The Sony ZV-E10 II or a refurbished Sony a6400 are both excellent for artwork photography and video at lower cost than full-frame alternatives. A refurbished MacBook Pro from Apple's certified refurbished store saves $200–$400 with full warranty. IKEA lighting panels are a reasonable starting point before investing in professional LED panels.
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">◈</div>
+    <div>
+      <div class="card-title">Startup gear vs. series 1 profit</div>
+      <div class="card-desc">How the one-time investment fits into my first series</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="metrics-grid">
+      <div class="metric">
+        <div class="metric-label">Series 1 profit (full sell-out)</div>
+        <div class="metric-value">$12,849</div>
+        <div class="metric-sub">Before tax and CPP reserves</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Tax + CPP reserve (31.9%)</div>
+        <div class="metric-value" style="font-size:18px; color:var(--amber);">−$4,095</div>
+        <div class="metric-sub">Moved to savings immediately</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Materials reserve (3 months)</div>
+        <div class="metric-value" style="font-size:18px; color:var(--amber);">−$1,125</div>
+        <div class="metric-sub">Next series production costs</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Available after reserves</div>
+        <div class="metric-value positive">$7,629</div>
+        <div class="metric-sub">For gear + reinvestment + pay</div>
+      </div>
+    </div>
+    <div style="background:var(--bg-secondary); border-radius:8px; padding:14px 16px; font-size:13px; color:var(--text-muted); line-height:1.8; margin-top:4px;">
+      <strong style="color:var(--text);">Realistic path:</strong> If I buy gear gradually before and during series 1 — starting with what's essential (camera, tripod, lights, MacBook) — the startup investment is spread across several months rather than all at once. The MacBook Pro alone is roughly a third of series 1's available funds. Buying a refurbished model or timing a purchase to a tax year where I can claim the deduction maximises the value. I don't need everything before I start — I need enough to photograph work well and list it.
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- PAY YOURSELF CALCULATOR -->
+<p class="section-label">Pay yourself calculator</p>
+<div class="context-bar">
+  Enter any profit amount and how many months it covers. The calculator sets aside tax, CPP, and materials, then splits what remains between personal pay and reinvestment into the practice — conservatively weighted toward reinvestment until the business is established.
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <div class="card-icon">◈</div>
+    <div>
+      <div class="card-title">How much can I pay myself?</div>
+      <div class="card-desc">All figures CAD · adjust the reinvestment split as my practice grows</div>
+    </div>
+  </div>
+  <div class="card-body">
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:1.5rem;">
+      <div>
+        <label style="font-size:13px; color:var(--text-muted); display:block; margin-bottom:6px;">My profit from this sale or series ($)</label>
+        <input type="number" id="py-profit" placeholder="e.g. 12849" min="0" step="1"
+          style="width:100%; font-family:'Asap',sans-serif; font-size:16px; padding:10px 14px; border:1px solid var(--border-strong); border-radius:8px; color:var(--text); background:var(--bg);">
+      </div>
+      <div>
+        <label style="font-size:13px; color:var(--text-muted); display:block; margin-bottom:6px;">How many months did this cover?</label>
+        <input type="number" id="py-months" value="3" min="1" max="12" step="1"
+          style="width:100%; font-family:'Asap',sans-serif; font-size:16px; padding:10px 14px; border:1px solid var(--border-strong); border-radius:8px; color:var(--text); background:var(--bg);">
+      </div>
+    </div>
+
+    <div style="margin-bottom:1.5rem;">
+      <label style="font-size:13px; color:var(--text-muted); display:block; margin-bottom:8px;">
+        Reinvestment split — how much of my available pay goes back into the practice
+        <span id="py-split-label" style="font-weight:600; color:var(--text);"> 50% reinvest / 50% pay myself</span>
+      </label>
+      <input type="range" id="py-split" min="0" max="80" value="50" step="10"
+        style="width:100%; max-width:400px;">
+      <div style="display:flex; justify-content:space-between; max-width:400px; font-size:11px; color:var(--text-light); margin-top:4px;">
+        <span>Pay myself more</span>
+        <span>Reinvest more</span>
+      </div>
+    </div>
+
+    <div id="py-result" style="display:none;">
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:10px; margin-bottom:1.25rem;">
+        <div class="metric">
+          <div class="metric-label">Income tax reserve</div>
+          <div class="metric-value" id="py-tax" style="font-size:18px; color:var(--amber);"></div>
+          <div class="metric-sub">20% of profit</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">CPP reserve</div>
+          <div class="metric-value" id="py-cpp" style="font-size:18px; color:var(--amber);"></div>
+          <div class="metric-sub">11.9% of profit</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Materials reserve</div>
+          <div class="metric-value" id="py-mat" style="font-size:18px; color:var(--amber);"></div>
+          <div class="metric-sub">$375 × months</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Available after reserves</div>
+          <div class="metric-value" id="py-avail" style="font-size:18px;"></div>
+          <div class="metric-sub">before pay/reinvest split</div>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:1.25rem;">
+        <div class="metric" style="border:1px solid var(--border);">
+          <div class="metric-label" style="font-weight:600;">I reinvest into my practice</div>
+          <div class="metric-value positive" id="py-reinvest" style="font-size:20px;"></div>
+          <div class="metric-sub" id="py-reinvest-mo"></div>
+        </div>
+        <div class="metric" style="border:1px solid var(--border);">
+          <div class="metric-label" style="font-weight:600;">I pay myself</div>
+          <div class="metric-value positive" id="py-take" style="font-size:20px;"></div>
+          <div class="metric-sub" id="py-take-mo"></div>
+        </div>
+      </div>
+
+      <div style="background:var(--bg-secondary); border-radius:8px; padding:14px 16px; font-size:13px; color:var(--text-muted); line-height:1.8;">
+        <strong style="color:var(--text); display:block; margin-bottom:4px;">My rule of thumb</strong>
+        The moment money arrives, I move <strong id="py-reserve-total" style="color:var(--text);"></strong> immediately into a separate savings account — covering tax, CPP, and materials. Of what remains, I reinvest <span id="py-split-remind" style="font-weight:600; color:var(--text);"></span>% back into the practice and pay myself the rest. As my practice grows and I build a 3–6 month operating buffer, I can gradually shift the split toward paying myself more.
+      </div>
+
+      <div id="py-warn" style="display:none; margin-top:1rem; background:var(--amber-bg); border-left:3px solid var(--amber); border-radius:0 6px 6px 0; padding:12px 16px; font-size:13px; color:var(--amber); line-height:1.6;"></div>
+
+    </div>
+
+    <div id="py-placeholder" style="font-size:13px; color:var(--text-light); padding:6px 0;">
+      Enter a profit amount above to see your breakdown.
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function() {
+  function fmt(n) {
+    if (n < 0) return '-$' + Math.round(Math.abs(n)).toLocaleString('en-CA');
+    return '$' + Math.round(n).toLocaleString('en-CA');
+  }
+  function fmtMo(n, months) {
+    return fmt(n / months) + '/month';
+  }
+  function pct(n) { return Math.round(n) + '%'; }
+
+  function run() {
+    var profit = parseFloat(document.getElementById('py-profit').value);
+    var months = parseInt(document.getElementById('py-months').value) || 1;
+    var reinvestPct = parseInt(document.getElementById('py-split').value);
+
+    document.getElementById('py-split-label').textContent =
+      ' ' + reinvestPct + '% reinvest / ' + (100 - reinvestPct) + '% pay myself';
+
+    if (isNaN(profit) || profit <= 0) {
+      document.getElementById('py-result').style.display = 'none';
+      document.getElementById('py-placeholder').style.display = 'block';
+      return;
+    }
+
+    document.getElementById('py-result').style.display = 'block';
+    document.getElementById('py-placeholder').style.display = 'none';
+
+    var tax = profit * 0.20;
+    var cpp = profit * 0.119;
+    var mat = 375 * months;
+    var avail = profit - tax - cpp - mat;
+    var reinvest = avail * (reinvestPct / 100);
+    var take = avail - reinvest;
+    var totalReservePct = Math.round(((tax + cpp + mat) / profit) * 100);
+
+    document.getElementById('py-tax').textContent = fmt(tax);
+    document.getElementById('py-cpp').textContent = fmt(cpp);
+    document.getElementById('py-mat').textContent = fmt(mat);
+    document.getElementById('py-avail').textContent = fmt(Math.max(avail, 0));
+    document.getElementById('py-reinvest').textContent = fmt(Math.max(reinvest, 0));
+    document.getElementById('py-reinvest-mo').textContent = months > 1 ? fmtMo(Math.max(reinvest, 0), months) : '';
+    document.getElementById('py-take').textContent = fmt(Math.max(take, 0));
+    document.getElementById('py-take-mo').textContent = months > 1 ? fmtMo(Math.max(take, 0), months) : '';
+    document.getElementById('py-reserve-total').textContent = pct(totalReservePct) + ' of every payment';
+    document.getElementById('py-split-remind').textContent = reinvestPct;
+
+    var warn = document.getElementById('py-warn');
+    if (avail < 0) {
+      warn.style.display = 'block';
+      warn.textContent = 'At this profit level, my tax and CPP reserves plus materials cost exceed what I earned. I review my pricing — I may be below floor on some pieces, or my costs are higher than estimated.';
+    } else if (take < 500 && months >= 1) {
+      warn.style.display = 'block';
+      warn.textContent = 'My personal pay is very low at this split. This is fine while building the practice, but I make sure I have another income source to cover my living costs.';
+    } else {
+      warn.style.display = 'none';
+    }
+  }
+
+  document.getElementById('py-profit').addEventListener('input', run);
+  document.getElementById('py-months').addEventListener('input', run);
+  document.getElementById('py-split').addEventListener('input', run);
+
+  run();
+})();
+</script>
+
+<hr>
+
+<div class="footnote">
+  <p>All prices and projections in CAD. Based on my pricing structure as of May 2026 — launch prices, cotton paper, Shopify Basic plan (2.9% + $0.30/transaction).</p>
+  <p>Shipping costs passed to buyer and not included in profit calculation. Studies and card pack income not included in this projection.</p>
+  <p>Tax deductions not reflected in profit figures above — actual after-tax income will be higher once legitimate deductions are claimed. See tax-and-deductions-reference.html.</p>
+  <p>This is an example scenario for personal reference only — not a financial guarantee or professional financial advice.</p>
+  <p>Last updated: May 2026</p>
+</div>
+
+</body>
+</html>

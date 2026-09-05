@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tax & Deductions Reference — Self-Employed Artist, BC</title>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-secondary: #f4f4f2;
+    --text: #4a4948;
+    --text-muted: #7a7877;
+    --text-light: #a29f9e;
+    --accent: #a29f9f;
+    --accent-dark: #6e6b6b;
+    --accent-light: #d6d4d4;
+    --border: #e0dedc;
+    --border-strong: #c8c5c3;
+    --green: #3a7a45;
+    --green-bg: #e6f0e8;
+    --amber: #8a6a20;
+    --amber-bg: #f5f0e0;
+    --red: #8a3a3a;
+    --red-bg: #f5e6e6;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Asap', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+
+  .doc-header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .doc-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .doc-header p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  .disclaimer {
+    background: var(--amber-bg);
+    border-left: 3px solid var(--amber);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--amber);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+  .disclaimer strong { font-weight: 600; }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 2.5rem 0 1rem;
+  }
+
+  .action-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+  }
+  .action-header {
+    background: var(--bg-secondary);
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .action-icon {
+    font-size: 20px;
+    color: var(--accent);
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .action-title { font-size: 15px; font-weight: 600; color: var(--text); }
+  .action-desc { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .action-body { padding: 18px 20px; }
+
+  .status-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .status-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .badge-now { background: var(--green-bg); color: var(--green); }
+  .badge-when { background: var(--amber-bg); color: var(--amber); }
+  .badge-never { background: var(--red-bg); color: var(--red); }
+  .badge-always { background: #e8f0f8; color: #3a6fa8; }
+
+  .step-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .step-list li {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.6;
+    align-items: flex-start;
+  }
+  .step-list li:last-child { border-bottom: none; }
+  .step-num {
+    background: var(--accent);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-list li strong { color: var(--text); font-weight: 600; }
+  .step-list li span { color: var(--text-muted); }
+
+  .deduction-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .deduction-table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-light);
+    padding: 0 10px 10px 0;
+    border-bottom: 1px solid var(--border-strong);
+  }
+  .deduction-table td {
+    padding: 10px 10px 10px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .deduction-table tr:last-child td { border-bottom: none; }
+  .deduction-table .category {
+    font-weight: 600;
+    color: var(--text);
+    white-space: nowrap;
+  }
+  .deduction-table .examples {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 3px;
+  }
+  .deduction-table .how {
+    font-size: 12.5px;
+    color: var(--text-muted);
+  }
+
+  .info-box {
+    background: var(--bg-secondary);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    margin: 14px 0 0;
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+  .info-box strong { color: var(--text); font-weight: 600; }
+
+  .checklist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .checklist li {
+    display: flex;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13.5px;
+    color: var(--text);
+    align-items: flex-start;
+    line-height: 1.6;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check-box {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--accent);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+  .checklist li span { color: var(--text-muted); font-size: 12px; display: block; margin-top: 2px; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 14px;
+  }
+  .info-card {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .info-card-title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .info-card strong { color: var(--text); font-weight: 600; }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+  .footnote {
+    font-size: 12px;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+  .footnote p { margin-bottom: 5px; }
+
+  @media print {
+    body { padding: 1.5rem; }
+    .action-card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <h1>Tax & Deductions Reference</h1>
+  <p>Self-employed artist · British Columbia, Canada · All figures CAD</p>
+</div>
+
+<div class="disclaimer">
+  <strong>Important:</strong> This is a reference guide based on current CRA and BC tax rules, not professional tax advice. I will verify specifics with a Canadian accountant familiar with artist taxation before filing — particularly around PST on prints, and the business vs. hobby distinction.
+</div>
+
+<!-- SECTION 1: BUSINESS VS HOBBY -->
+<p class="section-label">Step 1 — Establish myself as a business, not a hobby</p>
+<div class="action-card">
+  <div class="action-header">
+    <div class="action-icon">⚑</div>
+    <div>
+      <div class="action-title">This is the most important distinction I need to make</div>
+      <div class="action-desc">The CRA distinguishes between a business and a hobby — only a business can deduct expenses</div>
+    </div>
+  </div>
+  <div class="action-body">
+    <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:14px;">The CRA looks for a <strong style="color:var(--text);">reasonable expectation of profit</strong> to classify my art practice as a business. I don't need to be profitable yet — I just need to demonstrate I'm operating with the intention of making money. Here's how I do that:</p>
+    <ul class="step-list">
+      <li>
+        <div class="step-num">1</div>
+        <div><strong>Keep a separate bank account for my art income and expenses.</strong> <span>This is the single clearest signal to the CRA that I'm running a business. I open one now, before I start earning.</span></div>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <div><strong>Track all income and all expenses from day one.</strong> <span>Every sale, every material purchase, every subscription. A simple spreadsheet is fine to start.</span></div>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <div><strong>Keep all receipts.</strong> <span>Physical or digital — I photograph paper receipts and save them in a folder organised by month. No receipt means no deduction.</span></div>
+      </li>
+      <li>
+        <div class="step-num">4</div>
+        <div><strong>File a T2125 each year.</strong> <span>This is the CRA form (Statement of Business or Professional Activities) where I report my art income and claim my deductions. It goes with my personal T1 tax return.</span></div>
+      </li>
+      <li>
+        <div class="step-num">5</div>
+        <div><strong>Consider registering a business name.</strong> <span>Not legally required as a sole proprietor, but it adds credibility. I can register a business name in BC for a small fee through BC Registry Services.</span></div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 2: GST -->
+<p class="section-label">Step 2 — Understand when I need to collect GST</p>
+<div class="action-card">
+  <div class="action-header">
+    <div class="action-icon">◈</div>
+    <div>
+      <div class="action-title">GST — Federal 5%</div>
+      <div class="action-desc">I don't collect this until I cross the $30,000 threshold</div>
+    </div>
+  </div>
+  <div class="action-body">
+    <div class="two-col">
+      <div class="info-card">
+        <div class="info-card-title">Right now (under $30,000)</div>
+        I am a <strong>"small supplier"</strong> — I do not collect or remit GST. My prices are my prices. No action needed on GST until I cross the threshold.
+      </div>
+      <div class="info-card">
+        <div class="info-card-title">Once I cross $30,000</div>
+        I must <strong>register for a GST number within 29 days</strong> of crossing the threshold. I then add 5% GST to Canadian sales and remit it to the CRA quarterly or annually.
+      </div>
+    </div>
+    <div class="info-box">
+      <strong>The upside of GST registration:</strong> Once registered, I can claim back the GST I pay on all my business expenses — materials, supplies, shipping, equipment. This is called an Input Tax Credit (ITC) and it can meaningfully reduce what I owe.<br><br>
+      <strong>US and international buyers:</strong> GST does not apply to exports. I never add GST to sales shipped outside Canada, regardless of my registration status.<br><br>
+      <strong>My threshold tracker:</strong> I watch my cumulative Canadian revenue across any 12-month rolling period. The moment I approach $30,000 I register proactively — registering late carries penalties.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: PST -->
+<p class="section-label">Step 3 — Understand BC PST on my work</p>
+<div class="action-card">
+  <div class="action-header">
+    <div class="action-icon">◈</div>
+    <div>
+      <div class="action-title">BC PST — 7%</div>
+      <div class="action-desc">Original artwork I create and sell is PST exempt — prints need confirmation</div>
+    </div>
+  </div>
+  <div class="action-body">
+    <ul class="step-list">
+      <li>
+        <div class="step-num" style="background:var(--green);">✓</div>
+        <div><strong>Original paintings and drawings:</strong> PST exempt in BC under the BC Provincial Sales Tax Act. As the artist creating and selling my own original work, I do not collect PST on these. No action needed.</div>
+      </li>
+      <li>
+        <div class="step-num" style="background:var(--amber);">?</div>
+        <div><strong>Limited edition fine art prints:</strong> Generally also exempt as reproductions of my original work, but this is a grey area I will confirm directly with the BC Ministry of Finance (1-877-388-4440) or with my accountant before selling prints.</div>
+      </li>
+      <li>
+        <div class="step-num" style="background:var(--accent-dark);">→</div>
+        <div><strong>Card packs (printed reproductions):</strong> Printed art card packs sold as goods are likely subject to PST as a tangible personal property sale — I confirm this with the BC Ministry of Finance or my accountant before selling.</div>
+      </li>
+    </ul>
+    <div class="info-box">
+      <strong>BC Ministry of Finance — PST enquiries:</strong> 1-877-388-4440 (toll-free) · Monday to Friday, 8:30am – 4:30pm Pacific<br>
+      <strong>Online:</strong> gov.bc.ca/pst
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: DEDUCTIONS -->
+<p class="section-label">Step 4 — Claim every deduction I'm entitled to</p>
+<div class="action-card">
+  <div class="action-header">
+    <div class="action-icon">↓</div>
+    <div>
+      <div class="action-title">My deductible business expenses</div>
+      <div class="action-desc">All claimed on my T2125 · keep receipts for everything · percentages apply where mixed personal/business use</div>
+    </div>
+  </div>
+  <div class="action-body">
+    <table class="deduction-table">
+      <thead>
+        <tr>
+          <th style="width:28%;">Category</th>
+          <th style="width:40%;">What I can deduct</th>
+          <th>How it works</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="category">Home studio</div>
+            <div class="examples">1/3 of my apartment</div>
+          </td>
+          <td>1/3 of my monthly rent, utilities (heat, electricity, water), internet, and tenant's insurance</td>
+          <td class="how">I calculate the studio as a percentage of my total apartment square footage and apply that percentage to each bill. I keep a floor plan or measurement record to support the claim.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="category">Art materials</div>
+            <div class="examples">Everything I make work with</div>
+          </td>
+          <td>Paints, inks, paper, canvas, linen, panels, gesso, brushes, palette knives, mediums, varnish, and any other materials used to create my work</td>
+          <td class="how">100% deductible. I keep all receipts from art supply stores. If I buy in bulk, I deduct in the year of purchase.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="category">Printing costs</div>
+            <div class="examples">Limited edition prints</div>
+          </td>
+          <td>Paper and printing service fees for my limited edition prints</td>
+          <td class="how">100% deductible as a cost of producing inventory for sale.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="category">Packaging and shipping</div>
+            <div class="examples">Everything that leaves with the work</div>
+          </td>
+          <td>Glassine envelopes, backing boards, rigid mailers, boxes, corner protectors, foam, thank you cards, postage, and Canada Post fees</td>
+          <td class="how">100% deductible. I keep receipts from Uline, Canada Post, and any other suppliers.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="category">Website and platforms</div>
+            <div class="examples">My online presence</div>
+          </td>
+          <td>Format subscription, Shopify subscription and transaction fees, domain registration, Kit email platform</td>
+          <td class="how">100% deductible as business operating costs. I save invoices from each platform monthly.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="category">Equipment</div>
+            <div class="examples">Tools of my practice</div>
+          </td>
+          <td>Camera and lenses (for photographing work), lighting equipment, computer, tablet, editing software, storage drives</td>
+          <td class="how">If used exclusively for business: 100% deductible. If mixed personal/business use (e.g. my computer): I deduct the business-use percentage only. Larger purchases over ~$500 may need to be depreciated (Capital Cost Allowance) rather than fully expensed in year one — my accountant will guide this.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="category">Professional development</div>
+            <div class="examples">Growing my practice</div>
+          </td>
+          <td>Art books, technique books, online courses, workshops, classes, museum and gallery memberships where relevant to my practice</td>
+          <td class="how">100% deductible when directly relevant to my art practice. I keep a note of why each purchase relates to my work.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="category">Marketing</div>
+            <div class="examples">Promoting my work</div>
+          </td>
+          <td>Photography of my work (if hired out), printing of promotional materials, business cards, any paid promotion</td>
+          <td class="how">100% deductible. My YouTube channel costs (any equipment purchased specifically for it) are also deductible.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="category">Bank and payment fees</div>
+            <div class="examples">Cost of getting paid</div>
+          </td>
+          <td>Business bank account fees, Shopify payment processing fees (2.9% + 30¢), any PayPal or Stripe fees</td>
+          <td class="how">100% deductible. Shopify fees are automatically recorded in my Shopify dashboard — I download these annually.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="category">Professional fees</div>
+            <div class="examples">Getting expert help</div>
+          </td>
+          <td>Accountant fees for preparing my T2125 and tax return, any legal fees related to my business</td>
+          <td class="how">100% deductible. This means the cost of hiring an accountant is itself a deductible expense.</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="category">Vehicle</div>
+            <div class="examples">If applicable</div>
+          </td>
+          <td>Trips to art supply stores, the post office, galleries, framing shops, and other business-related destinations</td>
+          <td class="how">I keep a mileage log (date, destination, purpose, km). I deduct the business-use percentage of my total vehicle costs, or use the CRA per-kilometre rate. Personal trips are not deductible.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION 5: RECORDS -->
+<p class="section-label">Step 5 — Keep records the CRA expects</p>
+<div class="action-card">
+  <div class="action-header">
+    <div class="action-icon">☰</div>
+    <div>
+      <div class="action-title">What I keep and for how long</div>
+      <div class="action-desc">CRA requires business records to be kept for 6 years from the end of the tax year they relate to</div>
+    </div>
+  </div>
+  <div class="action-body">
+    <ul class="checklist">
+      <li>
+        <div class="check-box"></div>
+        <div><strong>All sales records</strong> — Shopify order history, Format sales, any direct sales. I download and save these annually.<span>Keep for 6 years</span></div>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <div><strong>All receipts for expenses</strong> — physical or photographed. Organised by month in a folder (digital or physical).<span>Keep for 6 years</span></div>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <div><strong>Bank and credit card statements</strong> — for my dedicated art business account.<span>Keep for 6 years</span></div>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <div><strong>Lease or rental agreement</strong> — to support my home studio deduction claim.<span>Keep current copy plus 6 years</span></div>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <div><strong>Mileage log</strong> — if I deduct vehicle use. Date, destination, purpose, kilometres.<span>Keep for 6 years</span></div>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <div><strong>Filed tax returns (T1 + T2125)</strong> — copies of what I submitted each year.<span>Keep indefinitely</span></div>
+      </li>
+      <li>
+        <div class="check-box"></div>
+        <div><strong>GST returns</strong> — once registered, copies of all returns filed.<span>Keep for 6 years</span></div>
+      </li>
+    </ul>
+    <div class="info-box" style="margin-top:14px;">
+      <strong>Simple system I use:</strong> One folder per year, with subfolders for each month. Every receipt goes in immediately — photographed with my phone and saved to the folder the same day I spend the money. At year end I export my Shopify and bank statements and hand everything to my accountant.
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6: KEY DATES -->
+<p class="section-label">Key dates and actions</p>
+<div class="action-card">
+  <div class="action-header">
+    <div class="action-icon">◷</div>
+    <div>
+      <div class="action-title">My annual tax calendar</div>
+      <div class="action-desc">Self-employed in Canada · personal tax year runs January 1 – December 31</div>
+    </div>
+  </div>
+  <div class="action-body">
+    <ul class="step-list">
+      <li>
+        <div class="step-num">Jan</div>
+        <div><strong>Organise last year's records.</strong> <span>Compile all receipts, download Shopify and bank statements for the full prior year. Hand to accountant or begin T2125 preparation.</span></div>
+      </li>
+      <li>
+        <div class="step-num">Mar</div>
+        <div><strong>File my T1 personal return by April 30</strong> (or June 15 if self-employed — but any tax owed is still due April 30). <span>Filing late when I owe money triggers a 5% penalty plus 1% per month interest.</span></div>
+      </li>
+      <li>
+        <div class="step-num">Apr</div>
+        <div><strong>Pay any balance owing by April 30.</strong> <span>Even if I file in June as a self-employed person, I pay what I owe by April 30 to avoid interest.</span></div>
+      </li>
+      <li>
+        <div class="step-num">Jun</div>
+        <div><strong>Self-employed filing deadline: June 15.</strong> <span>I can file my return by June 15 without a late-filing penalty, but only if I owe nothing or have already paid by April 30.</span></div>
+      </li>
+      <li>
+        <div class="step-num">Sep</div>
+        <div><strong>Review GST revenue threshold.</strong> <span>Check my rolling 12-month Canadian revenue. If approaching $30,000, I register for GST proactively rather than scrambling at the deadline.</span></div>
+      </li>
+      <li>
+        <div class="step-num">Dec</div>
+        <div><strong>Year-end expense review.</strong> <span>If I need to purchase materials, supplies, or equipment for my practice, buying before December 31 means I can deduct it in the current tax year.</span></div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- SECTION 7: QUARTERLY INSTALMENTS -->
+<p class="section-label">Quarterly tax instalments</p>
+<div class="action-card">
+  <div class="action-header">
+    <div class="action-icon">◈</div>
+    <div>
+      <div class="action-title">I may need to pay tax in instalments once my income grows</div>
+      <div class="action-desc">The CRA requires instalments if I owe more than $3,000 in net tax in the current year and either of the two previous years</div>
+    </div>
+  </div>
+  <div class="action-body">
+    <p style="font-size:13.5px; color:var(--text-muted); line-height:1.7;">If the CRA determines I owe instalments, they will send me an instalment reminder in February and August. Instalment due dates are <strong style="color:var(--text);">March 15, June 15, September 15, and December 15</strong> each year. Missing instalments doesn't mean I can't pay at year end — it just means I may owe instalment interest on the shortfall. My accountant will help me determine the right instalment amount once my income is established.</p>
+  </div>
+</div>
+
+<hr>
+
+<p class="section-label">Find a Canadian accountant familiar with artist taxation</p>
+<div class="info-box" style="margin-top:0;">
+  <strong>What to look for:</strong> A CPA (Chartered Professional Accountant) with experience in self-employed creative professionals or artists. Ask specifically whether they've worked with artists claiming home studio deductions and T2125 filings.<br><br>
+  <strong>Where to find one:</strong> CPA Canada's Find a CPA directory at <strong>cpаcanada.ca</strong> · local arts councils sometimes maintain referral lists · word of mouth from other self-employed artists in Vancouver is often the best route.<br><br>
+  <strong>What to bring to the first meeting:</strong> A summary of my expected income sources (prints, originals, studies, card packs), my apartment lease showing rent amount, and a rough list of monthly expenses. Most accountants offer a free initial consultation.
+</div>
+
+<hr>
+
+<div class="footnote">
+  <p>Based on CRA rules and BC PST legislation current as of May 2026. Tax rules change — I verify current rules with my accountant each year before filing.</p>
+  <p>CRA general enquiries: 1-800-959-8281 · cra-arc.gc.ca</p>
+  <p>BC Ministry of Finance PST enquiries: 1-877-388-4440 · gov.bc.ca/pst</p>
+  <p>Last updated: May 2026</p>
+</div>
+
+</body>
+</html>

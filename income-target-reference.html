@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Income Target Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ffffff;
+    --ink:#5d5a5b;
+    --stone:#a29f9f;
+    --ink-strong:#46443f;
+    --ink-muted:#6e6b6b;
+    --mist:#f5f4f3;
+    --mist-deep:#eceae9;
+    --line:#e4e2e1;
+    --line-soft:#efedec;
+    --good:#4f6b52;
+    --warn:#8a6a3d;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+
+  body{
+    font-family:'Asap',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.65;
+    max-width:820px;
+    margin:0 auto;
+    padding:clamp(1.5rem,4vw,3.5rem) clamp(1.1rem,4vw,2.5rem) 5rem;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+
+  /* ---------- Header ---------- */
+  .eyebrow{
+    font-size:11px;font-weight:600;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--ink-muted);
+  }
+  header{padding-bottom:1.75rem;border-bottom:1px solid var(--line);margin-bottom:2.5rem}
+  header .eyebrow{margin-bottom:.9rem}
+  h1{
+    font-size:clamp(30px,6vw,44px);font-weight:600;line-height:1.05;
+    letter-spacing:-.02em;color:var(--ink-strong);
+  }
+  header p{margin-top:.85rem;color:var(--ink-muted);font-size:15px;max-width:58ch}
+
+  /* ---------- Sections ---------- */
+  section{margin-top:3.25rem}
+  .sec-label{
+    font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--stone);margin-bottom:1rem;
+    display:flex;align-items:center;gap:.75rem;
+  }
+  .sec-label::after{content:"";flex:1;height:1px;background:var(--line)}
+  .sec-lead{color:var(--ink-muted);font-size:14.5px;max-width:62ch;margin:-.35rem 0 1.4rem}
+
+  /* ---------- Answer band ---------- */
+  .answer{
+    border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--paper);
+  }
+  .answer-top{
+    background:var(--mist);padding:clamp(1.3rem,4vw,2rem);border-bottom:1px solid var(--line);
+  }
+  .answer-top .k{
+    font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--stone);margin-bottom:.4rem;
+  }
+  .answer-top .v{
+    font-size:clamp(34px,8vw,46px);font-weight:600;line-height:1;
+    letter-spacing:-.02em;color:var(--ink-strong);
+  }
+  .answer-top .s{margin-top:.7rem;font-size:14.5px;color:var(--ink-muted);max-width:56ch}
+  .answer-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:0;
+  }
+  .answer-cell{
+    padding:1.1rem clamp(1rem,3vw,1.4rem);border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .answer-cell:last-child{border-right:none}
+  .answer-cell .k{font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:.2rem}
+  .answer-cell .v{font-size:21px;font-weight:600;color:var(--ink-strong)}
+  .answer-cell .s{font-size:11.5px;color:var(--stone);margin-top:.1rem}
+
+  /* ---------- Controls ---------- */
+  .controls{padding:clamp(1.2rem,3.5vw,1.7rem)}
+  .ctrl{margin-bottom:1.5rem}
+  .ctrl:last-child{margin-bottom:0}
+  .ctrl-label{
+    font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-muted);margin-bottom:.5rem;display:flex;justify-content:space-between;
+    gap:1rem;align-items:baseline;flex-wrap:wrap;
+  }
+  .ctrl-label .val{font-size:14px;letter-spacing:0;text-transform:none;font-weight:600;color:var(--ink-strong)}
+  input[type=range]{
+    width:100%;accent-color:var(--ink);height:22px;cursor:pointer;
+  }
+  input[type=range]:focus-visible{outline:2px solid var(--stone);outline-offset:3px}
+  .scale{display:flex;justify-content:space-between;font-size:11px;color:var(--stone);margin-top:-.15rem}
+
+  .fields{display:flex;gap:1rem;flex-wrap:wrap}
+  .field{flex:1;min-width:145px}
+  .field label{display:block;font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:.35rem}
+  .field .wrap{display:flex;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:.1rem .6rem}
+  .field .fix{color:var(--ink-muted);font-size:15px}
+  .field input{
+    font-family:inherit;font-size:16px;font-weight:500;color:var(--ink-strong);border:none;background:none;
+    width:100%;padding:.5rem .35rem;outline:none;
+  }
+  .field .hint{font-size:11px;color:var(--stone);margin-top:.3rem}
+
+  /* ---------- Breakdown ---------- */
+  .brk{border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .brk-row{
+    display:flex;justify-content:space-between;gap:1rem;align-items:baseline;
+    padding:.75rem clamp(1rem,3vw,1.3rem);border-bottom:1px solid var(--line-soft);font-size:14.5px;
+  }
+  .brk-row:last-child{border-bottom:none}
+  .brk-row .lbl{color:var(--ink-muted)}
+  .brk-row .lbl b{color:var(--ink-strong);font-weight:600}
+  .brk-row .amt{font-weight:600;color:var(--ink-strong);white-space:nowrap}
+  .brk-row.sub{font-size:13.5px;padding-top:.5rem;padding-bottom:.5rem}
+  .brk-row.sub .lbl{padding-left:1.1rem;color:var(--stone)}
+  .brk-row.sub .amt{font-weight:400;color:var(--ink-muted)}
+  .brk-row.rule{background:var(--mist);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .brk-row.total{background:var(--mist);font-size:16px;padding-top:1rem;padding-bottom:1rem}
+  .brk-row.total .amt{font-size:22px}
+  .neg{color:var(--ink-muted)}
+
+  /* ---------- Callouts ---------- */
+  .note{
+    background:var(--mist);border-left:3px solid var(--stone);border-radius:0 12px 12px 0;
+    padding:clamp(1rem,3vw,1.35rem);font-size:14px;color:var(--ink-muted);line-height:1.7;
+  }
+  .note strong{color:var(--ink-strong);font-weight:600}
+  .note.flag{border-left-color:var(--warn)}
+  .note.flag strong{color:var(--warn)}
+  .note.ok{border-left-color:var(--good)}
+  .note + .note{margin-top:.7rem}
+  .note .eq{
+    font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:12.5px;
+    background:var(--paper);border-radius:6px;padding:.45rem .65rem;color:var(--ink);display:inline-block;margin-top:.5rem;
+  }
+
+  .chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.7rem;margin-top:1rem}
+  .chip{background:var(--mist);border-radius:10px;padding:.85rem 1rem}
+  .chip .k{font-size:11.5px;color:var(--ink-muted)}
+  .chip .v{font-size:20px;font-weight:600;color:var(--ink-strong);margin-top:.1rem}
+  .chip .s{font-size:11px;color:var(--stone);margin-top:.05rem}
+
+  /* ---------- Accordions ---------- */
+  .acc{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:.7rem;background:var(--paper)}
+  .acc-btn{
+    width:100%;text-align:left;font-family:inherit;background:var(--paper);border:none;cursor:pointer;
+    padding:1.05rem 1.25rem;display:flex;align-items:center;gap:1rem;
+    font-size:15.5px;font-weight:600;color:var(--ink-strong);transition:background .15s;
+  }
+  .acc-btn:hover{background:var(--mist)}
+  .acc-btn:focus-visible{outline:2px solid var(--stone);outline-offset:-2px}
+  .acc-btn .sub{font-weight:400;font-size:13px;color:var(--ink-muted);display:block;margin-top:.1rem}
+  .acc-btn .txt{flex:1}
+  .acc-ico{flex:none;width:22px;height:22px;position:relative;color:var(--stone)}
+  .acc-ico::before,.acc-ico::after{content:"";position:absolute;background:currentColor;border-radius:2px}
+  .acc-ico::before{left:4px;right:4px;top:10px;height:2px}
+  .acc-ico::after{top:4px;bottom:4px;left:10px;width:2px;transition:opacity .25s}
+  .acc-btn[aria-expanded="true"] .acc-ico::after{opacity:0}
+  .acc-panel{max-height:0;overflow:hidden;transition:max-height .32s ease}
+  .acc-inner{padding:0 1.25rem 1.35rem;font-size:14.5px;color:var(--ink-muted);line-height:1.7}
+  .acc-inner p{margin-bottom:.85rem}
+  .acc-inner p:last-child{margin-bottom:0}
+  .acc-inner strong{color:var(--ink-strong);font-weight:600}
+  .acc-inner ul{margin:0 0 .85rem 1.1rem}
+  .acc-inner li{margin-bottom:.35rem}
+  .acc-inner .mini-eq{
+    font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:12.5px;
+    background:var(--mist);border-radius:6px;padding:.5rem .7rem;color:var(--ink);display:inline-block;
+  }
+
+  /* ---------- Tables ---------- */
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th{
+    text-align:left;font-size:10.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--ink-muted);padding:0 .7rem .7rem 0;border-bottom:1px solid var(--stone);
+  }
+  th.r,td.r{text-align:right;padding-right:0}
+  td{padding:.7rem .7rem .7rem 0;border-bottom:1px solid var(--line);vertical-align:middle}
+  tr:last-child td{border-bottom:none}
+  tr.hit td{background:var(--mist)}
+  tr.hit td:first-child{font-weight:600;color:var(--ink-strong)}
+  td.muted{color:var(--ink-muted)}
+  .tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.04em;color:var(--ink-muted);background:var(--mist);border:1px solid var(--line);padding:.1rem .5rem;border-radius:20px;margin-left:.4rem}
+  .tag.good{color:var(--good);border-color:#cfd9cf;background:#f2f6f2}
+  .tag.warn{color:var(--warn);border-color:#e3d8c4;background:#faf6ee}
+
+  /* ---------- Footer ---------- */
+  footer{margin-top:3.5rem;padding-top:1.75rem;border-top:1px solid var(--line);font-size:13px;color:var(--ink-muted);line-height:1.75}
+  footer p{margin-bottom:.5rem}
+  footer .handoff{background:var(--mist);border-radius:12px;padding:1.1rem 1.25rem;margin-bottom:1.5rem;color:var(--ink)}
+  footer .handoff strong{color:var(--ink-strong);font-weight:600}
+  footer .stamp{color:var(--stone);font-weight:600;letter-spacing:.02em}
+
+  a{color:var(--ink-strong)}
+
+  @media (max-width:560px){
+    .answer-cell{border-right:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;scroll-behavior:auto!important}
+  }
+  @media print{
+    body{max-width:none;padding:1.2rem}
+    .controls{display:none}
+    .acc-panel{max-height:none!important}
+    .acc-ico{display:none}
+    .answer,.note,.chip,.acc,.brk{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">My income target reference · All figures CAD · 2026 tax year</div>
+  <h1>What I need to sell to pay myself</h1>
+  <p>How much of a series has to sell for me to take home a set amount each month, after real cash costs, CPP, and income tax. Built on my own pricing structure, with 2026 federal and BC rates rather than a flat reserve percentage.</p>
+</header>
+
+<!-- ============ THE ANSWER ============ -->
+<section id="answer" style="margin-top:0">
+  <div class="sec-label">The answer</div>
+  <p class="sec-lead">Everything below moves with the controls. The default is my standard series — 6 pieces a month on cotton paper, each with an edition of 10 prints — sold direct through Shopify, with my practice as my only income.</p>
+
+  <div class="answer">
+    <div class="answer-top">
+      <div class="k">To take home <span id="a-target">$1,000</span> a month, I need to sell</div>
+      <div class="v num" id="a-headline">—</div>
+      <div class="s" id="a-sub">—</div>
+    </div>
+    <div class="answer-grid">
+      <div class="answer-cell"><div class="k">At my current setting</div><div class="v num" id="a-actual">—</div><div class="s" id="a-actual-s">take-home per month</div></div>
+      <div class="answer-cell"><div class="k">Quarterly revenue</div><div class="v num" id="a-rev">—</div><div class="s" id="a-rev-s">gross, before costs</div></div>
+      <div class="answer-cell"><div class="k">Effective tax + CPP</div><div class="v num" id="a-rate">—</div><div class="s" id="a-rate-s">of business income</div></div>
+    </div>
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="answer" style="margin-top:.7rem">
+    <div class="controls">
+
+      <div class="ctrl">
+        <div class="ctrl-label">
+          <span>Sell-through — how much of each series finds a buyer</span>
+          <span class="val num" id="l-sell">25%</span>
+        </div>
+        <input type="range" id="s-sell" min="0" max="100" value="25" step="1" aria-label="Sell-through percentage">
+        <div class="scale"><span>0% — nothing sells</span><span>100% — full sell-out</span></div>
+      </div>
+
+      <div class="ctrl">
+        <div class="ctrl-label">
+          <span>Reinvestment split — how much of my pay goes back into the practice</span>
+          <span class="val num" id="l-split">50% reinvest / 50% me</span>
+        </div>
+        <input type="range" id="s-split" min="0" max="80" value="50" step="5" aria-label="Reinvestment percentage">
+        <div class="scale"><span>Pay myself more</span><span>Reinvest more</span></div>
+      </div>
+
+      <div class="ctrl">
+        <div class="fields">
+          <div class="field">
+            <label for="f-target">Monthly take-home target</label>
+            <div class="wrap"><span class="fix">$</span><input type="number" id="f-target" value="1000" min="0" step="50"></div>
+          </div>
+          <div class="field">
+            <label for="f-other">Other income (day job)</label>
+            <div class="wrap"><span class="fix">$</span><input type="number" id="f-other" value="0" min="0" step="1000"></div>
+            <div class="hint">Annual. Changes my tax rate a lot.</div>
+          </div>
+          <div class="field">
+            <label for="f-rent">Total monthly rent</label>
+            <div class="wrap"><span class="fix">$</span><input type="number" id="f-rent" value="1500" min="0" step="50"></div>
+            <div class="hint">I claim ⅓ as studio.</div>
+          </div>
+          <div class="field">
+            <label for="f-mat">Materials per month</label>
+            <div class="wrap"><span class="fix">$</span><input type="number" id="f-mat" value="375" min="0" step="25"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ctrl">
+        <div class="fields">
+          <div class="field">
+            <label for="f-pieces">Pieces made per month</label>
+            <div class="wrap"><input type="number" id="f-pieces" value="6" min="1" max="30" step="1"></div>
+          </div>
+          <div class="field">
+            <label for="f-studies">Studies sold per quarter</label>
+            <div class="wrap"><input type="number" id="f-studies" value="0" min="0" step="1"></div>
+            <div class="hint">At $135 each.</div>
+          </div>
+          <div class="field">
+            <label for="f-packs">Card packs sold per quarter</label>
+            <div class="wrap"><input type="number" id="f-packs" value="0" min="0" step="1"></div>
+            <div class="hint">Pack of 6 at $46.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="flags" style="margin-top:1rem"></div>
+</section>
+
+<!-- ============ BREAKDOWN ============ -->
+<section id="breakdown">
+  <div class="sec-label">Where the money goes</div>
+  <p class="sec-lead">One quarter at the sell-through set above. Everything here is real cash in or out — nothing notional.</p>
+
+  <div class="brk" id="brk"></div>
+</section>
+
+<!-- ============ SCENARIO TABLE ============ -->
+<section id="scenarios">
+  <div class="sec-label">Sell-through at a glance</div>
+  <p class="sec-lead">The same series at different rates of sell-through. My own realistic-expectations note puts a first launch at 50–70%, so the row I need sits comfortably below what I've already called achievable.</p>
+  <table id="tbl">
+    <thead>
+      <tr>
+        <th style="width:22%">Sell-through</th>
+        <th class="r">Originals</th>
+        <th class="r">Prints</th>
+        <th class="r">Revenue / qtr</th>
+        <th class="r">Take-home / mo</th>
+      </tr>
+    </thead>
+    <tbody id="tbl-body"></tbody>
+  </table>
+  <div class="note" style="margin-top:1.2rem">
+    Originals and prints are shown per quarter, rounded. Take-home is before any reinvestment split — it is what actually reaches me after cash costs, CPP, and income tax.
+  </div>
+</section>
+
+<!-- ============ THE REASONING ============ -->
+<section id="reasoning">
+  <div class="sec-label">Why these numbers differ from my other documents</div>
+  <p class="sec-lead">Two corrections sit underneath this page. Both matter, and they pull in opposite directions, which is why the result is close to — but not the same as — a simple read of my example scenario.</p>
+
+  <div class="acc">
+    <button class="acc-btn" aria-expanded="false" aria-controls="p1">
+      <span class="txt">My 31.9% reserve is right for one situation and wrong for another
+        <span class="sub">It depends entirely on whether I have other income</span></span>
+      <span class="acc-ico" aria-hidden="true"></span>
+    </button>
+    <div class="acc-panel" id="p1"><div class="acc-inner">
+      <p>My example scenario reserves <strong>20% income tax + 11.9% CPP = 31.9%</strong> of every dollar of profit. Whether that is accurate depends on something the scenario doesn't state: <strong>do I have other income?</strong></p>
+      <p><strong>If my practice is my only income</strong> and it earns around $13,000 a year, the federal basic personal amount ($16,452 for 2026) and the BC basic personal amount ($13,216) both exceed my income. I pay <strong>no income tax at all</strong> — only CPP, at 11.9% on earnings above the $3,500 basic exemption. That works out to roughly <strong>8–9%</strong>, not 31.9%.</p>
+      <p><strong>If I have a day job at around $40,000</strong>, my personal amounts are already used up by that salary. Every dollar of art income is then taxed at the margin: 14% federal + 5.6% BC + 11.9% CPP, less the small deduction and credit for half my CPP. That lands at roughly <strong>31%</strong> — almost exactly my 31.9% assumption.</p>
+      <p>So the reserve in my other documents isn't wrong. It is the right number for an artist with a day job, and a very conservative one for an artist whose practice is their whole income. The <em>Other income</em> field above switches between the two.</p>
+      <p>Reserving too much is a mild problem, not a serious one — the money is still mine. But it makes the target look further away than it is.</p>
+    </div></div>
+  </div>
+
+  <div class="acc">
+    <button class="acc-btn" aria-expanded="false" aria-controls="p2">
+      <span class="txt">My hourly rate is inside my floor cost, but it is not an expense
+        <span class="sub">The CRA doesn't let a sole proprietor pay themselves a wage</span></span>
+      <span class="acc-ico" aria-hidden="true"></span>
+    </button>
+    <div class="acc-panel" id="p2"><div class="acc-inner">
+      <p>My floor formula is <span class="mini-eq">materials + (hourly rate × hours) + overhead</span>. The $62/hr labour component is the right way to price — it makes sure my time is paid for. But it is <strong>not money that leaves the business</strong>. It is my pay.</p>
+      <p>That means the "profit" figure in my example scenario is not my take-home, and it is not my taxable income either. As a sole proprietor I can't deduct a salary to myself. My taxable income on the T2125 is <strong>revenue minus real cash costs</strong> — materials, studio rent share, printing, packaging, subscriptions, Shopify fees. The labour charge never appears.</p>
+      <p>This page is built on cash, which is why the breakdown above shows fixed costs as a single quarterly block rather than folded into a per-piece floor. It is the same money, counted once, in the form the CRA and my bank account both recognise.</p>
+      <p><strong>A useful coincidence:</strong> at low sell-through the labour I'd have added back is small, while my fixed costs are large and constant. The two roughly cancel, which means my example scenario's "profit" figure is a reasonable proxy for taxable income at this scale. It stops being a good proxy as sell-through climbs.</p>
+    </div></div>
+  </div>
+
+  <div class="acc">
+    <button class="acc-btn" aria-expanded="false" aria-controls="p3">
+      <span class="txt">The exact tax figures this page uses
+        <span class="sub">2026 federal and BC rates, CPP, and the BC tax reduction credit</span></span>
+      <span class="acc-ico" aria-hidden="true"></span>
+    </button>
+    <div class="acc-panel" id="p3"><div class="acc-inner">
+      <p><strong>CPP — self-employed.</strong> 11.9% on net business income above the $3,500 basic exemption, up to the YMPE of $74,600. Half is deductible from income; the other half generates a non-refundable tax credit. Both are modelled here.</p>
+      <p><strong>Federal income tax.</strong> The lowest bracket is 14% for 2026 (reduced from 15%, prorated at 14.5% for 2025). The basic personal amount is $16,452.</p>
+      <p><strong>BC income tax.</strong> Budget 2026 raised the lowest rate from 5.06% to <strong>5.60%</strong> on the first $50,363 — the first increase to BC's bottom rate in decades. The basic personal amount is $13,216, and the credit rate rose to 5.60% to match.</p>
+      <p><strong>BC tax reduction credit.</strong> Budget 2026 raised this to <strong>$690</strong>. It is fully available below $25,570 of net income, phases out at 3.56% above that, and reaches zero at $44,952. At my income level this wipes out any BC tax that survives the basic personal amount — worth knowing, and easy to miss.</p>
+      <p><strong>Worth flagging for 2027 onwards:</strong> BC has paused indexation of its brackets and credits from 2027 to 2030, freezing them at 2026 levels. As my income grows over those four years, more of it drifts into higher brackets with no offsetting threshold growth. This page will need revisiting each year.</p>
+    </div></div>
+  </div>
+
+  <div class="acc">
+    <button class="acc-btn" aria-expanded="false" aria-controls="p4">
+      <span class="txt">What I've deliberately left out
+        <span class="sub">Things that would make the picture better, not worse</span></span>
+      <span class="acc-ico" aria-hidden="true"></span>
+    </button>
+    <div class="acc-panel" id="p4"><div class="acc-inner">
+      <p>Everything omitted here works in my favour. I've left it out so the target is a floor rather than a hope.</p>
+      <ul>
+        <li><strong>Capital Cost Allowance on my startup gear.</strong> The MacBook, camera, lights, and tripod — roughly $4,500–5,000 — are depreciated over several years and reduce my taxable income meaningfully in the early years.</li>
+        <li><strong>The Canada Workers Benefit.</strong> A refundable credit for low-income workers, including the self-employed. At the income levels on this page I would likely qualify for a real amount. My accountant can confirm.</li>
+        <li><strong>GST Input Tax Credits.</strong> Once registered, I claim back the GST I pay on materials, subscriptions, printing, and packaging.</li>
+        <li><strong>Higher-priced surfaces.</strong> This page prices every original as cotton paper, my base. Linen adds $20–30 and cradled panel adds $50–70 per piece, at almost no extra cash cost.</li>
+        <li><strong>Price reviews.</strong> A print edition that sells 6 of 10 copies launches its successor 10–15% higher. Compounding across series, this lowers the sell-through I need over time.</li>
+      </ul>
+      <p>What is <em>not</em> included on the other side: shipping, which I pass to the buyer, and any gallery commission, which would need grossing up per my pricing reference.</p>
+    </div></div>
+  </div>
+</section>
+
+<!-- ============ ASSUMPTIONS ============ -->
+<section id="assumptions">
+  <div class="sec-label">The cash costs behind every figure</div>
+  <p class="sec-lead">Drawn from my pricing reference and example scenario. These are the only things treated as money leaving the business.</p>
+
+  <div class="chips">
+    <div class="chip"><div class="k">Fixed per month</div><div class="v num" id="c-fixed">—</div><div class="s">rent share, materials, platforms</div></div>
+    <div class="chip"><div class="k">Per print sold</div><div class="v num">$22</div><div class="s">$17 printing + $5 finishing kit</div></div>
+    <div class="chip"><div class="k">Per original sold</div><div class="v num">$10</div><div class="s">mailer, glassine, board, card</div></div>
+    <div class="chip"><div class="k">Shopify per order</div><div class="v num">2.9% + 30¢</div><div class="s">Basic plan</div></div>
+  </div>
+
+  <div class="note" style="margin-top:1.2rem">
+    <strong>Prices used</strong> are the midpoints of my launch ranges on cotton paper: originals at $215 (4×6″), $308 (8×10″), and $400 (11×14″); prints at $100, $138, and $170. Studies at $135, card packs of six at $46. A full sell-out of one quarterly series grosses $30,018, which matches my example scenario exactly.
+    <span class="eq">fixed / month = (rent ÷ 3) + materials + $39 Shopify + $20 Format + $21 Adobe + $30 internet</span>
+  </div>
+</section>
+
+<footer>
+  <div class="handoff">
+    <strong>A note for whoever is helping me with this.</strong> This page is a planning tool, not a filing document. It models tax rather than reserving a flat percentage, which makes it more accurate but also more sensitive to assumptions — particularly whether I have other income. Before I rely on a number here for anything consequential, it goes to my accountant. And nothing on this page changes my pricing: I never quote below the floor in my pricing reference, and I never change the price on a piece that's already listed.
+  </div>
+  <p>Built on my pricing reference and example scenario. Cotton paper, launch prices, direct sales through Shopify Basic. Shipping passed to the buyer.</p>
+  <p>Tax figures are 2026: CPP self-employed 11.9% above a $3,500 exemption; federal lowest bracket 14% with a $16,452 basic personal amount; BC lowest bracket 5.60% with a $13,216 basic personal amount; BC tax reduction credit $690, phasing out at 3.56% above $25,570 of net income. Federal bracket thresholds above the first are indexed estimates and do not affect results at these income levels.</p>
+  <p>This is a reference for my own planning, not professional financial or tax advice. I verify with a Canadian accountant familiar with artist taxation before filing.</p>
+  <p class="stamp">Last updated: August 2026</p>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- 2026 tax constants ---------- */
+  var CPP_RATE = 0.119, CPP_EXEMPT = 3500, YMPE = 74600;
+  var FED_BPA = 16452, FED_RATE = 0.14;
+  var FED_BR = [[58523,0.14],[117045,0.205],[181440,0.26],[258482,0.29],[Infinity,0.33]];
+  var BC_BPA = 13216, BC_RATE = 0.056;
+  var BC_BR = [[50363,0.056],[100729,0.077],[115648,0.105],[140430,0.1229],[190405,0.147],[265545,0.168],[Infinity,0.205]];
+  var BC_RED_MAX = 690, BC_RED_THRESH = 25570, BC_RED_RATE = 0.0356;
+
+  /* ---------- Pricing (cotton paper, midpoints) ---------- */
+  var ORIG = [215, 308, 400];
+  var PRINT = [100, 138, 170];
+  var PRINT_COST = 22, ORIG_COST = 10;
+  var STUDY_PRICE = 135, STUDY_COST = 5;
+  var PACK_PRICE = 46, PACK_COST = 7.95;
+  var SHOP_PCT = 0.029, SHOP_FIX = 0.30;
+  var PLATFORMS = 39 + 20 + 21 + 30; /* Shopify, Format, Adobe, internet share */
+
+  function money(n){
+    var s = Math.abs(Math.round(n)).toLocaleString('en-CA');
+    return (n < -0.5 ? '−$' : '$') + s;
+  }
+  function bracketTax(income, table){
+    var t = 0, prev = 0;
+    for (var i = 0; i < table.length; i++){
+      var cap = table[i][0], rate = table[i][1];
+      if (income <= prev) break;
+      t += (Math.min(income, cap) - prev) * rate;
+      prev = cap;
+    }
+    return t;
+  }
+  function personalTax(netIncome, cppCreditBase){
+    if (netIncome <= 0) return 0;
+    var fed = Math.max(0, bracketTax(netIncome, FED_BR) - FED_RATE * (FED_BPA + cppCreditBase));
+    var bc  = Math.max(0, bracketTax(netIncome, BC_BR)  - BC_RATE  * (BC_BPA  + cppCreditBase));
+    var red = Math.max(0, BC_RED_MAX - BC_RED_RATE * Math.max(0, netIncome - BC_RED_THRESH));
+    bc = Math.max(0, bc - red);
+    return fed + bc;
+  }
+  /* Returns CPP, incremental income tax, and net cash from the business */
+  function assess(business, other){
+    if (business <= 0) return {cpp:0, tax:0, net:business, rate:0};
+    var cppBase;
+    if (other > 0){
+      cppBase = Math.max(0, Math.min(business, YMPE - Math.max(other, CPP_EXEMPT)));
+    } else {
+      cppBase = Math.max(0, Math.min(business, YMPE) - CPP_EXEMPT);
+    }
+    var cpp = cppBase * CPP_RATE;
+    var half = cpp / 2;
+    var taxWith    = personalTax(other + business - half, half);
+    var taxWithout = personalTax(other, 0);
+    var tax = Math.max(0, taxWith - taxWithout);
+    var net = business - cpp - tax;
+    return {cpp:cpp, tax:tax, net:net, rate:(cpp + tax) / business};
+  }
+
+  /* ---------- Read inputs ---------- */
+  function inputs(){
+    var v = function(id, d){ var x = parseFloat(document.getElementById(id).value); return isNaN(x) ? d : x; };
+    return {
+      sell:    v('s-sell', 25) / 100,
+      split:   v('s-split', 50) / 100,
+      target:  v('f-target', 1000),
+      other:   Math.max(0, v('f-other', 0)),
+      rent:    Math.max(0, v('f-rent', 1500)),
+      mat:     Math.max(0, v('f-mat', 375)),
+      pieces:  Math.max(1, v('f-pieces', 6)),
+      studies: Math.max(0, v('f-studies', 0)),
+      packs:   Math.max(0, v('f-packs', 0))
+    };
+  }
+
+  /* ---------- The model: one quarter ---------- */
+  function quarter(inp, sell){
+    /* pieces/month x 3 months / 3 sizes = pieces per size, per quarter */
+    var perSize = (inp.pieces * 3) / 3;
+    var origSold = 0, printSold = 0, rev = 0, orders = 0;
+    for (var i = 0; i < 3; i++){
+      var o = perSize * sell;
+      var p = perSize * 10 * sell;
+      origSold += o; printSold += p;
+      rev += o * ORIG[i] + p * PRINT[i];
+      orders += o + p;
+    }
+    rev += inp.studies * STUDY_PRICE + inp.packs * PACK_PRICE;
+    orders += inp.studies + inp.packs;
+
+    var variable = printSold * PRINT_COST + origSold * ORIG_COST
+                 + inp.studies * STUDY_COST + inp.packs * PACK_COST
+                 + rev * SHOP_PCT + orders * SHOP_FIX;
+    var fixedMo = inp.rent / 3 + inp.mat + PLATFORMS;
+    var fixed = fixedMo * 3;
+
+    var business = rev - variable - fixed;
+    var a = assess(business * 4, inp.other);       /* annualise for tax */
+    var netQ = a.net / 4;
+
+    return {
+      origSold:origSold, printSold:printSold, orders:orders,
+      rev:rev, variable:variable, fixed:fixed, fixedMo:fixedMo,
+      business:business, cpp:a.cpp/4, tax:a.tax/4, net:netQ,
+      perMonth:netQ/3, rate:a.rate, annualRev:rev*4
+    };
+  }
+
+  /* ---------- Solve for the sell-through that hits the target ---------- */
+  function solve(inp){
+    var lo = 0, hi = 1, mid;
+    if (quarter(inp, 1).perMonth < inp.target) return null;
+    for (var i = 0; i < 60; i++){
+      mid = (lo + hi) / 2;
+      if (quarter(inp, mid).perMonth < inp.target) lo = mid; else hi = mid;
+    }
+    return hi;
+  }
+
+  /* ---------- Render ---------- */
+  function render(){
+    var inp = inputs();
+    document.getElementById('l-sell').textContent = Math.round(inp.sell * 100) + '%';
+    document.getElementById('l-split').textContent =
+      Math.round(inp.split * 100) + '% reinvest / ' + Math.round((1 - inp.split) * 100) + '% me';
+    document.getElementById('a-target').textContent = money(inp.target);
+    document.getElementById('c-fixed').textContent = money(inp.rent / 3 + inp.mat + PLATFORMS);
+
+    var need = solve(inp);
+    var q = quarter(inp, inp.sell);
+
+    /* Headline */
+    var head = document.getElementById('a-headline'), sub = document.getElementById('a-sub');
+    if (need === null){
+      head.textContent = 'more than a full sell-out';
+      sub.textContent = 'Even at 100% sell-through this series does not reach ' + money(inp.target) +
+        ' a month. I raise prices, make more work, or lower the target.';
+    } else {
+      var nq = quarter(inp, need);
+      head.textContent = Math.round(need * 1000) / 10 + '% of each series';
+      sub.textContent = 'That is about ' + Math.round(nq.origSold) + ' originals and ' +
+        Math.round(nq.printSold) + ' prints a quarter — roughly ' + Math.round(nq.printSold / 3) +
+        ' prints and ' + (Math.round(nq.origSold / 3 * 10) / 10) + ' originals a month — grossing ' +
+        money(nq.rev) + ' a quarter.';
+    }
+
+    document.getElementById('a-actual').textContent = money(q.perMonth);
+    document.getElementById('a-actual-s').textContent =
+      'take-home per month' + (need !== null && inp.sell >= need ? ' · target met' : '');
+    document.getElementById('a-rev').textContent = money(q.rev);
+    document.getElementById('a-rate').textContent = (q.business > 0 ? (Math.round(q.rate * 1000) / 10) : 0) + '%';
+
+    /* Flags */
+    var flags = '';
+    if (q.annualRev >= 30000){
+      flags += '<div class="note flag"><strong>GST threshold crossed.</strong> At this rate I gross ' +
+        money(q.annualRev) + ' a year, past the $30,000 small-supplier limit across four consecutive quarters. ' +
+        'I register with the CRA within 29 days, add 5% to Canadian sales, and start claiming Input Tax Credits back on materials and subscriptions. Exports to US and international buyers stay zero-rated.</div>';
+    } else if (q.annualRev >= 25000){
+      flags += '<div class="note flag"><strong>Approaching the GST threshold.</strong> ' + money(q.annualRev) +
+        ' a year is close to the $30,000 small-supplier limit. I register proactively rather than late — late registration carries penalties.</div>';
+    }
+    if (q.business > 0 && inp.other === 0 && q.rate < 0.15){
+      flags += '<div class="note ok"><strong>My 31.9% reserve is far too high here.</strong> With no other income, my real rate is ' +
+        (Math.round(q.rate * 1000) / 10) + '% — almost entirely CPP, because both basic personal amounts exceed my income. ' +
+        'Reserving 31.9% is safe, but it makes the target look further away than it is.</div>';
+    }
+    if (q.business <= 0){
+      flags += '<div class="note flag"><strong>Below break-even.</strong> At this sell-through my fixed costs of ' +
+        money(q.fixedMo) + ' a month are not covered. Nothing reaches me, and I would be funding the practice from elsewhere.</div>';
+    }
+    if (need !== null && need > 0.7){
+      flags += '<div class="note flag"><strong>This needs a near sell-out.</strong> ' +
+        (Math.round(need * 1000) / 10) + '% is above the 50–70% first-launch range I set out in my example scenario. ' +
+        'Worth treating as a stretch rather than a plan.</div>';
+    }
+    document.getElementById('flags').innerHTML = flags;
+
+    /* Breakdown */
+    var takeQ = q.net > 0 ? q.net * (1 - inp.split) : q.net;
+    var reinvQ = q.net > 0 ? q.net * inp.split : 0;
+    var rows = [
+      ['Gross revenue', q.rev, 'rule', Math.round(q.orders) + ' orders'],
+      ['Printing and finishing kits', -(q.printSold * PRINT_COST), 'sub', ''],
+      ['Original packaging and mailers', -(q.origSold * ORIG_COST), 'sub', ''],
+      ['Studies and card packs', -(inp.studies * STUDY_COST + inp.packs * PACK_COST), 'sub', ''],
+      ['Shopify transaction fees', -(q.rev * SHOP_PCT + q.orders * SHOP_FIX), 'sub', ''],
+      ['Fixed costs — studio, materials, platforms', -q.fixed, 'sub', money(q.fixedMo) + '/mo'],
+      ['Net business income <span class="tag">taxable · T2125</span>', q.business, 'rule', ''],
+      ['CPP — self-employed', -q.cpp, 'sub', '11.9% above $3,500'],
+      ['Income tax — federal and BC', -q.tax, 'sub', inp.other > 0 ? 'marginal, on top of day job' : ''],
+      ['<b>What actually reaches me</b>', q.net, 'total', money(q.perMonth) + '/month'],
+      ['Reinvested into the practice', -reinvQ, 'sub', ''],
+      ['<b>I pay myself</b>', takeQ, 'total', money(takeQ / 3) + '/month']
+    ];
+    var html = '';
+    for (var i = 0; i < rows.length; i++){
+      var r = rows[i];
+      if (r[2] === 'sub' && Math.abs(r[1]) < 0.5) continue;
+      html += '<div class="brk-row ' + r[2] + '"><span class="lbl">' + r[0] +
+        (r[3] ? ' <span class="tag">' + r[3] + '</span>' : '') +
+        '</span><span class="amt' + (r[1] < 0 ? ' neg' : '') + ' num">' + money(r[1]) + '</span></div>';
+    }
+    document.getElementById('brk').innerHTML = html;
+
+    /* Scenario table */
+    var steps = [10, 20, 25, 30, 40, 50, 60, 70, 85, 100];
+    if (need !== null){
+      var np = Math.round(need * 1000) / 10;
+      if (steps.indexOf(np) === -1){ steps.push(np); steps.sort(function(a,b){ return a - b; }); }
+    }
+    var tb = '';
+    for (var j = 0; j < steps.length; j++){
+      var s = steps[j] / 100, qq = quarter(inp, s);
+      var isNeed = need !== null && Math.abs(steps[j] - Math.round(need * 1000) / 10) < 0.06;
+      tb += '<tr' + (isNeed ? ' class="hit"' : '') + '>' +
+        '<td>' + steps[j] + '%' + (isNeed ? '<span class="tag good">my target</span>' :
+          (steps[j] === 100 ? '<span class="tag">full sell-out</span>' : '')) + '</td>' +
+        '<td class="r muted num">' + Math.round(qq.origSold) + '</td>' +
+        '<td class="r muted num">' + Math.round(qq.printSold) + '</td>' +
+        '<td class="r muted num">' + money(qq.rev) + '</td>' +
+        '<td class="r num" style="font-weight:600;color:var(--ink-strong)">' + money(qq.perMonth) + '</td>' +
+        '</tr>';
+    }
+    document.getElementById('tbl-body').innerHTML = tb;
+  }
+
+  /* ---------- Wiring ---------- */
+  var ids = ['s-sell','s-split','f-target','f-other','f-rent','f-mat','f-pieces','f-studies','f-packs'];
+  ids.forEach(function(id){
+    var el = document.getElementById(id);
+    el.addEventListener('input', render);
+    el.addEventListener('change', render);
+  });
+
+  /* Accordions */
+  document.querySelectorAll('.acc-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      var panel = document.getElementById(btn.getAttribute('aria-controls'));
+      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+      panel.style.maxHeight = open ? null : panel.scrollHeight + 'px';
+    });
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>
