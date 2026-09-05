@@ -53,3 +53,7 @@ Andrea's own words, September 2026: "If I'm able to study fine art more in my li
 Read that as it is written. It is a hope under a present constraint, not a closed door. Do not turn it into "not on the table," "not available," or "do not propose an MFA." A previous session did exactly that, and the flattening was discouraging and wrong.
 
 What follows from it: the near-term path runs through disability studies and counselling psychology, and the practice is funded by her career during those years. Teaching, writing and studying in fine art are live futures. Keep the Writing page and the readiness kit built so that if the door opens, she is prepared to walk through it.
+
+## Where Andrea lives
+
+Downtown Vancouver, at Thurlow and Pendrell in the West End. Not Surrey. Any location-dependent advice (municipal grants, galleries, life-drawing groups, light in the studio, travel time) starts from the West End.

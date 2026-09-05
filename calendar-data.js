@@ -223,10 +223,10 @@ window.STUDIO_ROLLING = [
     note: "Representational painting and drawing only; the research report puts the first-application age window at 18 to 41. Confirm the age rule on the foundation's site before anything else; it decides whether this is the best grant on the list or closed."
   },
   {
-    name: "City of Surrey Cultural Grants",
-    status: "verified",
-    verified: "2026-09-05",
-    url: "https://www.surrey.ca/arts-culture/cultural-grants",
-    note: "Not paid to individuals. Only a route if partnered with an organisation such as Arts Umbrella."
+    name: "City of Vancouver cultural grants",
+    status: "unverified",
+    verified: "",
+    url: "https://vancouver.ca/people-programs/cultural-grants.aspx",
+    note: "The municipal layer for a downtown Vancouver resident. Whether any stream pays individual artists, and the 2026/27 dates, still to be read on the city's page."
   }
 ];
