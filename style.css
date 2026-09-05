@@ -503,3 +503,14 @@ footer .copy{font-size:12px;color:var(--stone);}
 .roster-fold .lanes-wrap{margin-top:14px;}
 @media(max-width:900px){ .span-cards{grid-template-columns:1fr 1fr;} }
 @media(max-width:560px){ .span-cards{grid-template-columns:1fr;} .span-m{flex-basis:64px;} }
+
+/* ── ASSIGNMENTS ── */
+.asgs{display:grid;gap:14px;margin:8px 0 44px;max-width:1080px;}
+.asg{background:var(--panel);border:1px solid var(--hair);border-radius:8px;padding:20px 22px 18px;}
+.asg .p-title{font-size:22px;margin:4px 0 14px;}
+.asg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.asg-grid h3{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);font-weight:600;margin:0 0 6px;}
+.asg-grid h3+p{font-size:14px;line-height:1.55;color:var(--ink);margin:0 0 12px;}
+.asg-q{margin:14px 0 0;font-size:16px;font-style:italic;color:var(--ink-strong);}
+@media(max-width:900px){ .asg-grid{grid-template-columns:1fr 1fr;} }
+@media(max-width:560px){ .asg-grid{grid-template-columns:1fr;} }
