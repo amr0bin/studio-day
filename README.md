@@ -53,6 +53,19 @@ time their build script runs. Change the script instead.
 
 ---
 
+## The video
+
+`documentation.html` carries one moving image: thirteen seconds of open water,
+looping, silent, in place of a still. It is served from `video/` in two formats,
+WebM first and MP4 as the fallback, and `images/photo-water.jpg` is its poster
+frame. That poster also stands in for anyone whose system asks for reduced
+motion, and the whole figure is dropped when the page prints.
+
+The source file was 17.5MB. The web versions are about 2.3MB each, scaled to
+1280px wide with the audio track removed.
+
+---
+
 ## Card photographs on the index
 
 The six cards on `index.html` each look for a photograph in `images/`:

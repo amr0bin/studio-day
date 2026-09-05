@@ -294,6 +294,9 @@ footer .copy{font-size:12px;color:var(--stone);}
   .stage,.gallery,.map-hold,.cwrap,.wheel,.tt,.note,
   .downloadblock,.outlink,.check input,.progress{display:none!important;}
 
+  /* video cannot print; the figure is hidden with the rest of the imagery */
+  video{display:none!important;}
+
   /* photographs: ink-hungry and not what the reference is for */
   figure,.photo-hero,.photo-inline,.photo-wide,.fig-stack,.fig-side{display:none!important;}
 
