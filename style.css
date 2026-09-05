@@ -473,3 +473,33 @@ footer .copy{font-size:12px;color:var(--stone);}
 .syllabus{max-width:1080px;margin:0 0 8px;} .syllabus tbody th{white-space:nowrap;}
 .principle{font-size:17px;line-height:1.6;color:var(--ink-strong);}
 .aside{font-size:13.5px;color:var(--stone);}
+
+/* ── THE YEAR: span strip and cards ── */
+.span{margin:30px 0 20px;}
+.span-strip{display:flex;gap:6px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:thin;}
+.span-m{flex:0 0 72px;display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:10px 10px 8px;background:var(--paper);border:1px solid var(--hair);border-radius:8px;cursor:pointer;font-family:inherit;text-align:left;transition:border-color .15s,background .15s;}
+.span-m:hover{border-color:var(--stone);}
+.span-m.is-sel{background:var(--panel);border-color:var(--ink-strong);}
+.span-m .sm-m{font-size:13px;font-weight:600;color:var(--ink-strong);letter-spacing:.02em;}
+.span-m .sm-y{font-size:10.5px;color:var(--stone);letter-spacing:.1em;margin-top:-4px;}
+.span-m.is-now .sm-m{color:var(--accent);}
+.span-m .sm-bar{display:block;width:100%;height:4px;border-radius:2px;background:var(--pc);opacity:.85;margin-top:4px;}
+.span-m .sm-dots{display:flex;gap:3px;height:6px;margin-top:2px;}
+.span-m .sm-dots i{display:block;width:6px;height:6px;border-radius:50%;background:var(--accent);}
+.span-m .sm-dots i.expected{background:transparent;border:1.5px solid var(--accent-warm);box-sizing:border-box;}
+.span-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:14px 0 12px;}
+.span-title{font-size:19px;font-weight:500;color:var(--ink-strong);text-align:center;}
+.span-ph{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin-left:8px;}
+.span-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.span-card{background:var(--panel);border:1px solid var(--hair);border-radius:8px;padding:16px 18px 18px;min-height:150px;}
+.sc-k{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);font-weight:600;margin:0 0 8px;}
+.sc-t{font-size:14.5px;line-height:1.55;color:var(--ink);margin:0;}
+.sc-t.none{color:var(--stone);}
+.sc-d{margin:0 0 10px;font-size:14px;line-height:1.45;}
+.sc-d a{color:var(--ink-strong);font-weight:500;text-decoration:none;} .sc-d a:hover{text-decoration:underline;}
+.sc-d .flag{font-size:9px;padding:1px 6px;}
+.sc-fit{display:block;font-size:12.5px;color:var(--stone);margin-top:2px;}
+.roster-fold{max-width:none;margin-top:28px;}
+.roster-fold .lanes-wrap{margin-top:14px;}
+@media(max-width:900px){ .span-cards{grid-template-columns:1fr 1fr;} }
+@media(max-width:560px){ .span-cards{grid-template-columns:1fr;} .span-m{flex-basis:64px;} }

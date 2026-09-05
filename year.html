@@ -58,17 +58,30 @@
     <header class="hero">
       <p class="eyebrow"><span>The Year</span><span class="status">September 2026 to December 2027</span></p>
       <h1>Sixteen months, <em>three lanes</em></h1>
-      <p class="lede">What is made, what is shared with collectors and learners, and which relationships get a next step, month by month across the actual span rather than an abstract year. Two things run every week regardless: one Patreon piece, written from Sunday's sentence, and one named person written to on Monday. The dated column is drawn from the Calendar and updates with it.</p>
+      <p class="lede">What is made, what is shared with collectors and learners, and which relationships get a next step, month by month across the actual span rather than an abstract year. Two things run every week regardless: one Patreon piece, written from Sunday's sentence, and one named person written to on Monday. Select a month; the dated card is drawn from the Calendar and updates with it. Solid dots are confirmed dates, hollow ones expected.</p>
     </header>
 
     <p class="cap-rule">Capacity holds two of making, video and selling admin. Not three. Anything new waits until the thing before it is easy.</p>
 
-    <div class="lanes-wrap">
-      <table class="lanes" id="lanes">
-        <thead><tr><th>Month</th><th>Make</th><th>Share</th><th>Relationships</th><th>Dated</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
+    <section class="span" aria-label="September 2026 to December 2027">
+      <div class="span-strip" id="span-strip" role="tablist" aria-label="Months"></div>
+      <div class="span-nav">
+        <button type="button" class="stepbtn" id="span-prev">← Previous</button>
+        <span class="span-title" id="span-title"></span>
+        <button type="button" class="stepbtn" id="span-next">Next →</button>
+      </div>
+      <div class="span-cards" id="span-cards"></div>
+    </section>
+
+    <details class="fold roster-fold">
+      <summary>Read the whole span as a table</summary>
+      <div class="lanes-wrap">
+        <table class="lanes" id="lanes">
+          <thead><tr><th>Month</th><th>Make</th><th>Share</th><th>Relationships</th><th>Dated</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </details>
 
     <figure class="photo-hero">
       <img src="images/photo-legs-sand.jpg" alt="Four legs standing close on sand in a rock hollow, a patch of sunlight on the ground beside them." />
@@ -433,6 +446,38 @@ document.getElementById("printsheet").innerHTML =
     var dated=d.map(function(e){return '<a href="calendar.html#'+e.id+'">'+parseInt(e.date.slice(8),10)+' · '+e.name.split(" · ")[0]+'</a>'+(e.status==="expected"?' <span class="flag exp">expected</span>':'');}).join('<br>');
     return '<tr'+(ym===cur?' class="now"':'')+'><th>'+months[parseInt(ym.slice(5),10)-1]+' '+ym.slice(0,4)+'</th><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+r[3]+'</td><td class="dated">'+(dated||'<span class="none">—</span>')+'</td></tr>';
   }).join('');
+
+  /* month strip and cards */
+  var PH={0:"making",1:"making",2:"making",3:"prepare",4:"prepare",5:"teach",6:"teach",7:"gather",8:"gather",9:"gather",10:"gather",11:"winter"};
+  var PC={making:"#6f6456",prepare:"#9a6b3d",teach:"#4f7a6a",gather:"#3d6382",winter:"#5f5a72"};
+  var PL={making:"Making",prepare:"Preparing",teach:"Teaching",gather:"Gathering",winter:"Wintering"};
+  var strip=document.getElementById("span-strip"), cards=document.getElementById("span-cards"), title=document.getElementById("span-title");
+  var sel=Math.max(0,Y.findIndex(function(r){return r[0]===cur;}));
+  function fmt(iso){return parseInt(iso.slice(8),10)+" "+months[parseInt(iso.slice(5,7),10)-1];}
+  function renderStrip(){
+    strip.innerHTML=Y.map(function(r,i){
+      var mi=parseInt(r[0].slice(5),10)-1, ph=PH[mi];
+      var d=cal.filter(function(e){return e.date.slice(0,7)===r[0];});
+      return '<button type="button" role="tab" class="span-m'+(i===sel?' is-sel':'')+(r[0]===cur?' is-now':'')+'" data-i="'+i+'" aria-selected="'+(i===sel)+'" style="--pc:'+PC[ph]+'">'
+        +'<span class="sm-m">'+months[mi].slice(0,3)+'</span><span class="sm-y">'+r[0].slice(2,4)+'</span>'
+        +'<span class="sm-bar"></span>'
+        +(d.length?'<span class="sm-dots">'+d.map(function(e){return '<i class="'+e.status+'"></i>';}).join('')+'</span>':'<span class="sm-dots"></span>')
+        +'</button>';
+    }).join('');
+    Array.prototype.forEach.call(strip.querySelectorAll('.span-m'),function(b){b.addEventListener('click',function(){sel=+b.dataset.i;renderStrip();renderCards();});});
+  }
+  function renderCards(){
+    var r=Y[sel], mi=parseInt(r[0].slice(5),10)-1, ph=PH[mi];
+    var d=cal.filter(function(e){return e.date.slice(0,7)===r[0];}).sort(function(a,b){return a.date<b.date?-1:1;});
+    title.innerHTML=months[mi]+' '+r[0].slice(0,4)+' <span class="span-ph" style="color:'+PC[ph]+'">'+PL[ph]+'</span>'+(r[0]===cur?' <span class="flag">now</span>':'');
+    function card(k,t){return '<div class="span-card"><p class="sc-k">'+k+'</p><p class="sc-t">'+t+'</p></div>';}
+    cards.innerHTML=card('Make',r[1])+card('Share',r[2])+card('Relationships',r[3])
+      +'<div class="span-card dated"><p class="sc-k">Dated</p>'+(d.length?d.map(function(e){return '<p class="sc-d"><a href="calendar.html#'+e.id+'">'+fmt(e.date)+' · '+e.name+'</a>'+(e.status==="expected"?' <span class="flag exp">expected</span>':'')+'<span class="sc-fit">'+e.fit+'</span></p>';}).join(''):'<p class="sc-t none">Nothing dated. Sundays are for making.</p>')+'</div>';
+    var sb=strip.querySelector('.span-m.is-sel'); if(sb&&sb.scrollIntoView) sb.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
+  }
+  document.getElementById('span-prev').addEventListener('click',function(){if(sel>0){sel--;renderStrip();renderCards();}});
+  document.getElementById('span-next').addEventListener('click',function(){if(sel<Y.length-1){sel++;renderStrip();renderCards();}});
+  renderStrip(); renderCards();
 })();
 </script>
 </body>
