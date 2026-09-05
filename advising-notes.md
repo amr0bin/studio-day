@@ -57,3 +57,7 @@ What follows from it: the near-term path runs through disability studies and cou
 ## Where Andrea lives
 
 Downtown Vancouver, at Thurlow and Pendrell in the West End. Not Surrey. Any location-dependent advice (municipal grants, galleries, life-drawing groups, light in the studio, travel time) starts from the West End.
+
+## Institutions wait for the rhythm
+
+Decided September 2026. No outreach to Arts Umbrella, Kroma or Opus until the studies rhythm has held. Donations to Arts Umbrella begin quietly with the first release: ten per cent of the series' sales, receipted, no contact; the share doubles to twenty per cent once releases sell out. Decision points: after a quarter (February 2027) and after a year (November 2027). The question at each is whether the record shows the work is valuable enough to them; if it does not, another year of making costs nothing. Do not schedule institutional letters before those points.
