@@ -183,6 +183,13 @@ PRINT_CSS = """
 """
 s = s.replace("</style>", PRINT_CSS + "</style>", 1)
 
+# ── palette: this page has its own :root, so bring it in line with style.css
+s = swap("""  :root{--paper:#ffffff;--ink:#5d5a5b;--ink-strong:#454344;--stone:#a29f9f;
+    --hair:#e6e4e2;--hair-soft:#efedeb;--panel:#faf9f8;--maxw:1080px;--ease:cubic-bezier(.22,.61,.36,1);}""",
+         """  :root{--paper:#ffffff;--ink:#4e453c;--ink-strong:#2b2219;--stone:#7d7164;
+    --hair:#e5ded1;--hair-soft:#f0eae0;--panel:#f8f4ec;--accent:#1a4a78;
+    --accent-warm:#9a6b3d;--maxw:1080px;--ease:cubic-bezier(.22,.61,.36,1);}""", s)
+
 # ── data: constellations, stars, lines ──────────────────────────────────
 d_start = s.index('const CATS = {')
 d_end   = s.index('/* ── build adjacency (connects) from LINES ── */')

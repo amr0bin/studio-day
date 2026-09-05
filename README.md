@@ -115,18 +115,23 @@ click.
 
 ## The palette
 
-Every colour is sampled from the twenty photographs, clustered across all of
-them rather than picked from one. The five dominant families are warm umber
+The background is white. Every text and accent colour is sampled from the twenty
+photographs, clustered across all of them rather than picked from one, so the
+warmth sits in the ink rather than the page. The five dominant families are warm umber
 shadow, dry sand, wet rock, sea green and the deep blue of the towel and water.
 
 | Token | Value | Role | Contrast on paper |
 |---|---|---|---|
-| `--paper` | `#fdfcfa` | Background | — |
+| `--paper` | `#ffffff` | Background | — |
 | `--ink-strong` | `#2b2219` | Headings | 15.2:1 |
 | `--ink` | `#4e453c` | Body text | 9.1:1 |
-| `--stone` | `#7d7164` | Captions, labels | 4.6:1 |
+| `--stone` | `#7d7164` | Captions, labels | 4.7:1 |
 | `--accent` | `#1a4a78` | Links, focus, checkboxes | 8.9:1 |
 | `--accent-warm` | `#9a6b3d` | Warm highlight | 4.5:1 |
+
+`writing.html` carries its own copy of these tokens, because it does not load
+`style.css`. Both are kept in step by `_build/build_writing.py`; change one and
+change the other.
 
 The colour-coded legends on the Atlas, the Writing chart and the Year wheel are
 drawn from the same families. Nothing on any page falls below 4.5:1, so colour

@@ -2,10 +2,11 @@
    Andrea Robin Studio */
 
 :root{
-  /* Sampled from the twenty photographs: warm umber, sand, tan, and the
-     sea blue of the towel and the water. Every text colour clears 4.5:1
-     against paper, so the warmth costs nothing in legibility. */
-  --paper:#fdfcfa;        /* pale sand, lifted                  */
+  /* Text and accents are sampled from the twenty photographs: warm umber,
+     sand, tan, and the sea blue of the towel and the water. The background
+     is white, so the warmth sits in the ink rather than the page.
+     Every text colour clears 4.5:1. */
+  --paper:#ffffff;        /* white, matching the writing page   */
   --ink:#4e453c;          /* warm umber, body text      9.1:1   */
   --ink-strong:#2b2219;   /* deepest shadow, headings  15.2:1   */
   --stone:#7d7164;        /* dry sand, captions         4.6:1   */
