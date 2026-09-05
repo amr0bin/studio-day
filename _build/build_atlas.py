@@ -251,17 +251,16 @@ HTML = '''<!DOCTYPE html>
 <link rel="stylesheet" href="style.css" />
 <style>
   :root{--land:#ece5d8;--land-line:#ddd3c2;--coast:#c6bba7;}
-  /* The map needs more width than a reading column, but the nav and the prose
-     must stay at 1080px so the ribbon sits identically on every page.
-     So the container is left alone and only the stage breaks out. */
-  .stage{width:min(1360px, calc(100vw - 48px));margin-left:50%;transform:translateX(-50%);
-    grid-template-columns:minmax(0,2.15fr) minmax(310px,1fr);gap:28px;align-items:start;}
+  /* The stage sits inside the same 1080px column as every other page, so the
+     map and its panel line up with the prose above them rather than breaking
+     out wider than the rest of the site. */
+  .stage{grid-template-columns:minmax(0,1.9fr) minmax(290px,1fr);gap:24px;align-items:start;}
   .stage > .panel{position:sticky;top:20px;max-height:calc(100vh - 40px);overflow-y:auto;}
   .map-hold{position:relative;background:var(--panel);border:1px solid var(--hair);
     border-radius:8px;overflow:hidden;}
   .map{display:block;width:100%;height:auto;touch-action:none;cursor:grab;}
   @media(max-width:1080px){
-    .stage{grid-template-columns:1fr;width:auto;margin-left:0;transform:none;}
+    .stage{grid-template-columns:1fr;}
     .stage > .panel{position:static;max-height:none;}
   }
   .map.dragging{cursor:grabbing;}
