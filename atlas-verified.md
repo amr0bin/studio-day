@@ -72,5 +72,13 @@ Libraries still to read: Banff's Paul D. Fleck Library, AGO's E.P. Taylor Librar
 
 **Winsor Gallery** — permanently closed, per Andrea. Off the map.
 
+## American residencies, 5 September 2026
+
+**MacDowell** — own application page: Spring–Summer 2027 closes 10 September 2026; Fall–Winter 2027–28 opens 15 January, closes 10 February 2027; two to eight weeks; no fee; stipends to $1,500; one application per 24 months. Verified 2026-09-05. Solid.
+
+**Skowhegan** — own pages: 2027 program 5 June to 7 August; applications 1 September to 16 October 2026; ten images plus video narrative; scholarships. Verified 2026-09-05. Solid.
+
+**Fine Arts Work Center** — own FAQ and apply pages: seven months October to April; $1,250/month plus $1,000 exit; 2026–27 round closed 6 February 2026; 2027–28 expected. Verified 2026-09-05. Solid.
+
 ## Still to read
 UBC, Guelph, York, Alberta, Victoria, SFU. Then the museums abroad, the galleries that show the reference artists, and the US residencies.

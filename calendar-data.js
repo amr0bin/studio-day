@@ -32,6 +32,58 @@ window.STUDIO_CALENDAR = [
     check: "whether the series qualifies for the sponsored route, and whether Arts Umbrella would sponsor; this cycle is probably too soon"
   },
   {
+    id: "macdowell-2026-09",
+    name: "MacDowell · Spring–Summer 2027",
+    kind: "residency",
+    date: "2026-09-10",
+    opens: "2026-08-17",
+    status: "verified",
+    verified: "2026-09-05",
+    url: "https://www.macdowell.org/apply/apply-for-fellowship",
+    fit: "two to eight weeks, private studio, no fee, need-based stipend; residencies 1 March to 31 August 2027",
+    needs: "work samples by discipline; one application every 24 months",
+    check: "five days away and it locks out the February round; probably let this one pass"
+  },
+  {
+    id: "skowhegan-2026-10",
+    name: "Skowhegan · 2027 program",
+    kind: "residency",
+    date: "2026-10-16",
+    opens: "2026-09-01",
+    status: "verified",
+    verified: "2026-09-05",
+    url: "https://skowheganart.org/school/",
+    fit: "nine weeks, 5 June to 7 August 2027, emerging artists, scholarships",
+    needs: "ten images or six minutes of video, brief notes, a short video narrative; no CV",
+    check: "whether nine weeks of leave is conceivable; the interview comes in December"
+  },
+  {
+    id: "fawc-2027-02",
+    name: "Fine Arts Work Center · 2027–28 fellowship",
+    kind: "residency",
+    date: "2027-02-05",
+    opens: "2026-10-20",
+    status: "expected",
+    verified: "2026-09-05",
+    url: "https://fawc.org/apply/",
+    fit: "seven months in Provincetown, October to April, $1,250 a month, studio and apartment",
+    needs: "images, statement; tiered fee from $40",
+    check: "2026–27 round closed 6 February 2026; 2027–28 dates to confirm when posted"
+  },
+  {
+    id: "macdowell-2027-02",
+    name: "MacDowell · Fall–Winter 2027–28",
+    kind: "residency",
+    date: "2027-02-10",
+    opens: "2027-01-15",
+    status: "verified",
+    verified: "2026-09-05",
+    url: "https://www.macdowell.org/apply/apply-for-fellowship",
+    fit: "residencies 1 September 2027 to 29 February 2028; two weeks is a normal stay",
+    needs: "work samples; the studies log as the record",
+    check: "the round to aim for, with a year of studies behind it"
+  },
+  {
     id: "bcac-pd-2026",
     name: "BC Arts Council · Professional Development",
     kind: "grant",
