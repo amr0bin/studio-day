@@ -126,5 +126,7 @@ Not on the map, by decision: the VIVA Award (Shadbolt Foundation, nomination-onl
 
 Calendar corrected: the SSHRC master's entries for 2026 and 2027 removed; the scholarship is for Canadian universities and applies to the UBC MA in 2030, not to Leeds. A Leeds application target added for late May 2027, expected, until the portal gives a date.
 
+**Stanley Park A-Frame fieldhouse** — own call page: residency to four years from August 2026, $10,000 a year, for artists and cultural practitioners of the Tsleil-Waututh Nation (Musqueam and Squamish held earlier terms); closed 1 June 2026. Solid; not eligible. Added as candidates from the City's artist-spaces page: Park Board fieldhouse residencies and Artists in Communities (with the Arts and Health strand), and the Artist Studio Awards. 5 September 2026.
+
 ## Still to read
 UBC, Guelph, York, Alberta, Victoria, SFU. Then the museums abroad, the galleries that show the reference artists, and the US residencies.

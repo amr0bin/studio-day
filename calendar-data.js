@@ -350,6 +350,13 @@ window.STUDIO_CALENDAR = [
 // Rolling or undated. Shown in a separate list, never on the grid.
 window.STUDIO_ROLLING = [
   {
+    name: "City of Vancouver and Park Board · Artist opportunities page",
+    status: "verified",
+    verified: "2026-09-05",
+    url: "https://vancouver.ca/parks-recreation-culture/opportunities-for-artists.aspx",
+    note: "Fieldhouse residencies, studio awards, community-centre residencies and public-art calls are posted here as they arise, not on a cycle. The Stanley Park A-Frame is reserved for artists of the three host Nations. Read the page on the first Monday of each month; move anything open onto the grid."
+  },
+  {
     name: "SSHRC · Canada Graduate Research Scholarship, Master's: for the UBC counselling MA, not for Leeds",
     status: "verified",
     verified: "2026-09-05",
