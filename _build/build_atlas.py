@@ -223,17 +223,17 @@ HTML = '''<!DOCTYPE html>
 <link rel="stylesheet" href="style.css" />
 <style>
   :root{--land:#eceae7;--land-line:#dcd9d5;--coast:#c9c5c1;}
-  /* the atlas needs more width than the reading pages: a 1000x536 world
-     rendered into half a 1080px column is about 265px tall. */
-  .wrap{max-width:1360px;}
-  .hero,.essay{max-width:820px;}
-  .stage{grid-template-columns:minmax(0,2.15fr) minmax(310px,1fr);gap:28px;align-items:start;}
+  /* The map needs more width than a reading column, but the nav and the prose
+     must stay at 1080px so the ribbon sits identically on every page.
+     So the container is left alone and only the stage breaks out. */
+  .stage{width:min(1360px, calc(100vw - 48px));margin-left:50%;transform:translateX(-50%);
+    grid-template-columns:minmax(0,2.15fr) minmax(310px,1fr);gap:28px;align-items:start;}
   .stage > .panel{position:sticky;top:20px;max-height:calc(100vh - 40px);overflow-y:auto;}
   .map-hold{position:relative;background:var(--panel);border:1px solid var(--hair);
     border-radius:8px;overflow:hidden;}
   .map{display:block;width:100%;height:auto;touch-action:none;cursor:grab;}
   @media(max-width:1080px){
-    .stage{grid-template-columns:1fr;}
+    .stage{grid-template-columns:1fr;width:auto;margin-left:0;transform:none;}
     .stage > .panel{position:static;max-height:none;}
   }
   .map.dragging{cursor:grabbing;}

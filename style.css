@@ -63,18 +63,18 @@ figcaption{font-size:12px;line-height:1.55;color:var(--stone);}
 .cards-section{margin:56px 0 20px;}
 .cards-head{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--stone);
   font-weight:600;margin:0 0 22px;}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
-.card-tile{position:relative;display:flex;flex-direction:column;justify-content:flex-end;
-  aspect-ratio:3/4;border-radius:6px;overflow:hidden;text-decoration:none;color:#fff;
-  background:var(--ink-strong);padding:20px 18px 22px;transition:background .3s var(--ease);}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch;}
+.card-tile{position:relative;display:flex;flex-direction:column;
+  border-radius:6px;text-decoration:none;color:#fff;background:var(--ink-strong);
+  padding:42px 20px 22px;transition:background .3s var(--ease);}
 .card-tile:hover{background:#332f30;}
 .card-tile h3{font-size:19px;font-weight:500;letter-spacing:-.01em;margin:0 0 8px;}
-.card-tile p{font-size:12.5px;line-height:1.5;margin:0 0 14px;color:rgba(255,255,255,.86);}
+.card-tile p{font-size:12.5px;line-height:1.55;margin:0 0 20px;color:rgba(255,255,255,.86);}
 .card-tile .more{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
   color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:100px;padding:6px 13px;
-  display:inline-block;transition:all .2s var(--ease);align-self:flex-start;}
+  display:inline-block;transition:all .2s var(--ease);align-self:flex-start;margin-top:auto;}
 .card-tile:hover .more{background:#fff;color:var(--ink-strong);border-color:#fff;}
-.card-num{position:absolute;top:18px;left:18px;font-size:10.5px;letter-spacing:.16em;
+.card-num{position:absolute;top:20px;left:20px;font-size:10.5px;letter-spacing:.16em;
   text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600;}
 
 /* ── DOWNLOAD BLOCK ── */
@@ -171,8 +171,8 @@ footer .copy{font-size:12px;color:var(--stone);}
 
 /* card row variants */
 .cards.two{grid-template-columns:1fr 1fr;}
-.cards.two .card-tile{aspect-ratio:16/7;}
-@media(max-width:720px){ .cards.two{grid-template-columns:1fr;} .cards.two .card-tile{aspect-ratio:3/2;} }
+.cards.two .card-tile{padding:26px 24px 24px;}
+@media(max-width:720px){ .cards.two{grid-template-columns:1fr;} }
 
 /* ══════════════════════════════════════════════════════════════════
    Components used by studies.html and teaching.html.
