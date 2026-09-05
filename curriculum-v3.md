@@ -67,7 +67,7 @@ Each November after that, the coming term is rewritten from the same evidence.
 
 ### Standing rules
 
-No private names anywhere in the practice's documents. No recitation of achievements; there is only the next brief. Granville Island is the direction: when there is a choice of rooms, the Island's come first, because time there is happiness, proximity to the studio I mean to have, and neighbours. Institutions wait for the rhythm. Capture is separate from showing. The concept enters the making, not only the writing.
+No private names anywhere in the practice's documents. No recitation of achievements; there is only the next brief. Granville Island is the direction: when there is a choice of rooms, the Island's come first, because time there is happiness, proximity to the studio I mean to have, and neighbours. Institutions wait for the rhythm. Capture is separate from showing. The concept enters the making, not only the writing. And joy is a rule: when the practice gets too serious, four hours, a sitter, an easel and a timer, and the memory of a room of strangers on television painting the same face, succeeding in self-knowledge and courage as much as in likeness. What if this is just for fun? It is.
 
 ---
 

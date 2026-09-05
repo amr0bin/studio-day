@@ -81,3 +81,7 @@ Long-term goal: a studio space on Granville Island. Time spent there makes her h
 ## The three life goals, and the doctorate
 
 Stated September 2026: accessibility in learning including experiential learning; counselling psychology for disability and mental health, possibly toward art therapy; study and teaching in fine art. The practice is where the three meet. SFU's PhD in Contemporary Arts (practice-based; admits on an MA/MFA or an established professional practice; applications open each 1 October) is a live and possible future, held for the term-four decision in 2029–30. Build toward it; do not schedule it earlier; never call it unavailable.
+
+## Joy is a rule
+
+When the practice gets too serious, she wants to land on Portrait Artist of the Year: strangers painting the same face in four hours, succeeding in self-knowledge, skill, courage and sometimes opportunity. The line is "what if this is just for fun?" Keep the reference light where it can be; never let the structure crowd out the reason for it.
