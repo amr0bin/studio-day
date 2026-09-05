@@ -171,6 +171,19 @@ window.STUDIO_CALENDAR = [
     check: "a life decision: it cannot be held beside Leeds's second year or a job. Read the guidelines in July 2027 and decide by August whether 2028–29 is a year that can be given to it"
   },
   {
+    id: "awesome-dis-2026-09",
+    name: "Awesome Foundation · Disability chapter, September window",
+    kind: "grant",
+    date: "2026-09-10",
+    opens: "2026-09-01",
+    status: "verified",
+    verified: "2026-09-05",
+    url: "https://www.awesomefoundation.org/en/chapters/disability",
+    fit: "$1,000, no strings, one a month, chosen by disabled trustees; for a project the disability community gets, not an artist's costs. About one in 120 by the chapter's own numbers",
+    needs: "2,000 characters on the project, 500 on the money, 500 on yourself, up to five images; English; submitted 1st to 10th of the month only",
+    check: "open now until the 10th and every month after; costs an hour. Only worth it with a project for others: the accessibility layer of Foundations, or a sitting series with disabled sitters, not the studies themselves"
+  },
+  {
     id: "bcac-pd-2026",
     name: "BC Arts Council · Professional Development",
     kind: "grant",
@@ -373,6 +386,13 @@ window.STUDIO_CALENDAR = [
 
 // Rolling or undated. Shown in a separate list, never on the grid.
 window.STUDIO_ROLLING = [
+  {
+    name: "Awesome Foundation · Disability chapter, monthly",
+    status: "verified",
+    verified: "2026-09-05",
+    url: "https://www.awesomefoundation.org/en/chapters/disability",
+    note: "The one chapter that applies from Vancouver; there is no BC chapter, and the Canadian ones fund Ontario and Nova Scotia. Submissions 1st to 10th of every month, $1,000, no reporting. Funded art projects have all been for the disability community: a residency, writing fellowships, healing workshops, a zine fair. An hour a month at most, and only when there is a project for others to name."
+  },
   {
     name: "City of Vancouver and Park Board · Artist opportunities page",
     status: "verified",

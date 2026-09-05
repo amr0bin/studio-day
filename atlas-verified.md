@@ -130,5 +130,7 @@ Calendar corrected: the SSHRC master's entries for 2026 and 2027 removed; the sc
 
 **Cullman Center, NYPL** — own page and the portal's guidelines page: fifteen fellows, nine months, $90,000, visual artists on a book project eligible, no dissertation or postdoctoral projects, no other major obligations; 2027–28 round closes 25 September 2026, 5 pm Eastern. Solid; on the Calendar for 2026 (passed over) and 2027 (expected). Added as candidates of the same shape, placed from memory: Bogliasco, Hedgebrook, Yale Center for British Art, the Huntington, the Clark. 5 September 2026.
 
+**Awesome Foundation, Disability chapter** — own chapter page: $1,000 monthly, submissions 1st to 10th, disabled trustees, 113 grants from 13,500+ submissions to May 2026; no BC chapter exists. On the Calendar as a dated window for September and as a rolling item. 5 September 2026.
+
 ## Still to read
 UBC, Guelph, York, Alberta, Victoria, SFU. Then the museums abroad, the galleries that show the reference artists, and the US residencies.
