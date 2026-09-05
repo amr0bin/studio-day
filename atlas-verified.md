@@ -80,5 +80,21 @@ Libraries still to read: Banff's Paul D. Fleck Library, AGO's E.P. Taylor Librar
 
 **Fine Arts Work Center** — own FAQ and apply pages: seven months October to April; $1,250/month plus $1,000 exit; 2026–27 round closed 6 February 2026; 2027–28 expected. Verified 2026-09-05. Solid.
 
+## Libraries, second batch, 5 September 2026
+
+**Artexte, Montreal** — own about page and e-artexte: 30,000+ documents, 1965 to present, reading room; collecting rule is public documents by professional artists. Hours from a third-party listing, to confirm. Solid. Verified 2026-09-05.
+
+**E.P. Taylor Library & Archives, AGO** — own pages: public Wednesdays 1–5, appointments Thu–Fri; 14,000+ artist files; 380,000 items. Solid. Verified 2026-09-05.
+
+## Galleries of the reference painters, first batch, 5 September 2026
+
+**Victoria Miro** — own site: Wharf Road and Venice; Yukhnovich, Joffe, Celia Paul, Langberg, Bas, Neel estate. Solid. Verified 2026-09-05.
+
+**Dolby Chadwick, San Francisco** — own artist page for Zoey Frank with CV. Solid. Verified 2026-09-05.
+
+**Sugarlift, New York** — own artist page for Zoey Frank; two solo shows. Solid. Verified 2026-09-05.
+
+Added as candidates from Frank's CV: Zeuxis (still-life association), Gage Academy of Art, Seattle.
+
 ## Still to read
 UBC, Guelph, York, Alberta, Victoria, SFU. Then the museums abroad, the galleries that show the reference artists, and the US residencies.
