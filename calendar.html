@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noai, noimageai" />
+<title>Calendar · Studio Day</title>
+<meta name="description" content="Grants, prizes, opens and residencies that fit, September 2026 to January 2028, with the readiness kit." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+
+    <nav class="topbar" aria-label="Studio Day">
+      <a class="mark" href="index.html">Studio&nbsp;Day</a>
+      <div class="navlinks">
+        <a href="calendar.html">Calendar</a>
+        <a href="atlas.html">Atlas</a>
+        <a href="writing.html">Writing</a>
+        <a href="documentation.html">Documentation</a>
+        <a href="year.html">The Year</a>
+        <a href="studies.html">Studies</a>
+        <a href="teaching.html">Teaching</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <p class="eyebrow"><span>Calendar</span><span class="status">September 2026 to January 2028</span></p>
+      <h1>The opportunities that fit, <em>and what each one needs</em></h1>
+      <p class="lede">Grants, prizes, opens and residencies for figurative, portrait and still-life work in acrylic and pencil, open to a Canadian resident. Every entry carries a source and the date it was read. Anything projected from a previous cycle is marked expected and has to be confirmed when the call opens.</p>
+    </header>
+
+    <section class="kit">
+      <p class="cards-head">The readiness kit</p>
+      <p class="kit-lede">What every entry below asks for, prepared once and refreshed quarterly, so that an application is assembly rather than production.</p>
+      <div class="check" id="kit-check">
+        <label><input type="checkbox" data-k="cv3"><span><span class="t">CV at three pages, and at one page</span><span class="d">Eleven-point minimum. Dates, places, names, and which exhibitions paid a fee. The one-page version also carries the statement and bio for the Kingston Prize.</span></span></label>
+        <label><input type="checkbox" data-k="stmt"><span><span class="t">Statement at three lengths</span><span class="d">One breath, one paragraph, one page. The one-line premise from the Studies page is the shortest.</span></span></label>
+        <label><input type="checkbox" data-k="imgs"><span><span class="t">Twelve record shots, current</span><span class="d">From the copy stand, same settings, named Robin_Andrea_title_1.jpg. The single best one exported as a jpg between 1 and 4 MB, and one under 5 MB.</span></span></label>
+        <label><input type="checkbox" data-k="five"><span><span class="t">Five images chosen for a residency jury</span><span class="d">A different selection from the twelve: range, not repetition.</span></span></label>
+        <label><input type="checkbox" data-k="cc"><span><span class="t">Canada Council portal profile validated</span><span class="d">Takes weeks. Without it the rolling grant cannot be applied for.</span></span></label>
+        <label><input type="checkbox" data-k="bcac"><span><span class="t">BC Arts Council registration done</span><span class="d">Requests inside five days of a deadline are not processed until after it. Do it in October.</span></span></label>
+        <label><input type="checkbox" data-k="sit"><span><span class="t">Sitting log</span><span class="d">Who sat, when, where. Two portrait prizes require a sitting from life inside a dated window.</span></span></label>
+        <label><input type="checkbox" data-k="budget"><span><span class="t">Budget template</span><span class="d">Subsistence at the BC Arts Council rate, materials, fees to others, travel. Filled once, adjusted per project.</span></span></label>
+        <label><input type="checkbox" data-k="gate"><span><span class="t">Exhibition-fee record checked</span><span class="d">BC Arts Council asks for two curated exhibitions with fees paid. Find out whether the Emily Carr-era shows paid CARFAC. This decides whether the provincial grant is open now.</span></span></label>
+      </div>
+      <p class="progress" id="kit-progress"></p>
+    </section>
+
+    <section class="calgrid-section">
+      <div class="controls">
+        <div class="chips" id="cal-months"></div>
+      </div>
+      <div class="calgrid" id="calgrid" aria-live="polite"></div>
+      <div id="cal-entries" class="cal-entries"></div>
+    </section>
+
+    <section class="rolling">
+      <p class="cards-head">Rolling, or undated</p>
+      <ul id="rolling-list" class="rolling-list"></ul>
+    </section>
+
+    <section class="essay">
+      <h2>How this page is kept</h2>
+      <p>Dates are read on the organisation's own page and stamped with the day they were read. A projected date is a placeholder for planning and is labelled expected until the call is posted. Eligibility, medium and whether physical work must travel before selection are recorded per entry, because those three things decide whether an opportunity costs an evening or a month.</p>
+      <p>Apply municipally and provincially before federally, because a grant record makes every subsequent application read differently. Enter the digital-first prizes freely; enter the ship-before-selection ones only when a specific work justifies the freight.</p>
+    </section>
+
+    <footer>
+      <span class="copy">© 2026 Andrea Robin Studio</span>
+        <div class="fnav">
+        <a href="https://www.andrearobinstudio.com/" target="_blank" rel="noopener">andrearobinstudio.com</a>
+        <a href="https://www.andrearobin.com/" target="_blank" rel="noopener">andrearobin.com</a>
+        <a href="https://www.instagram.com/andrearobinstudio/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </footer>
+
+  </div>
+
+<script>
+// Each card can carry a photograph from images/. Until a file is added the
+// slot is removed, so the card shows as a plain dark tile rather than a
+// broken image.
+Array.prototype.forEach.call(document.querySelectorAll(".card-tile > img"), function(img){
+  function drop(){ if (img.parentNode) img.parentNode.removeChild(img); }
+  function keep(){ img.parentNode.classList.add("has-img"); }
+  if (img.complete) { (img.naturalWidth ? keep : drop)(); }
+  else { img.addEventListener("load", keep); img.addEventListener("error", drop); }
+});
+</script>
+
+
+<script src="calendar-data.js"></script>
+<script>
+(function(){
+  var months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+  var data=(window.STUDIO_CALENDAR||[]).slice().sort(function(a,b){return a.date<b.date?-1:1;});
+  var start={y:2026,m:8}, end={y:2028,m:0};
+  var list=[]; for(var y=start.y,m=start.m;;){ list.push({y:y,m:m}); if(y===end.y&&m===end.m)break; m++; if(m>11){m=0;y++;} }
+  var now=new Date(); var cur=list.findIndex(function(x){return x.y===now.getFullYear()&&x.m===now.getMonth();}); if(cur<0)cur=0;
+  var chips=document.getElementById("cal-months"), grid=document.getElementById("calgrid"), ent=document.getElementById("cal-entries");
+  function pad(n){return (n<10?"0":"")+n;}
+  function fmt(iso){var p=iso.split("-");return parseInt(p[2],10)+" "+months[parseInt(p[1],10)-1]+" "+p[0];}
+  function render(i){
+    cur=i; var y=list[i].y, m=list[i].m;
+    Array.prototype.forEach.call(chips.children,function(c,j){c.setAttribute("aria-pressed",j===i?"true":"false");});
+    var first=new Date(y,m,1).getDay(), dim=new Date(y,m+1,0).getDate();
+    var key=y+"-"+pad(m+1);
+    var inMonth=data.filter(function(e){return e.date.slice(0,7)===key;});
+    var byDay={}; inMonth.forEach(function(e){var d=parseInt(e.date.slice(8),10);(byDay[d]=byDay[d]||[]).push(e);});
+    var h='<div class="cal-head">'+months[m]+' '+y+'</div><div class="cal-dow">'+["S","M","T","W","T","F","S"].map(function(d){return '<span>'+d+'</span>';}).join('')+'</div><div class="cal-days">';
+    for(var b=0;b<first;b++) h+='<span class="cal-blank"></span>';
+    for(var d=1;d<=dim;d++){
+      var dow=(first+d-1)%7, cls="cal-day"+(dow===0?" sun":"")+(dow===1?" mon":"");
+      var isToday=(y===now.getFullYear()&&m===now.getMonth()&&d===now.getDate()); if(isToday)cls+=" today";
+      h+='<span class="'+cls+'"><b>'+d+'</b>';
+      (byDay[d]||[]).forEach(function(e){h+='<a href="#'+e.id+'" class="cal-ev '+e.status+'" title="'+e.name+'">'+e.name.split(" · ")[0]+'</a>';});
+      h+='</span>';
+    }
+    h+='</div>'; grid.innerHTML=h;
+    if(!inMonth.length){ ent.innerHTML='<p class="panel-empty">Nothing dated this month. Sundays are for making.</p>'; return; }
+    ent.innerHTML=inMonth.map(function(e){
+      return '<article class="panel cal-entry" id="'+e.id+'">'
+       +'<p class="p-eyebrow">'+fmt(e.date)+(e.opens?' · opens '+fmt(e.opens):'')+' <span class="flag'+(e.status==="expected"?" exp":"")+'">'+e.status+'</span></p>'
+       +'<p class="p-title">'+e.name+'</p>'
+       +'<p class="p-sub">'+e.kind+' · read '+e.verified+'</p>'
+       +'<h3>Fit</h3><p>'+e.fit+'</p>'
+       +'<h3>Needs</h3><p>'+e.needs+'</p>'
+       +(e.check?'<h3>Check</h3><p>'+e.check+'</p>':'')
+       +'<p class="cal-src"><a href="'+e.url+'" target="_blank" rel="noopener">Source</a></p>'
+       +'</article>';
+    }).join('');
+  }
+  list.forEach(function(x,i){var b=document.createElement("button");b.className="chip";b.type="button";b.textContent=months[x.m].slice(0,3)+" "+String(x.y).slice(2);b.addEventListener("click",function(){render(i);});chips.appendChild(b);});
+  render(cur);
+  if(location.hash){ var id=location.hash.slice(1); var e=data.find(function(x){return x.id===id;}); if(e){ var p=e.date.split("-"); var i=list.findIndex(function(x){return x.y===+p[0]&&x.m===+p[1]-1;}); if(i>=0){render(i); setTimeout(function(){var t=document.getElementById(id); if(t)t.scrollIntoView();},50);} } }
+
+  var rl=document.getElementById("rolling-list");
+  (window.STUDIO_ROLLING||[]).forEach(function(r){
+    var li=document.createElement("li");
+    li.innerHTML='<a href="'+r.url+'" target="_blank" rel="noopener">'+r.name+'</a><span class="flag'+(r.status!=="verified"?" exp":"")+'">'+r.status+(r.verified?' '+r.verified:'')+'</span><span class="u-fit">'+r.note+'</span>';
+    rl.appendChild(li);
+  });
+
+  // readiness kit persists in this browser only
+  var boxes=document.querySelectorAll("#kit-check input"), prog=document.getElementById("kit-progress");
+  var store={}; try{store=JSON.parse(localStorage.getItem("studio-kit")||"{}");}catch(e){}
+  function upd(){var n=0;Array.prototype.forEach.call(boxes,function(b){if(b.checked)n++;});prog.textContent=n+" of "+boxes.length+" ready";}
+  Array.prototype.forEach.call(boxes,function(b){b.checked=!!store[b.dataset.k];b.addEventListener("change",function(){store[b.dataset.k]=b.checked;try{localStorage.setItem("studio-kit",JSON.stringify(store));}catch(e){}upd();});});
+  upd();
+})();
+</script>
+</body>
+</html>

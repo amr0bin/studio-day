@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noai, noimageai" />
 <title>Studio Day · Studio Day</title>
-<meta name="description" content="Sunday ten until six, Monday evening for everything else. Four projects and the year they run in." />
+<meta name="description" content="A launcher for studio days. What today is, the standing order, the next dated thing." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
@@ -17,6 +17,7 @@
     <nav class="topbar" aria-label="Studio Day">
       <a class="mark" href="index.html">Studio&nbsp;Day</a>
       <div class="navlinks">
+        <a href="calendar.html">Calendar</a>
         <a href="atlas.html">Atlas</a>
         <a href="writing.html">Writing</a>
         <a href="documentation.html">Documentation</a>
@@ -27,100 +28,142 @@
     </nav>
 
     <header class="hero">
-      <p class="eyebrow"><span>Andrea Robin Studio</span><span class="status">Working repository</span></p>
+      <p class="eyebrow"><span>Andrea Robin Studio</span><span class="status" id="today-stamp">Studio day</span></p>
       <h1>Sunday ten until six, <em>Monday evening for the rest</em></h1>
-      <p class="lede">This is the working repository for a practice run alongside a full-time career. It holds four projects, the year they run in, and the map of the people and opportunities the practice is oriented toward. It holds the decisions that have already been made, written down so they do not have to be made again.</p>
+      <p class="lede">What today is, the standing order for it, and the next dated thing. The reasoning behind every decision here is kept, but folded away, so it does not have to be reread each week.</p>
     </header>
 
-    <figure class="photo-wide">
-      <img src="images/photo-foam.jpg" alt="A woman in a black swimsuit sits in breaking surf, laughing, white foam filling the frame." />
-      <figcaption>The subject is nature, and the body is part of what that word covers.</figcaption>
-    </figure>
+    <section class="today" aria-label="Today">
+      <div class="today-cell">
+        <span class="k">Today</span>
+        <span class="v" id="today-day">—</span>
+        <span class="d" id="today-note"></span>
+      </div>
+      <div class="today-cell">
+        <span class="k">This month</span>
+        <span class="v" id="today-month">—</span>
+        <span class="d" id="today-month-note"></span>
+      </div>
+      <div class="today-cell">
+        <span class="k">Next dated thing</span>
+        <span class="v" id="next-name">—</span>
+        <span class="d" id="next-when"></span>
+      </div>
+    </section>
 
-    <section class="essay">
-      <h2>The shape of the week</h2>
-      <p>Eight hours on Sunday, ten until six, for making. Two to four hours on Monday evening for documentation, correspondence and admin. That is about thirty-five hours a month of studio time and between nine and seventeen for everything else.</p>
-      <p>Those two blocks are the whole budget. Every decision recorded here was tested against them, and several plans were cut because they did not fit. The capacity exists for two of making, video, and selling admin. It does not exist for three.</p>
+    <section class="order">
+      <div class="order-col">
+        <h2>Sunday, ten until six</h2>
+        <ol class="runsheet">
+          <li><span>10:00</span><div>Set up already done. Kettle, paper out, palette laid. Twenty minutes of gesture from life or from the file to loosen the hand.</div></li>
+          <li><span>10:30</span><div>Studies, one an hour. Three before lunch. Number each sheet on the back as it comes off the table.</div></li>
+          <li><span>13:30</span><div>Lunch away from the table.</div></li>
+          <li><span>14:15</span><div>Studies or larger work, by which Sunday of the month it is. Three more hours.</div></li>
+          <li><span>17:15</span><div>Stop while it still wants to go on. Log the sheets: number, medium, subject. Note one sentence for Monday's writing.</div></li>
+          <li><span>17:45</span><div>Rinse, cover, leave the palette. Photograph nothing today.</div></li>
+        </ol>
+      </div>
+      <div class="order-col">
+        <h2>Monday evening</h2>
+        <ol class="runsheet">
+          <li><span>1</span><div>Record shot of every sheet from Sunday, on the copy stand, same settings.</div></li>
+          <li><span>2</span><div>Catalogue entry per sheet. Same fields every time. Nothing is decided about showing it.</div></li>
+          <li><span>3</span><div>The week's Patreon piece, from Sunday's sentence and the researcher's journal.</div></li>
+          <li><span>4</span><div>One named person written to. A collector, Arts Umbrella, Opus, or Kevin at Kroma, in turn.</div></li>
+          <li><span>5</span><div>Check the <a class="inline" href="calendar.html">Calendar</a> for anything inside thirty days.</div></li>
+        </ol>
+        <p class="order-foot">Capacity holds two of making, video and selling admin. Not three. Anything new waits until the thing before it is easy.</p>
+      </div>
+    </section>
 
-      <h2>The governing principle</h2>
-      <p>One project per area for at least a year. Depth requires boundaries, and a practice that runs alongside a career cannot afford to be spread across five surfaces at once. Anything not currently running is deferred rather than cancelled, and each deferred thing is added only when the one before it has become genuinely easy.</p>
-
-      <h2>What funds the time</h2>
-      <p>The binding constraint is paid hours rather than audience or talent. Twenty-five thousand dollars in grant money and twenty-five thousand in print sales are not equivalent. The grant returns hours to the practice. The sales consume them.</p>
-      <p>Ranked by hours returned: grants, institutional commissioning, teaching priced to institutions, then retail. The <a class="inline" href="atlas.html">Atlas</a> holds the funders and prizes that follow from that ranking, alongside the artists the work is in conversation with.</p>
+    <section class="upnext" aria-label="Coming up">
+      <p class="cards-head">Coming up</p>
+      <ul id="upnext-list" class="upnext-list"></ul>
+      <p class="upnext-foot"><a class="inline" href="calendar.html">Open the calendar</a> for September 2026 to January 2028, with what each one needs.</p>
     </section>
 
     <section class="cards-section">
       <p class="cards-head">The four projects</p>
       <div class="cards">
-
         <a class="card-tile" href="studies.html">
           <img src="images/photo-wave-face.jpg" alt="A woman rises through a breaking wave at sunset, water spraying gold around her face." />
           <span class="card-num">01</span>
           <h3>Studies</h3>
-          <p>An hour a piece, one size, one price, released monthly, with part of every sale to Arts Umbrella.</p>
-          <span class="more">See more</span>
+          <p>The engine. What is made on Sunday, how, and the decisions made once so none are made at the table.</p>
+          <span class="more">Open</span>
         </a>
-
-        <a class="card-tile" href="teaching.html">
-          <img src="images/photo-two-towel.jpg" alt="Two women lie head to shoulder on a blue towel over pebbles, faces to the sky." />
-          <span class="card-num">02</span>
-          <h3>Teaching</h3>
-          <p>Foundation year at Emily Carr, reconsidered after fifteen years of professional work in learning design.</p>
-          <span class="more">See more</span>
-        </a>
-
         <a class="card-tile" href="writing.html">
           <img src="images/photo-silhouette.jpg" alt="A backlit silhouette against water, the sea behind broken into circles of light." />
-          <span class="card-num">03</span>
+          <span class="card-num">02</span>
           <h3>Writing</h3>
-          <p>Dear Ordinary: fifty-six weeks of thesis inquiry, mapped as eight constellations rather than a sequence.</p>
-          <span class="more">See more</span>
+          <p>Dear Ordinary week by week, and the landscape of fine art writing: forms, scholars, programs, in case the door opens.</p>
+          <span class="more">Open</span>
         </a>
-
         <a class="card-tile" href="documentation.html">
           <img src="images/photo-umbrella.jpg" alt="The underside of a blue beach shade, the shadow of a person cast across the fabric." />
-          <span class="card-num">04</span>
+          <span class="card-num">03</span>
           <h3>Documentation</h3>
-          <p>Six setups that between them cover every photograph and every minute of footage the practice needs.</p>
-          <span class="more">See more</span>
+          <p>The Monday protocol and the catalogue fields. Capture is separate from showing.</p>
+          <span class="more">Open</span>
         </a>
-
+        <a class="card-tile" href="teaching.html">
+          <img src="images/photo-two-towel.jpg" alt="Two women lie head to shoulder on a blue towel over pebbles, faces to the sky." />
+          <span class="card-num">04</span>
+          <h3>Teaching</h3>
+          <p>Foundations, one module a year. Recorded first, then crit sessions taught the way the shops were.</p>
+          <span class="more">Open</span>
+        </a>
       </div>
     </section>
 
     <section class="cards-section">
-      <p class="cards-head">Two frames that hold them</p>
-      <div class="cards two">
-
-        <a class="card-tile" href="atlas.html">
+      <p class="cards-head">Three frames that hold them</p>
+      <div class="cards three">
+        <a class="card-tile" href="calendar.html">
           <img src="images/photo-pillar.jpg" alt="A stone gatepost and wrought-iron railing against a clear sky, a mountain ridge beyond." />
-          <h3>Atlas</h3>
-          <p>The artists the practice is oriented toward, and the grants, prizes and residencies that return hours to it. One map, two layers.</p>
-          <span class="more">Open the atlas</span>
+          <h3>Calendar</h3>
+          <p>Every grant, prize, open and residency that fits, September 2026 to January 2028, with the readiness kit above it.</p>
+          <span class="more">Open</span>
         </a>
-
+        <a class="card-tile" href="atlas.html">
+          <img src="images/photo-back-silver.jpg" alt="Seen from behind, a woman in a silver swimsuit lifts both arms to her hair at the water line." />
+          <h3>Atlas</h3>
+          <p>Places that matter to this work: where to study or teach, where to show or be collected, and the collections that change how one paints.</p>
+          <span class="more">Open</span>
+        </a>
         <a class="card-tile" href="year.html">
           <img src="images/photo-two-shore.jpg" alt="Two women rest against each other on a pebble shore, a wave breaking on rocks behind." />
           <h3>The Year</h3>
-          <p>Twelve months, each with its own weight. Studies through the spring, teaching in summer, the book completed in November, December kept clear.</p>
-          <span class="more">See the year</span>
+          <p>September 2026 to December 2027 in three lanes: make, share, relationships. November closes the book. December is kept clear.</p>
+          <span class="more">Open</span>
         </a>
-
       </div>
     </section>
+
+    <details class="fold">
+      <summary>Why this stands</summary>
+      <div class="essay">
+        <h2>The shape of the week</h2>
+        <p>Eight hours on Sunday, ten until six, for making. Two to four hours on Monday evening for documentation, correspondence and admin. That is about thirty-five hours a month of studio time and between nine and seventeen for everything else. Those two blocks are the whole budget, and several plans were cut because they did not fit them.</p>
+        <h2>The governing principle</h2>
+        <p>One project per area for at least a year. Depth requires boundaries. Anything not currently running is deferred rather than cancelled, and each deferred thing is added only when the one before it has become easy.</p>
+        <h2>What funds the time</h2>
+        <p>The binding constraint is paid hours rather than audience or talent. A grant returns hours to the practice; a sale consumes them. Ranked by hours returned: grants, institutional commissioning, teaching priced to institutions, then retail. The <a class="inline" href="calendar.html">Calendar</a> holds the funders and prizes that follow from that ranking.</p>
+        <h2>Where study sits</h2>
+        <p>Further study in fine art is a hope held open and prepared for. In her words, it would be a great privilege, and it is not an option at present. The near-term path runs through disability studies and counselling psychology, funded by a professional career. Teaching, writing and studying in fine art are live futures; the Writing page is built so that if the door opens, she is ready.</p>
+      </div>
+    </details>
 
     <section class="downloadblock">
       <div>
         <img src="images/inspiration-cover.jpg" alt="The deck cover: a close portrait in profile, low sun raking across freckled skin." style="display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:6px;" />
-        <p class="jcap" style="font-size:12px;color:var(--stone);margin:12px 0 0;">Twenty-nine pages. Paintings, drawings and process posts saved as they were found.</p>
+        <p class="jcap">Twenty-nine pages. Paintings, drawings and process posts saved as they were found.</p>
       </div>
       <div>
         <p class="jtitle">this chapter</p>
         <p class="jbig">Inspiration</p>
-        <p>The work being looked at while this chapter is being made. Paintings photographed against studio walls, underdrawings and process shots, captions that say what is failing, and a few older things that keep coming back. It is a looking file rather than an argument, kept in the order it was gathered.</p>
+        <p>The work being looked at while this chapter is being made. A looking file rather than an argument, kept in the order it was gathered.</p>
         <a class="dl" href="files/studio-day-inspiration.pdf" download>Download the deck</a>
-        <p style="font-size:12.5px;color:var(--stone);margin:18px 0 0;">A companion text list sets out what each practice contributes and what does not transfer: <a class="inline" href="files/inspirations.pdf" download style="color:var(--ink-strong);text-decoration:underline;text-decoration-color:var(--stone);text-underline-offset:2px;">Inspirations, as notes</a>.</p>
       </div>
     </section>
 
@@ -145,6 +188,49 @@ Array.prototype.forEach.call(document.querySelectorAll(".card-tile > img"), func
   if (img.complete) { (img.naturalWidth ? keep : drop)(); }
   else { img.addEventListener("load", keep); img.addEventListener("error", drop); }
 });
+</script>
+
+<script src="calendar-data.js"></script>
+<script>
+(function(){
+  var now = new Date();
+  var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  var dow = now.getDay();
+  var nth = Math.ceil(now.getDate()/7);
+  var ord = ["","first","second","third","fourth","fifth"][nth];
+  document.getElementById("today-stamp").textContent = days[dow] + " " + now.getDate() + " " + months[now.getMonth()];
+  var dayEl = document.getElementById("today-day"), noteEl = document.getElementById("today-note");
+  if (dow===0){ dayEl.textContent = ord + " Sunday of the month"; noteEl.textContent = (nth<=2) ? "A studies Sunday. Six sheets is the ceiling; four is a good day." : "Held for larger work, unless stock for the release is thin."; }
+  else if (dow===1){ dayEl.textContent = "Monday evening"; noteEl.textContent = "Record shots, catalogue, the week's writing, one letter."; }
+  else { dayEl.textContent = days[dow]; noteEl.textContent = "Not a studio day. Nothing here needs you before Sunday."; }
+  var m = now.getMonth();
+  var monthNote = {
+    0:"Winter. Studies. Build stock.", 1:"Studies. Prepare the Foundations module.", 2:"Studies. BC Arts Council results due late March.",
+    3:"Studies. Kingston entries open mid-month.", 4:"Studies. Salt Spring closes on the last day.", 5:"Studies. Drawing Prize deadline if entering.",
+    6:"Foundations module recorded. Studies halve.", 7:"Foundations module recorded. Studies halve.", 8:"Kingston deadline on the 1st. Vermont on the 30th.",
+    9:"Studies resume. Book compilation begins on Mondays.", 10:"Book completed. Nothing new started.", 11:"Wintering. Nothing that needs her."
+  };
+  document.getElementById("today-month").textContent = months[m] + " " + now.getFullYear();
+  document.getElementById("today-month-note").textContent = monthNote[m];
+
+  var data = (window.STUDIO_CALENDAR||[]).slice().sort(function(a,b){ return a.date<b.date?-1:1; });
+  var today = now.toISOString().slice(0,10);
+  var up = data.filter(function(e){ return e.date >= today; });
+  function fmt(iso){ var p=iso.split("-"); return parseInt(p[2],10)+" "+months[parseInt(p[1],10)-1]+" "+p[0]; }
+  function daysTo(iso){ var d=new Date(iso+"T12:00:00"); return Math.round((d-now)/86400000); }
+  if (up.length){
+    var n = up[0];
+    document.getElementById("next-name").textContent = n.name;
+    document.getElementById("next-when").textContent = fmt(n.date) + ", in " + daysTo(n.date) + " days" + (n.status==="expected" ? " (expected, confirm)" : "");
+  }
+  var list = document.getElementById("upnext-list");
+  up.slice(0,5).forEach(function(e){
+    var li = document.createElement("li");
+    li.innerHTML = '<span class="u-date">'+fmt(e.date)+'</span><a href="calendar.html#'+e.id+'">'+e.name+'</a><span class="flag'+(e.status==="expected"?" exp":"")+'">'+e.status+'</span><span class="u-fit">'+e.fit+'</span>';
+    list.appendChild(li);
+  });
+})();
 </script>
 </body>
 </html>
