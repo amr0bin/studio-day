@@ -104,6 +104,16 @@ figcaption{font-size:12px;line-height:1.55;color:var(--stone);}
 .photo-inline{margin:40px 0;max-width:390px;}
 .photo-inline img{display:block;width:100%;height:auto;border-radius:6px;}
 .photo-inline figcaption{margin-top:11px;max-width:660px;}
+/* A video figure matches the hero photograph above it: same 760px column,
+   same 16:9 landscape crop, same rounded corner. */
+.photo-hero.vid video{display:block;width:100%;height:auto;aspect-ratio:16/9;
+  object-fit:cover;border-radius:6px;background:var(--panel);}
+@media (prefers-reduced-motion: reduce){
+  .photo-hero.vid video{display:none;}
+  .photo-hero.vid::before{content:"";display:block;width:100%;aspect-ratio:16/9;
+    border-radius:6px;background:url(images/photo-water.jpg) center/cover no-repeat;}
+}
+
 .photo-wide{margin:38px 0 8px;max-width:760px;}
 .photo-wide img{display:block;width:100%;height:auto;aspect-ratio:21/9;object-fit:cover;border-radius:6px;}
 .photo-wide figcaption{margin-top:11px;}
