@@ -2,8 +2,18 @@
    Andrea Robin Studio */
 
 :root{
-  --paper:#ffffff; --ink:#5d5a5b; --ink-strong:#454344; --stone:#a29f9f;
-  --hair:#e6e4e2; --hair-soft:#efedeb; --panel:#faf9f8;
+  /* Sampled from the twenty photographs: warm umber, sand, tan, and the
+     sea blue of the towel and the water. Every text colour clears 4.5:1
+     against paper, so the warmth costs nothing in legibility. */
+  --paper:#fdfcfa;        /* pale sand, lifted                  */
+  --ink:#4e453c;          /* warm umber, body text      9.1:1   */
+  --ink-strong:#2b2219;   /* deepest shadow, headings  15.2:1   */
+  --stone:#7d7164;        /* dry sand, captions         4.6:1   */
+  --hair:#e5ded1;         /* sand, rules                        */
+  --hair-soft:#f0eae0;    /* sand, lighter                      */
+  --panel:#f8f4ec;        /* warm off-white                     */
+  --accent:#1a4a78;       /* the sea blue               8.9:1   */
+  --accent-warm:#9a6b3d;  /* wet rock                   4.5:1   */
   --maxw:1080px; --ease:cubic-bezier(.22,.61,.36,1);
 }
 *{box-sizing:border-box;} html,body{margin:0;padding:0;}
@@ -40,9 +50,9 @@ h1 em{font-style:italic;font-weight:400;color:var(--ink);}
 .essay p{font-size:16.5px;margin:0 0 20px;color:var(--ink);}
 .essay ul,.essay ol{font-size:16.5px;margin:0 0 20px;padding-left:20px;}
 .essay li{margin:0 0 9px;}
-.essay a.inline{color:var(--ink-strong);text-decoration:underline;text-decoration-color:var(--stone);
+.essay a.inline{color:var(--accent);text-decoration:underline;text-decoration-color:var(--hair);
   text-underline-offset:2px;transition:text-decoration-color .2s var(--ease);}
-.essay a.inline:hover{text-decoration-color:var(--ink);}
+.essay a.inline:hover{text-decoration-color:var(--accent);}
 .essay em{font-style:italic;}
 .essay table{width:100%;border-collapse:collapse;margin:0 0 24px;font-size:15px;}
 .essay th{text-align:left;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
@@ -64,10 +74,19 @@ figcaption{font-size:12px;line-height:1.55;color:var(--stone);}
 .cards-head{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--stone);
   font-weight:600;margin:0 0 22px;}
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch;}
-.card-tile{position:relative;display:flex;flex-direction:column;
+.card-tile{position:relative;display:flex;flex-direction:column;overflow:hidden;
   border-radius:6px;text-decoration:none;color:#fff;background:var(--ink-strong);
-  padding:42px 20px 22px;transition:background .3s var(--ease);}
-.card-tile:hover{background:#332f30;}
+  padding:42px 20px 22px;min-height:300px;transition:background .3s var(--ease);}
+.card-tile:hover{background:#3a2f22;}
+/* Photograph slot. If the file is absent the script hides the img and the
+   card falls back to the plain dark tile, so nothing ever looks broken. */
+.card-tile > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  z-index:0;transition:transform .5s var(--ease);}
+.card-tile:hover > img{transform:scale(1.04);}
+.card-tile.has-img::after{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(to top,rgba(28,22,14,.88) 0%,rgba(28,22,14,.55) 48%,rgba(28,22,14,.26) 100%);}
+.card-tile.has-img{justify-content:flex-end;}
+.card-tile > *:not(img){position:relative;z-index:2;}
 .card-tile h3{font-size:19px;font-weight:500;letter-spacing:-.01em;margin:0 0 8px;}
 .card-tile p{font-size:12.5px;line-height:1.55;margin:0 0 20px;color:rgba(255,255,255,.86);}
 .card-tile .more{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
@@ -76,6 +95,17 @@ figcaption{font-size:12px;line-height:1.55;color:var(--stone);}
 .card-tile:hover .more{background:#fff;color:var(--ink-strong);border-color:#fff;}
 .card-num{position:absolute;top:20px;left:20px;font-size:10.5px;letter-spacing:.16em;
   text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600;}
+
+/* ── PHOTOGRAPHS ── */
+.photo-hero{margin:34px 0 8px;max-width:760px;}
+.photo-hero img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:6px;}
+.photo-hero figcaption{margin-top:11px;}
+.photo-inline{margin:40px 0;max-width:390px;}
+.photo-inline img{display:block;width:100%;height:auto;border-radius:6px;}
+.photo-inline figcaption{margin-top:11px;max-width:660px;}
+.photo-wide{margin:38px 0 8px;max-width:760px;}
+.photo-wide img{display:block;width:100%;height:auto;aspect-ratio:21/9;object-fit:cover;border-radius:6px;}
+.photo-wide figcaption{margin-top:11px;}
 
 /* ── DOWNLOAD BLOCK ── */
 .downloadblock{margin:64px 0 40px;padding:40px 0 8px;border-top:1px solid var(--hair);
@@ -121,7 +151,7 @@ figcaption{font-size:12px;line-height:1.55;color:var(--stone);}
 .srclist li{margin:0 0 7px;font-size:13.5px;}
 .srclist a{color:var(--ink-strong);text-decoration:underline;text-decoration-color:var(--hair);
   text-underline-offset:2px;}
-.srclist a:hover{text-decoration-color:var(--stone);}
+.srclist a:hover{text-decoration-color:var(--accent);}
 
 /* ── STAGE (two-column interactive area) ── */
 .stage{margin:14px 0 8px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start;}
@@ -171,7 +201,7 @@ footer .copy{font-size:12px;color:var(--stone);}
 
 /* card row variants */
 .cards.two{grid-template-columns:1fr 1fr;}
-.cards.two .card-tile{padding:26px 24px 24px;}
+.cards.two .card-tile{padding:26px 24px 24px;min-height:190px;}
 @media(max-width:720px){ .cards.two{grid-template-columns:1fr;} }
 
 /* ══════════════════════════════════════════════════════════════════
@@ -220,7 +250,7 @@ footer .copy{font-size:12px;color:var(--stone);}
 .check label{display:flex;gap:14px;align-items:flex-start;cursor:pointer;
   padding:15px 0;border-bottom:1px solid var(--hair-soft);}
 .check input[type="checkbox"]{flex:none;width:15px;height:15px;margin:4px 0 0;
-  accent-color:var(--ink-strong);cursor:pointer;}
+  accent-color:var(--accent);cursor:pointer;}
 .check .t{display:block;font-size:16px;line-height:1.5;color:var(--ink-strong);font-weight:500;}
 .check .d{display:block;font-size:14.5px;line-height:1.6;color:var(--ink);margin-top:5px;}
 .check input:checked + span .t{color:var(--stone);text-decoration:line-through;}
@@ -238,4 +268,81 @@ footer .copy{font-size:12px;color:var(--stone);}
   .picker{grid-template-columns:1fr 1fr;}
   .settled > div{grid-template-columns:1fr;gap:5px;}
   .settled dt{padding-top:0;}
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   PRINT
+   This is a working reference used on studio days, so paper matters.
+   Printing drops the navigation, the photographs and every control,
+   and reveals what the interactions normally hide: all twelve months,
+   all six setups, every star and every atlas entry.
+   ══════════════════════════════════════════════════════════════════ */
+
+.printsheet{display:none;}
+
+@media print{
+  @page{margin:16mm 15mm;}
+
+  html,body{background:#fff;color:#000;font-size:10pt;line-height:1.45;}
+  .wrap{max-width:none;padding:0;}
+
+  /* navigation, controls and anything you cannot click on paper */
+  .topbar,footer,.controls,.chips,.count,.dl,.more,.card-num,
+  .maptools,.legend,.zoom-controls,.picker,.panel-body,.steprow,.tabs,
+  .vtoggle,.linkbtn,.stepbtn,.chip,.cbtn,.conns,.zoombtn,
+  .stage,.gallery,.map-hold,.cwrap,.wheel,.tt,.note,
+  .downloadblock,.outlink,.check input,.progress{display:none!important;}
+
+  /* photographs: ink-hungry and not what the reference is for */
+  figure,.photo-hero,.photo-inline,.photo-wide,.fig-stack,.fig-side{display:none!important;}
+
+  /* the reveal */
+  .printsheet{display:block!important;}
+  details{display:block!important;}
+  details > summary{display:none;}
+  .listbody,.roster{display:block!important;}
+
+  .hero{padding:0 0 10pt;max-width:none;}
+  h1{font-size:20pt;line-height:1.15;color:#000;margin:0 0 8pt;}
+  h1 em{font-style:italic;}
+  .eyebrow{font-size:7.5pt;letter-spacing:.16em;color:#555;margin:0 0 6pt;}
+  .status{border-color:#bbb;}
+  .lede{font-size:11pt;max-width:none;}
+
+  .essay,.section{max-width:none;page-break-inside:auto;}
+  .essay h2,.section h2{font-size:8.5pt;letter-spacing:.16em;color:#555;
+    margin:14pt 0 5pt;page-break-after:avoid;}
+  .essay p,.section p{font-size:10pt;margin:0 0 7pt;color:#000;
+    orphans:3;widows:3;}
+  .essay a.inline{color:#000;text-decoration:underline;}
+  .essay table{font-size:9pt;}
+
+  /* the flat month and setup blocks */
+  .printsheet h2{font-size:8.5pt;letter-spacing:.16em;color:#555;margin:0 0 8pt;}
+  .printsheet .pm{page-break-inside:avoid;margin:0 0 11pt;padding:0 0 9pt;
+    border-bottom:.5pt solid #ccc;}
+  .printsheet .pm:last-child{border-bottom:none;}
+  .printsheet h3{font-size:11.5pt;font-weight:600;margin:0 0 4pt;color:#000;}
+  .printsheet h3 span{font-size:7.5pt;letter-spacing:.14em;text-transform:uppercase;
+    color:#666;font-weight:600;margin-left:8pt;}
+  .printsheet p{font-size:9.5pt;margin:0 0 4pt;}
+  .printsheet .pml{font-size:9pt;color:#222;}
+  .printsheet .pml b{font-weight:600;}
+  .printsheet ol{font-size:9pt;margin:3pt 0 5pt;padding-left:14pt;}
+  .printsheet li{margin:0 0 2pt;}
+
+  /* the settled rows and checklist on studies */
+  .settled,.check{max-width:none;}
+  .settled > div{grid-template-columns:110pt 1fr;padding:5pt 0;
+    page-break-inside:avoid;border-bottom:.5pt solid #ddd;}
+  .settled dt{font-size:7.5pt;color:#555;}
+  .settled dd{font-size:9.5pt;}
+  .settled dd span{font-size:9pt;color:#333;}
+  .check label{padding:5pt 0;border-bottom:.5pt solid #ddd;page-break-inside:avoid;}
+  .check .t{font-size:9.5pt;}
+  .check .d{font-size:9pt;color:#333;}
+
+  /* the written-out star list on the writing page */
+  .aslist h3{font-size:9pt;page-break-after:avoid;}
+  .aslist p{font-size:9pt;margin:0 0 5pt;}
 }

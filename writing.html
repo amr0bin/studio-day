@@ -154,8 +154,40 @@
   .standard-list li{padding:12px 0;border-bottom:1px solid var(--hair-soft);font-size:14.5px;}
   .standard-list li:last-child{border-bottom:none;}
   .standard-list b{color:var(--ink-strong);font-weight:600;}
+  .photo-hero{margin:34px 0 8px;max-width:760px;}
+  .photo-hero img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:6px;}
+  .photo-inline{margin:34px 0;max-width:390px;}
+  .photo-inline img{display:block;width:100%;height:auto;border-radius:6px;}
+  figcaption{font-size:12px;line-height:1.55;color:var(--stone);margin-top:11px;}
   @media (max-width:680px){.wrap{padding:0 20px;}}
   @media (prefers-reduced-motion:reduce){*{transition:none!important;}}
+
+  /* Print. Paper drops the map and every control and prints the full list of
+     stars instead, which is the part that is useful away from a screen. */
+  @media print{
+    @page{margin:16mm 15mm;}
+    html,body{background:#fff;color:#000;font-size:10pt;line-height:1.45;}
+    .wrap{max-width:none;padding:0;}
+    .topbar,footer,.controls,.tf,.maptools,.legend,.stage,.cwrap,.tt,
+    .note,.vtoggle,.linkbtn,.vbtn,.chip,.panel,.outlink,
+    figure,.photo-hero,.photo-inline{display:none!important;}
+    details{display:block!important;}
+    details > summary{display:none;}
+    .listbody{display:block!important;}
+    .hero{padding:0 0 10pt;max-width:none;}
+    h1{font-size:20pt;line-height:1.15;margin:0 0 8pt;}
+    .eyebrow{font-size:7.5pt;letter-spacing:.16em;color:#555;margin:0 0 6pt;}
+    .lede{font-size:11pt;max-width:none;}
+    .section{max-width:none;}
+    .section h2{font-size:8.5pt;letter-spacing:.16em;color:#555;
+      margin:14pt 0 5pt;page-break-after:avoid;}
+    .section p{font-size:10pt;margin:0 0 7pt;orphans:3;widows:3;}
+    .about-table{font-size:9pt;}
+    .standard-list li{font-size:9.5pt;padding:5pt 0;page-break-inside:avoid;}
+    .aslist h3{font-size:9pt;margin:11pt 0 4pt;page-break-after:avoid;}
+    .aslist p{font-size:9pt;margin:0 0 5pt;page-break-inside:avoid;}
+    .principle{font-size:10.5pt;}
+  }
 </style>
 </head>
 <body>
@@ -231,6 +263,11 @@
     </div>
 
     <div class="section">
+    <figure class="photo-hero">
+      <img src="images/photo-rockface.jpg" alt="A figure in a pale swimsuit stands against an ochre rock face, thrown out of focus." />
+      <figcaption>The curriculum spirals rather than progressing, so it is drawn as a map.</figcaption>
+    </figure>
+
       <h2>The three dimensions</h2>
       <table class="about-table">
         <thead><tr><th>Axis</th><th>Poles</th></tr></thead>
@@ -243,6 +280,11 @@
     </div>
 
     <div class="section">
+      <figure class="photo-inline">
+        <img src="images/photo-blurred.jpg" alt="A figure reclining on a blue towel, thrown completely out of focus, sea and sky behind." />
+        <figcaption>The repository is the archive. The platform is only distribution.</figcaption>
+      </figure>
+
       <h2>What the writing is held to</h2>
       <p>Checked before publishing rather than felt for. The list exists because these are failures that read as competent prose, so they survive a reread and get caught only by counting.</p>
       <ul class="standard-list">
@@ -268,13 +310,13 @@
 
 <script>
 const CATS = {
-  source:  {label:"The Reading",       color:"#8496a0"},
-  method:  {label:"The Sentence",      color:"#7d7469"},
-  keeping: {label:"The Archive",       color:"#7f938c"},
-  forms:   {label:"The Forms",         color:"#a2917a"},
-  owed:    {label:"What It Owes",      color:"#a5867c"},
-  rhythm:  {label:"The Rhythm",        color:"#8f8798"},
-  reach:   {label:"The Reach",         color:"#9d7f92"},
+  source:  {label:"The Reading",       color:"#3d6382"},
+  method:  {label:"The Sentence",      color:"#6f6456"},
+  keeping: {label:"The Archive",       color:"#4f7a6a"},
+  forms:   {label:"The Forms",         color:"#9a6b3d"},
+  owed:    {label:"What It Owes",      color:"#8c5a4a"},
+  rhythm:  {label:"The Rhythm",        color:"#5f5a72"},
+  reach:   {label:"The Reach",         color:"#8a5470"},
 };
 const CAT_ORDER = ["source","method","keeping","forms","owed","rhythm","reach"];
 

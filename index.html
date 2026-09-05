@@ -32,6 +32,11 @@
       <p class="lede">This is the working repository for a practice run alongside a full-time career. It holds four projects, the year they run in, and the map of the people and opportunities the practice is oriented toward. It holds the decisions that have already been made, written down so they do not have to be made again.</p>
     </header>
 
+    <figure class="photo-wide">
+      <img src="images/photo-foam.jpg" alt="A woman in a black swimsuit sits in breaking surf, laughing, white foam filling the frame." />
+      <figcaption>The subject is nature, and the body is part of what that word covers.</figcaption>
+    </figure>
+
     <section class="essay">
       <h2>The shape of the week</h2>
       <p>Eight hours on Sunday, ten until six, for making. Two to four hours on Monday evening for documentation, correspondence and admin. That is about thirty-five hours a month of studio time and between nine and seventeen for everything else.</p>
@@ -50,6 +55,7 @@
       <div class="cards">
 
         <a class="card-tile" href="studies.html">
+          <img src="images/photo-wave-face.jpg" alt="A woman rises through a breaking wave at sunset, water spraying gold around her face." />
           <span class="card-num">01</span>
           <h3>Studies</h3>
           <p>An hour a piece, one size, one price, released monthly, with part of every sale to Arts Umbrella.</p>
@@ -57,6 +63,7 @@
         </a>
 
         <a class="card-tile" href="teaching.html">
+          <img src="images/photo-two-towel.jpg" alt="Two women lie head to shoulder on a blue towel over pebbles, faces to the sky." />
           <span class="card-num">02</span>
           <h3>Teaching</h3>
           <p>Foundation year at Emily Carr, reconsidered after fifteen years of professional work in learning design.</p>
@@ -64,6 +71,7 @@
         </a>
 
         <a class="card-tile" href="writing.html">
+          <img src="images/photo-silhouette.jpg" alt="A backlit silhouette against water, the sea behind broken into circles of light." />
           <span class="card-num">03</span>
           <h3>Writing</h3>
           <p>Dear Ordinary: fifty-six weeks of thesis inquiry, mapped as eight constellations rather than a sequence.</p>
@@ -71,6 +79,7 @@
         </a>
 
         <a class="card-tile" href="documentation.html">
+          <img src="images/photo-umbrella.jpg" alt="The underside of a blue beach shade, the shadow of a person cast across the fabric." />
           <span class="card-num">04</span>
           <h3>Documentation</h3>
           <p>Six setups that between them cover every photograph and every minute of footage the practice needs.</p>
@@ -85,12 +94,14 @@
       <div class="cards two">
 
         <a class="card-tile" href="atlas.html">
+          <img src="images/photo-pillar.jpg" alt="A stone gatepost and wrought-iron railing against a clear sky, a mountain ridge beyond." />
           <h3>Atlas</h3>
           <p>The artists the practice is oriented toward, and the grants, prizes and residencies that return hours to it. One map, two layers.</p>
           <span class="more">Open the atlas</span>
         </a>
 
         <a class="card-tile" href="year.html">
+          <img src="images/photo-two-shore.jpg" alt="Two women rest against each other on a pebble shore, a wave breaking on rocks behind." />
           <h3>The Year</h3>
           <p>Twelve months, each with its own weight. Studies through the spring, teaching in summer, the book completed in November, December kept clear.</p>
           <span class="more">See the year</span>
@@ -115,7 +126,7 @@
 
     <footer>
       <span class="copy">© 2026 Andrea Robin Studio</span>
-      <div class="fnav">
+        <div class="fnav">
         <a href="https://www.andrearobinstudio.com/" target="_blank" rel="noopener">andrearobinstudio.com</a>
         <a href="https://www.andrearobin.com/" target="_blank" rel="noopener">andrearobin.com</a>
         <a href="https://www.instagram.com/andrearobinstudio/" target="_blank" rel="noopener">Instagram</a>
@@ -123,5 +134,17 @@
     </footer>
 
   </div>
+
+<script>
+// Each card can carry a photograph from images/. Until a file is added the
+// slot is removed, so the card shows as a plain dark tile rather than a
+// broken image.
+Array.prototype.forEach.call(document.querySelectorAll(".card-tile > img"), function(img){
+  function drop(){ if (img.parentNode) img.parentNode.removeChild(img); }
+  function keep(){ img.parentNode.classList.add("has-img"); }
+  if (img.complete) { (img.naturalWidth ? keep : drop)(); }
+  else { img.addEventListener("load", keep); img.addEventListener("error", drop); }
+});
+</script>
 </body>
 </html>

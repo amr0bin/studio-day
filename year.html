@@ -74,6 +74,11 @@
       </div>
     </section>
 
+    <figure class="photo-hero">
+      <img src="images/photo-standing.jpg" alt="A figure stands on a low rock at the sea edge, a blue towel around the shoulders, horizon behind." />
+      <figcaption>One fixed deadline in November, and one month kept entirely clear.</figcaption>
+    </figure>
+
     <section class="essay">
       <h2>How the year is held</h2>
       <p>The year has one fixed deadline and one protected month. The book is completed in November. December is wintering.</p>
@@ -88,13 +93,20 @@
       <p>The writing already exists, committed to the archive week by week. The documentation happens in the Monday blocks regardless of whether a book is being made. Photographing work at completion rather than gathering it at the end is what turns November into an assembly month instead of a scramble.</p>
       <p>Compilation is a selection and sequencing task. It belongs in Monday blocks through October and November rather than in Sunday studio time, and nothing new is made for it.</p>
 
+      <figure class="photo-inline">
+        <img src="images/photo-back-towel.jpg" alt="Seen from behind, a woman holds a blue towel over one shoulder, the sea soft behind her." />
+        <figcaption>One year of work, four outputs. Neither the book nor the course is a new production project.</figcaption>
+      </figure>
+
       <h2>The leverage</h2>
       <p>One year of work produces four outputs: the paintings, the studies series, the course, and the book. The course footage comes from sessions taught live rather than filmed separately. The book comes from writing and photographs that already exist. Neither is a new production project.</p>
     </section>
 
+    <div class="printsheet" id="printsheet" aria-hidden="true"></div>
+
     <footer>
       <span class="copy">© 2026 Andrea Robin Studio</span>
-      <div class="fnav">
+        <div class="fnav">
         <a href="index.html">Studio Day</a>
         <a href="atlas.html">Atlas</a>
         <a href="documentation.html">Documentation</a>
@@ -108,11 +120,11 @@
 "use strict";
 
 var PHASES = {
-  making:   {label:"Making",    color:"#7d7469"},
-  prepare:  {label:"Preparing", color:"#a2917a"},
-  teach:    {label:"Teaching",  color:"#7f938c"},
-  gather:   {label:"Gathering", color:"#8496a0"},
-  winter:   {label:"Wintering", color:"#8f8798"}
+  making:   {label:"Making",    color:"#6f6456"},
+  prepare:  {label:"Preparing", color:"#9a6b3d"},
+  teach:    {label:"Teaching",  color:"#4f7a6a"},
+  gather:   {label:"Gathering", color:"#3d6382"},
+  winter:   {label:"Wintering", color:"#5f5a72"}
 };
 
 var MONTHS = [
@@ -358,6 +370,23 @@ function select(i){
 buildWheel();
 buildChips();
 applyFilter();
+
+// A studio day is a particular day, so open on the month it actually is.
+select(new Date().getMonth());
+
+// The wheel shows one month at a time, which is right on screen and wrong on
+// paper. This writes all twelve out flat; it is hidden until the page prints.
+document.getElementById("printsheet").innerHTML =
+  '<h2>The year, month by month</h2>' + MONTHS.map(function(mo){
+    return '<div class="pm">' +
+      '<h3>' + mo.m + ' \u00b7 ' + mo.title + '<span>' + PHASES[mo.phase].label + '</span></h3>' +
+      '<p>' + mo.weight + '</p>' +
+      '<p class="pml"><b>Milestone.</b> ' + mo.milestone + '</p>' +
+      '<p class="pml"><b>Runs.</b> ' + mo.runs.join("; ") + '</p>' +
+      '<p class="pml"><b>Pauses.</b> ' + mo.pauses.join("; ") + '</p>' +
+      '<p class="pml"><b>Monday.</b> ' + mo.monday + '</p>' +
+    '</div>';
+  }).join("");
 })();
 </script>
 </body>

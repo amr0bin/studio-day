@@ -250,7 +250,7 @@ HTML = '''<!DOCTYPE html>
 <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 <style>
-  :root{--land:#eceae7;--land-line:#dcd9d5;--coast:#c9c5c1;}
+  :root{--land:#ece5d8;--land-line:#ddd3c2;--coast:#c6bba7;}
   /* The map needs more width than a reading column, but the nav and the prose
      must stay at 1080px so the ribbon sits identically on every page.
      So the container is left alone and only the stage breaks out. */
@@ -351,11 +351,21 @@ HTML = '''<!DOCTYPE html>
       </div>
     </section>
 
+    <figure class="photo-hero">
+      <img src="images/photo-two-rock.jpg" alt="Two women lie back on a warm rock, sunlit water breaking behind them." />
+      <figcaption>The binding constraint is paid hours rather than audience or talent.</figcaption>
+    </figure>
+
     <section class="essay">
       <h2>Why funders and artists share a map</h2>
       <p>The binding constraint on this practice is paid hours rather than audience or talent. Twenty-five thousand dollars of grant money and twenty-five thousand of print sales are not equivalent, because the grant returns hours and the sales consume them. Ranked by hours returned: grants, institutional commissioning, teaching priced to institutions rather than hobbyists, then retail.</p>
       <p>The artists on this map who built sustainable practices did it in a particular order. Juried shows, prizes, grants, residencies and press came first. Gallery representation followed. Teaching arrived as the income that follows credibility rather than as the thing that builds it. None of the first three built a career through an e-commerce funnel.</p>
       <p>Jean Smith took a genuinely different route to a real outcome, and it is on this map for that reason. Small work is not a lesser path.</p>
+
+      <figure class="photo-inline">
+        <img src="images/photo-back-silver.jpg" alt="Seen from behind, a woman in a silver swimsuit lifts both arms to her hair at the water line." />
+        <figcaption>Disability studies, counselling psychology and the thesis are one inquiry from three directions.</figcaption>
+      </figure>
 
       <h2>What is not available</h2>
       <p>A research-creation PhD or MFA is not on this map because it is not on the table. The education path runs from an MSc in Disability Studies to an MA in Counselling Psychology toward registration, and then a PhD. Academia will not fund studio time along the way. The practice is funded by a professional career and runs alongside years of part-time graduate study.</p>
@@ -396,11 +406,11 @@ HTML = '''<!DOCTYPE html>
 "use strict";
 
 var KINDS = {
-  artist:    {label:"Artists",            color:"#7d7469", shape:"circle"},
-  network:   {label:"Network",            color:"#a2917a", shape:"circle"},
-  grant:     {label:"Grants",             color:"#7f938c", shape:"square"},
-  prize:     {label:"Prizes",             color:"#8496a0", shape:"square"},
-  residency: {label:"Residencies",        color:"#8f8798", shape:"square"}
+  artist:    {label:"Artists",            color:"#6f6456", shape:"circle"},
+  network:   {label:"Network",            color:"#9a6b3d", shape:"circle"},
+  grant:     {label:"Grants",             color:"#4f7a6a", shape:"square"},
+  prize:     {label:"Prizes",             color:"#3d6382", shape:"square"},
+  residency: {label:"Residencies",        color:"#5f5a72", shape:"square"}
 };
 
 var E = JSON.parse(document.getElementById("atlas-data").textContent);

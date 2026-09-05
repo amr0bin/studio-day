@@ -26,7 +26,8 @@ do not have to be made again.
 | Path | What it holds |
 |---|---|
 | `style.css` | Shared styling for every page. `atlas.html`, `writing.html`, `year.html` and `documentation.html` each add a small page-scoped `<style>` block on top of it. |
-| `images/` | Photographs, and the cover thumbnail for the inspiration deck. |
+| `images/` | Photographs. See the card photographs note below. |
+| `images/card-documentation.jpg` | The only photograph here that belongs to the practice. |
 | `files/studio-day-inspiration.pdf` | The inspiration deck. Twenty-eight pages of work being looked at while this chapter is made. **11 MB, and it reproduces other artists' work.** See the note below before publishing. |
 | `files/inspirations.pdf` | The same influences as text: what each practice contributes and what does not transfer. Reproduces nothing. |
 
@@ -52,6 +53,33 @@ time their build script runs. Change the script instead.
 
 ---
 
+## Card photographs on the index
+
+The six cards on `index.html` each look for a photograph in `images/`:
+
+| File | Card |
+|---|---|
+| `card-studies.jpg` | Studies |
+| `card-teaching.jpg` | Teaching |
+| `card-writing.jpg` | Writing |
+| `card-documentation.jpg` | Documentation |
+| `card-atlas.jpg` | Atlas |
+| `card-year.jpg` | The Year |
+
+`card-documentation.jpg` is filled: coloured pencil shavings on a white plate,
+photographed overhead, from an Instagram post of September 2019. It is the only
+photograph in this repository that belongs to the practice.
+
+Add any of the others and that card fills with the photograph under a dark gradient,
+with the text sitting over it. Leave one out and the slot is removed on load, so
+the card shows as a plain dark tile. Nothing renders as a broken image either way,
+and they can be added one at a time.
+
+Landscape crops around 1200 x 1600 for the four project cards and 1600 x 900 for
+the two wide ones are plenty; they are displayed small and darkened.
+
+---
+
 ## A note on Support
 
 `support.html` was linked from the nav on every page and had nothing to say. It is
@@ -63,6 +91,50 @@ someone actually buys work, since the originals are sold by PDF catalogue and
 email rather than through a cart and that is not written down anywhere public;
 and what the practice supports, since part of every studies sale goes to Arts
 Umbrella and that is currently only recorded on the Atlas.
+
+---
+
+## Printing
+
+This is a working reference, so every page is set up to print. Paper drops the
+navigation, the photographs and every control, and reveals what the interactions
+normally hide.
+
+| Page | On paper |
+|---|---|
+| The Year | All twelve months written out flat, each with its milestone, what runs, what pauses and how the Monday block is spent |
+| Documentation | All six setups with rig, steps, what each feeds, and the pre-shoot checks |
+| Writing | The full list of forty stars, not the map |
+| Atlas | The full roster, not the map |
+| Studies, Teaching | The settled rows and the checklist, laid out plainly |
+
+The Year also opens on whatever month it currently is, rather than waiting for a
+click.
+
+---
+
+## The palette
+
+Every colour is sampled from the twenty photographs, clustered across all of
+them rather than picked from one. The five dominant families are warm umber
+shadow, dry sand, wet rock, sea green and the deep blue of the towel and water.
+
+| Token | Value | Role | Contrast on paper |
+|---|---|---|---|
+| `--paper` | `#fdfcfa` | Background | — |
+| `--ink-strong` | `#2b2219` | Headings | 15.2:1 |
+| `--ink` | `#4e453c` | Body text | 9.1:1 |
+| `--stone` | `#7d7164` | Captions, labels | 4.6:1 |
+| `--accent` | `#1a4a78` | Links, focus, checkboxes | 8.9:1 |
+| `--accent-warm` | `#9a6b3d` | Warm highlight | 4.5:1 |
+
+The colour-coded legends on the Atlas, the Writing chart and the Year wheel are
+drawn from the same families. Nothing on any page falls below 4.5:1, so colour
+carries meaning without carrying it alone.
+
+The previous palette was a cool neutral grey. The captions in it sat at 2.6:1,
+which was below AA; the warm set is both closer to the photographs and easier
+to read.
 
 ---
 

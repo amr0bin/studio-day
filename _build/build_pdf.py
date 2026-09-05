@@ -7,7 +7,8 @@ from reportlab.lib.units import inch
 from reportlab.lib import colors
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.platypus import (SimpleDocTemplate, Paragraph, Spacer,
-                                HRFlowable, KeepTogether, PageBreak)
+                                HRFlowable, KeepTogether, PageBreak, Image as RLImage)
+from reportlab.lib.utils import ImageReader
 
 INK        = colors.HexColor("#5d5a5b")
 INK_STRONG = colors.HexColor("#454344")
@@ -45,8 +46,14 @@ def entry(name, work, why):
 
 story = []
 
+# cover photograph, sized to the text column
+_cov = ImageReader('images/photo-portrait.jpg')
+_cw, _ch = _cov.getSize()
+_w = letter[0] - 1.8 * inch
+_h = _w * 0.52                       # a wide crop of the portrait
 story += [
-    Spacer(1, 46),
+    RLImage('images/photo-portrait.jpg', width=_w, height=_h, kind='proportional'),
+    Spacer(1, 22),
     Paragraph("ANDREA ROBIN STUDIO", S['eyebrow']),
     Paragraph("Inspirations", S['title']),
     Paragraph("The practices this chapter of the studio is learning from. September 2026.", S['sub']),
@@ -231,8 +238,8 @@ story += [
               "years, journals and publishers, and a citation carried forward from a draft without "
               "checking is the failure most likely to reach print.", S['body']),
     rule(before=14, after=10),
-    Paragraph("Compiled September 2026. Text only; no artwork reproduced. The Dear Ordinary essay "
-              "artists are held separately, in the curriculum's own artist reference.", S['note']),
+    Paragraph("Compiled September 2026. No artwork is reproduced. The Dear Ordinary essay artists "
+              "are held separately, in the curriculum's own artist reference.", S['note']),
 ]
 
 def footer(canvas, doc):
