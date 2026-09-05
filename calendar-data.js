@@ -147,6 +147,30 @@ window.STUDIO_CALENDAR = [
     check: "email onlineadmissions@leeds.ac.uk when the 2027/28 portal opens for the actual closing date, and move this entry to it. Not SSHRC-eligible: a UK university"
   },
   {
+    id: "cullman-2026-09",
+    name: "Cullman Center, NYPL · 2027–28 fellowship",
+    kind: "residency",
+    date: "2026-09-25",
+    status: "verified",
+    verified: "2026-09-05",
+    url: "https://nypl.onlineapplicationportal.com/misc/guidelines/default.aspx",
+    fit: "nine months in New York, September 2027 to May 2028, $90,000, private office; visual artists at work on a book project that needs the Library's collections",
+    needs: "research proposal, CV, new letters of recommendation, art or writing sample; 5 pm Eastern",
+    check: "let this one pass: twenty days out, and the book that would justify it does not yet exist. The date recurs each late September"
+  },
+  {
+    id: "cullman-2027-09",
+    name: "Cullman Center, NYPL · 2028–29 fellowship",
+    kind: "residency",
+    date: "2027-09-24",
+    status: "expected",
+    verified: "2026-09-05",
+    url: "https://www.nypl.org/about/fellowships-institutes/cullman-center-scholars-writers",
+    fit: "as above, for September 2028 to May 2029; the first round where an annual book exists to show",
+    needs: "as above; two referees lined up by July",
+    check: "a life decision: it cannot be held beside Leeds's second year or a job. Read the guidelines in July 2027 and decide by August whether 2028–29 is a year that can be given to it"
+  },
+  {
     id: "bcac-pd-2026",
     name: "BC Arts Council · Professional Development",
     kind: "grant",
