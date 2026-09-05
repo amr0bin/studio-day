@@ -8,7 +8,7 @@ These notes exist because of a specific failure: Claude asserted that "nobody's 
 
 Averages describe distributions. They do not describe individuals, and they have repeatedly failed to describe this one:
 
-- Scouted and admitted to Emily Carr University at 15, without an application, on full scholarship
+- Trained at Emily Carr University from a young age; this is a serious practice, not a vanity project, and advice should be given accordingly
 - Multiple group shows, awards, and scholarships during the degree, plus international study
 - Hired by her own professors at 20, into seven years across three progressive roles
 - Left to study the neuroscience of learning at Dalhousie
@@ -61,3 +61,7 @@ Downtown Vancouver, at Thurlow and Pendrell in the West End. Not Surrey. Any loc
 ## Institutions wait for the rhythm
 
 Decided September 2026. No outreach to Arts Umbrella, Kroma or Opus until the studies rhythm has held. Donations to Arts Umbrella begin quietly with the first release: ten per cent of the series' sales, receipted, no contact; the share doubles to twenty per cent once releases sell out. Decision points: after a quarter (February 2027) and after a year (November 2027). The question at each is whether the record shows the work is valuable enough to them; if it does not, another year of making costs nothing. Do not schedule institutional letters before those points.
+
+## No names, no laurels
+
+Decided September 2026. The site is a reference for Andrea alone, so it never names private people (the high-school teacher, the paint maker, sitters, friends) and never recites achievements (how she was admitted, prizes, awards). She knows them. The record of why the practice is serious lives in these notes, not on the pages. Her teacher's line: don't rest on your laurels.
