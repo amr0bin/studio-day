@@ -109,6 +109,34 @@ E = [
    take="Captions are close to nothing, sometimes a single tag. The photograph carries the whole post. That only works because the second image does the explaining, which makes the scale shot the load-bearing part rather than a nicety.",
    src=["Base confirmed from his own post locations"]),
 
+ dict(id="kinna", name="Joy Kinna", kind="artist", place="Victoria, British Columbia",
+   lat=48.47, lng=-123.30, certainty="held",
+   brief="Abstract painter, born 1997 in Langley and now living and working in Victoria. Prints in their own store; originals sold from a PDF catalogue by email rather than through a cart.",
+   why="The selling model already in use here, and the reason no inventory system has to exist. The catalogue is a dated PDF listing available work in both currencies, updated as pieces sell, which does the job a shop would do without any of the software.",
+   take="The nearest artist on this map, an hour by ferry. Represented in New York, Sydney, Des Moines and Norway while based on Vancouver Island, which is the practical answer to whether location limits reach. She also runs a separate print site rather than mixing prints into the portfolio.",
+   src=["joykinna.com/bio \u00b7 born Langley 1997, based Victoria"]),
+
+ dict(id="haring", name="Samantha Haring", kind="artist", place="Cincinnati, Ohio",
+   lat=39.16, lng=-84.44, certainty="held",
+   brief="Painter and educator, she/they, from Des Plaines, Illinois. Quiet paintings of packing materials, containers and the residue of studio life. Recent years listed flat; older work gathered into series named in hindsight.",
+   why="The portfolio structure removes the need to decide what a series is while still in the middle of making it. The naming happens later, when the shape is actually visible. Her captions also do something the rest of this list does not: they say what a piece began as and what the observation turned into.",
+   take="A studio practice run alongside teaching, at the University of Cincinnati since 2016. She was a 2015 to 2016 Artist-in-Residence at Manifest, which is already on this map as a juried route, so the two markers are one path rather than two.",
+   src=["samharing.com \u00b7 MFA Northern Illinois, BFA School of the Art Institute of Chicago"]),
+
+ dict(id="hday", name="Heather Day", kind="artist", place="Mojave Desert, California",
+   lat=35.02, lng=-117.18, certainty="held",
+   brief="Born 1989 in Honolulu, working from a studio in the Mojave Desert. Paintings built from vast inventories of painted forms taken apart, rearranged and sewn back together.",
+   why="An inquiry link with the subject line and the first line already written for the sender. A small removal of friction that costs nothing and does the work a cart would otherwise do, and it is the detail most easily copied from anyone on this map.",
+   take="She has also been a resident at the Vermont Studio Center, which is on this map already. The site itself is the wider lesson: exhibitions listed plainly by year, no shop, and a single email address for studio inquiries.",
+   src=["heatherday.com \u00b7 BFA Maryland Institute College of Art, 2012"]),
+
+ dict(id="haerlin", name="Anna H\u00e4rlin", kind="network", place="Berlin, Germany",
+   lat=52.50, lng=13.43, certainty="held",
+   brief="Berlin-based multidisciplinary designer and photographer, freelance since 2010, with a background in art direction and screen design including four years at the Schaub\u00fchne Berlin.",
+   why="The photographer credited on the We Are Studio Studio images, which means the whole Documentation page is reasoning from her work. She is on the map because a reference should name the person who made the thing being learned from.",
+   take="Her own framing is worth noting alongside the technique: the aim is documenting the core essence of people, moments and places rather than producing a product shot. That is the difference between the record shot and the presentation shot, stated from the other side.",
+   src=["annahaerlin.de/about \u00b7 photography credited on wearestudiostudio.com"]),
+
  # ── opportunities: British Columbia ─────────────────────────────────────
  dict(id="bcac", name="BC Arts Council", kind="grant", place="Victoria, British Columbia",
    lat=48.43, lng=-123.37, certainty="held",
@@ -256,6 +284,12 @@ HTML = '''<!DOCTYPE html>
   .lg{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;color:var(--stone);}
   .lg .sw{width:9px;height:9px;border-radius:50%;}
   .lg .sw.sq{border-radius:2px;}
+  .conns{display:flex;flex-wrap:wrap;gap:7px;margin:6px 0 0;}
+  .cbtn{font-family:inherit;font-size:11.5px;color:var(--ink);background:var(--paper);
+    border:1px solid var(--hair);border-radius:100px;padding:5px 12px;cursor:pointer;
+    display:inline-flex;align-items:center;gap:7px;transition:all .2s var(--ease);}
+  .cbtn:hover{border-color:var(--stone);}
+  .cbtn .cd{width:7px;height:7px;border-radius:50%;background:var(--sw);}
   .certnote{font-size:12.5px;color:var(--stone);margin:10px 0 0;}
   .roster{border-top:1px solid var(--hair);padding-top:16px;}
   .roster summary{font-size:11px;letter-spacing:.16em;text-transform:uppercase;
@@ -308,7 +342,7 @@ HTML = '''<!DOCTYPE html>
           </div>
         </div>
         <div class="legend" id="legend"></div>
-        <p class="certnote">Drag to move, scroll to zoom. Entries marked <span class="flag">verify</span> hold a detail that has not been confirmed, usually a base location or a current funding round.</p>
+        <p class="certnote">Drag to move, scroll to zoom. Every marker sits at its true coordinates, which means eight of them stack up around Vancouver at this scale. Zoom in to separate them, or open any one of them and use the list of everything else at that location. Entries marked <span class="flag">verify</span> hold a detail that has not been confirmed, usually a base location.</p>
       </div>
 
       <div class="panel" id="panel" aria-live="polite">
@@ -331,13 +365,10 @@ HTML = '''<!DOCTYPE html>
       <p>No amounts and no deadlines are recorded anywhere on this page. Both change every year, and a reference document holding stale figures is worse than one holding none, because stale figures get trusted.</p>
       <p>What is recorded is what each one is, whether it fits this practice, and what has to be verified before a year is planned around it. Apply municipally and provincially before federally, because a grant record makes every subsequent application read differently.</p>
 
-      <h2>Held here but not placed</h2>
-      <p>Four people belong in this atlas and are not on the map, because their base is not recorded anywhere in the project files and guessing at it would put an unverified claim on a document meant to be trusted. What each one contributes is recorded here instead.</p>
-      <p><strong>Joy Kinna.</strong> Prints in their own store, originals sold from a PDF catalogue by email rather than through a cart. This is the model already in use.</p>
-      <p><strong>Samantha Haring.</strong> Recent years listed flat, older work gathered into series named in hindsight. A way of structuring a portfolio that does not require deciding what a series is while still making it. Her captions also do something the rest of this list does not: they say what the piece began as and what the observation turned into.</p>
-      <p><strong>Heather Day.</strong> An inquiry link with the subject line and first line already written for the sender. A small removal of friction that costs nothing and does the work a cart would otherwise do.</p>
-      <p><strong>Anna Haerlin.</strong> The photographer credited on the We Are Studio Studio images that the Documentation page is built from.</p>
-      <p>Two others moved onto the map once the inspiration deck confirmed where they work. Olivier Forgues tags his own posts to Toronto, and Zbyn&#283;k Sedleck&yacute;'s carry Prague location tags. Both are now placed, sourced to their own accounts.</p>
+      <h2>Everyone is placed</h2>
+      <p>Every entry in this atlas now sits on the map, each one sourced to the person's own site or account. Nobody is held in a footnote for want of a location.</p>
+      <p>Two of the placements come from the inspiration deck rather than from a bio. Olivier Forgues tags his own posts to Toronto, and Zbyn&#283;k Sedleck&yacute;'s carry Prague location tags.</p>
+      <p>Three of them turn out to connect to markers already here. Samantha Haring was a 2015 to 2016 Artist-in-Residence at Manifest. Heather Day has been a resident at the Vermont Studio Center. Anna H&auml;rlin is the photographer behind the We Are Studio Studio images that the Documentation page reasons from. Those are not three artists and three opportunities. They are three paths.</p>
     </section>
 
     <section class="essay">
@@ -403,7 +434,7 @@ function buildMarkers(){
     return '<g class="mk" data-id="' + e.id + '" transform="translate(' + e.x + ',' + e.y + ')" ' +
            'style="--c:' + K.color + '" tabindex="0" role="button" aria-label="' + e.name + '">' +
            '<circle class="halo" r="13"/>' + shape +
-           '<circle class="hit" r="13"/></g>';
+           '<circle class="hit" r="8"/></g>';
   }).join("");
 
   Array.prototype.forEach.call(markers.querySelectorAll(".mk"), function(g){
@@ -460,6 +491,20 @@ function select(id){
   });
 
   var flag = e.certainty === "check" ? '<span class="flag">verify</span>' : "";
+
+  // several entries share a city, so anything sitting under this marker is
+  // listed as a chip. Nothing is displaced; the map stays geographically true.
+  var here = E.filter(function(o){
+    if (o.id === e.id) return false;
+    var dx = o.x - e.x, dy = o.y - e.y;
+    return Math.sqrt(dx * dx + dy * dy) < 7;
+  });
+  var alsoHere = here.length
+    ? '<h3>Also at this location</h3><div class="conns">' + here.map(function(o){
+        return '<button class="cbtn" data-go="' + o.id + '" style="--sw:' +
+               KINDS[o.kind].color + '"><span class="cd"></span>' + o.name + '</button>';
+      }).join("") + '</div>'
+    : "";
   var src = e.src && e.src.length
     ? '<h3>Notes</h3><ul class="srclist">' +
       e.src.map(function(s){ return "<li>" + s + "</li>"; }).join("") + "</ul>"
@@ -478,7 +523,11 @@ function select(id){
     "</div>" +
     '<div class="layer" data-l="a"><p>' + e.brief + "</p>" + src + "</div>" +
     '<div class="layer" data-l="b" hidden><p>' + e.why + "</p></div>" +
-    '<div class="layer" data-l="c" hidden><p>' + e.take + "</p></div>";
+    '<div class="layer" data-l="c" hidden><p>' + e.take + "</p></div>" + alsoHere;
+
+  Array.prototype.forEach.call(panelContent.querySelectorAll("[data-go]"), function(b){
+    b.addEventListener("click", function(){ select(b.getAttribute("data-go")); });
+  });
 
   var tabs = panelContent.querySelectorAll(".tab");
   Array.prototype.forEach.call(tabs, function(t){
