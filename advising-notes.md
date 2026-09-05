@@ -73,3 +73,7 @@ Decided September 2026, on the teacher's question. Three changes: a critic (assi
 ## Foundations is her structure, not mine
 
 Sixteen modules in four stages, from her course-design folder (June 2026): Seeing and Thinking (visual literacy; line and mark-making; value and light; perspective), Form and Structure (anatomy; gesture; figurative; portrait), Colour and Composition (colour theory; still life; acrylic painting; composition), Voice and Expression (texture and mark-making; narrative; abstraction; experimentation). The Curriculum's Technique course takes them one a month, October 2026 to March 2028; Teaching records one stage a year from 2028. Do not invent module maps.
+
+## Granville Island is the direction
+
+Long-term goal: a studio space on Granville Island. Time spent there makes her happier, is closer to the goal, and is how she meets the neighbours. Prefer Island rooms (the Federation, its Flex Space critiques, Kroma, Arts Umbrella, Malaspina, Opus Island store) when there is a choice; Basic Inquiry is held in reserve rather than first.

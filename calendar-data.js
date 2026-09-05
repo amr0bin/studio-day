@@ -6,6 +6,19 @@
 // Dates are ISO (local). "opens" is optional.
 window.STUDIO_CALENDAR = [
   {
+    id: "fca-crit-2026-09",
+    name: "Federation · Peer Critique, Community Open Studio",
+    kind: "window",
+    date: "2026-09-25",
+    opens: "2026-08-18",
+    status: "verified",
+    verified: "2026-09-05",
+    url: "https://artists.ca/courses/view/id/2945",
+    fit: "Friday 6 to 9pm at the FCA Flex Space, 1310 Johnston Street, Granville Island; bring one artwork; by donation; open to all levels; a senior member and juror leads it",
+    needs: "register online before the 25th; bring one piece and stay the whole evening to critique others' work",
+    check: "the first Critique session of the Curriculum; bring the best recent sheet, whatever it is"
+  },
+  {
     id: "vsc-2026-09",
     name: "Vermont Studio Center",
     kind: "residency",
