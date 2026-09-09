@@ -46,9 +46,7 @@ This solves the "what's this year's course" question permanently, builds a coher
 
 Eighteen hours is substantial. Frank's courses are four sessions of roughly two and a half hours, so ten. Nearly double supports a higher price and makes the annual module a real course rather than a workshop.
 
-**Eight hours a module, three of them filmed.** Decided September 2026. Only what needs a demonstration or a face is recorded; everything else is a page, a worksheet or an image sequence. Eighteen hours was the Foundation-year rhythm transposed directly and would have cost the spring's Mondays; the attempt and the adjustment were the point, not the hours.
-
-**Recorded first, then flipped.** Decided September 2026. The first module is recorded, not taught live: students work at their own pace and the module stays on sale. A live six-week cohort is the commitment most likely to break once graduate coursework begins. The second stage, once a module exists and the rhythm has proved itself, is a flipped classroom: the recordings as preparation, then critique sessions at weekly or bi-weekly intervals, online or in person at the studio table. Those sessions are where the shop years at Emily Carr come in: facilitating a student's own problem rather than lecturing at it. Recording cost is the open question (see the arithmetic); the cheapest test is a fixed camera and minimal editing.
+**Taught live, recorded as a byproduct.** This is the decision that makes 18 hours affordable. Pre-recording 18 hours means filming, re-filming and editing — plausibly 40 hours. Teaching live means showing up and teaching; the recording exists afterward. Frank's model: take it live or watch the recording the same day, with past courses sold afterward at a lower price. Six weeks of evenings, once, produces an asset that sells for years.
 
 ### The arithmetic
 
@@ -62,11 +60,11 @@ Roughly one month of total available time, concentrated into a six-week block. I
 
 ### Pricing
 
-- Recorded module: **$185–$350**, the range Frank's four-session recordings sell in; eighteen hours supports the upper end
-- Flipped stage, recordings plus crit sessions: priced above the recording alone, to be set once the first module has sold
-- A first module priced low to ten or twelve people, mostly from the Emily Carr network, buys the recording, testimonials and evidence before full price
+- Live cohort: **$350–$500**, defensible against Frank's $185–$350 for ten hours
+- Recording afterward: **$185–$250**
+- Twenty students at $400 is $8,000 for six weeks of evenings, and the recording keeps earning
 
-Compare to the studies series at $150 a piece. The difference in return per hour is the reason this branch matters.
+Compare to the studies series at $200 a piece. The difference in return per hour is the reason this branch matters.
 
 ### First run
 
@@ -84,7 +82,7 @@ Compare to the studies series at $150 a piece. The difference in return per hour
 | Period | Focus |
 |---|---|
 | **January–spring** | Studies series running. Painting. Course preparation. |
-| **Summer** | Foundations module recorded. Studies series pauses or halves. Must sit outside term time once the MSc begins. |
+| **Summer** | Foundations module taught live. Studies series pauses or halves. Must sit outside term time once the MSc begins. |
 | **Autumn** | Studies series resumes. Recording goes on sale. Book compilation begins. |
 | **November** | Book completed. |
 | **December** | Wintering. No commitments. Nothing that requires her. |
@@ -95,6 +93,6 @@ Summer delivery gives spring to prepare and autumn to sell the recording, and ke
 
 ## The leverage
 
-One year of work, four outputs: the paintings, the studies series, the course, and the book. The writing is already done. The documentation happens anyway. The course footage is recorded once, with minimal editing, and later crit sessions are taught rather than produced.
+One year of work, four outputs: the paintings, the studies series, the course, and the book. The writing is already done. The documentation happens anyway. The course footage comes from sessions being taught live rather than filmed separately.
 
 The book is a compilation task. The course is a sequencing task. Neither is a new production project.
