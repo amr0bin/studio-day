@@ -253,7 +253,7 @@
 <!-- ============ PRICE FINDER ============ -->
 <section id="finder">
   <div class="sec-label">Find a price</div>
-  <p class="sec-lead">I choose the product, then the size or surface, and my floor, current price, and next-review figures resolve below.</p>
+  <p class="sec-lead">I choose the product, then the size or surface, and my floor, current price, and next-review figures resolve below. <strong>Since 8 October 2026 only studies are on sale.</strong> Larger originals open in January 2028. Prints and card packs are reviewed after the April 2027 release. Their May 2026 figures stay here as a record and are not to be quoted.</p>
 
   <div class="finder">
     <div class="finder-controls">
@@ -314,12 +314,13 @@
 
   <div class="acc">
     <button class="acc-btn" aria-expanded="false">
-      <span class="txt">How I review and raise prices<span class="sub">Private, and only on new work</span></span>
+      <span class="txt">How I review and raise prices<span class="sub">Private, and only on new work · studies after each sold-out release</span></span>
       <span class="acc-ico" aria-hidden="true"></span>
     </button>
     <div class="acc-panel"><div class="acc-inner">
-      <p><strong>Prints — edition of 10.</strong> Every copy in an edition holds one price. When I release a new edition, I look back at the previous one: if at least 6 of 10 sold, I read that as my pricing working and my practice moving, and I set the new edition 10–15% higher. If fewer than 6 sold, I hold the price and consider whether the work, the format, or something else needs to shift first.</p>
-      <p><strong>Originals — by size and surface.</strong> I track sales quietly by type (for example, all 8×10″ linen pieces). Once a type is consistently finding homes — roughly after 4–6 have sold — I raise my starting price for the next piece of that type by 10–15%.</p>
+      <p><strong>Studies — per monthly release.</strong> Every study in a release holds one price. When a release sells out, I set the next release 15–20% higher, rounded to a clean figure. When a release does not sell through, I hold the price. I never lower it.</p>
+      <p><strong>Prints — edition of 10 (paused, reviewed April 2027).</strong> Every copy in an edition holds one price. When I release a new edition, I look back at the previous one: if at least 6 of 10 sold, I read that as my pricing working and my practice moving, and I set the new edition 10–15% higher. If fewer than 6 sold, I hold the price and consider whether the work, the format, or something else needs to shift first.</p>
+      <p><strong>Originals — by size and surface (on sale from January 2028).</strong> I track sales quietly by type (for example, all 8×10″ linen pieces). Once a type is consistently finding homes — roughly after 4–6 have sold — I raise my starting price for the next piece of that type by 10–15%.</p>
       <p><strong>Two things I hold to:</strong> I never change the price on a piece that's already listed, and I never communicate these reviews to buyers as pressure. This is internal bookkeeping that keeps my pricing honest to my practice.</p>
     </div></div>
   </div>
@@ -387,12 +388,13 @@
 
 <footer>
   <div class="handoff">
-    <p><strong>A note for whoever is helping me with this.</strong> This is my working reference, and I'm grateful for the help keeping it consistent. Two things matter most: I never quote a price below the floor shown for a piece, and I never change the price on a piece that's already listed. When something isn't covered here, please hold off and check with me rather than estimating.</p>
+    <p><strong>A note for whoever is helping me with this.</strong> This is my working reference, and I'm grateful for the help keeping it consistent. Two things matter most: I never quote a price below the floor shown for a piece, and I never change the price on a piece that's already listed. When something isn't covered here, please hold off and check with me rather than estimating. Since 8 October 2026 only studies are on sale: for a larger original, a print or a card pack, the answer is that it is not yet available, and no figure is quoted.</p>
   </div>
   <p>All figures in CAD, using midpoint estimates: ~$375 materials and ~$500+ studio overhead per month, ~$62/hr labour, across ~6 pieces/month. My markup runs 30–50% above floor.</p>
-  <p>Four tiers: limited edition prints (ed. of 10) · original paintings and drawings · studies (irregular batch drops) · card packs (printed reproductions).</p>
+  <p>Four tiers: limited edition prints (ed. of 10) · original paintings and drawings · studies (monthly release, the only tier on sale) · card packs (printed reproductions).</p>
   <p>Price reviews happen privately and apply to new work only. I refine my floors as I track my real hours and materials.</p>
-  <p class="stamp">Last updated May 2026</p>
+  <p>Study floor: about $13 of paper, finishing and fees, one hour at $62, and a twelfth of the month's studio overhead (about $42), when twelve studies are made in a month.</p>
+  <p class="stamp">Last updated October 2026</p>
 </footer>
 
 <script>
@@ -406,18 +408,18 @@
       label:"Limited edition print",
       axis:"size",
       sizeLabel:"Size",
-      note:"All 10 copies of an edition share one price. I display the edition number (e.g. 3/10) on the listing and the piece. I review my sales from the previous edition before setting a new one.",
+      status:"Not on sale · reviewed April 2027",
+      note:"Paused 8 October 2026. When prints open they are limited edition, archival quality, 8×10″ only, at $125. At the April 2027 review the studies that sold fastest become prints, sold from their own shop as pre-orders that close, signed and numbered, one price per edition. Earlier rule, kept for reference: All 10 copies of an edition share one price. I display the edition number (e.g. 3/10) on the listing and the piece. I review my sales from the previous edition before setting a new one.",
       sizes:{
-        '4×6″': {floor:"~$50",  price:"$90–$110",  next:"~$99–$127",  tag:"Entry point"},
-        '8×10″':{floor:"~$70",  price:"$125–$150", next:"~$138–$173"},
-        '11×14″':{floor:"~$85", price:"$155–$185", next:"~$171–$213", tag:"Best value"}
+        '8×10″':{floor:"~$70",  price:"$125", next:"Set April 2027"}
       }
     },
     original: {
       label:"Original work",
       axis:"size+surface",
       sizeLabel:"Size",
-      note:"One of a kind. This price holds until the piece sells — I don't change a listed price. Surface premium is already reflected: linen adds $20–30, panel adds $50–70 over cotton.",
+      status:"Not on sale · opens January 2028",
+      note:"Larger originals are made now and go on sale in January 2028. These May 2026 figures sit below my own formula (an 8×10″ at six hours has a floor near $517) and are not to be quoted. The 2028 prices are rebuilt from tracked hours and the study price at that date, with a study at 40–50% of the equivalent original. Earlier rule, kept for reference: One of a kind. This price holds until the piece sells — I don't change a listed price. Surface premium is already reflected: linen adds $20–30, panel adds $50–70 over cotton.",
       matrix:{
         '4×6″':{
           'Cotton paper':{floor:"~$155",price:"$200–$230",next:"~$220–$265"},
@@ -439,14 +441,15 @@
     study: {
       label:"Study",
       axis:"none",
-      note:"4×6″ on cotton paper, one of a kind. $200 flat — one size, one price, no negotiation. Released in irregular batches as they accumulate — no fixed schedule. I don't make print editions from studies; the study itself is the thing. Priced at the entry point of a small standard original: accurate, not a discount.",
-      fixed:{floor:"~$62",price:"$200 flat",next:"~$220–$230"}
+      note:"Roughly 8×10″, pencil or acrylic on archival watercolour paper, one of a kind. My least expensive entry point: nothing is sold below a study. One price for every study in a release, minimum $200. Released monthly: my list sees it on the first Saturday after the 15th, and it opens to everyone on the Monday night that follows. After a release sells out, the next is priced 15–20% higher, rounded to a clean figure; otherwise the price holds, and it is never lowered. Prints from studies are reviewed in April 2027.",
+      fixed:{floor:"~$117",price:"$200 to open",next:"~$230–$240"}
     },
     card: {
       label:"Card pack",
       axis:"pack",
       sizeLabel:"Pack",
-      note:"Printed reproductions on quality matte card stock — a separate, accessible tier from my fine art prints. A permanent Shopify listing, not a limited edition. The buyer pays shipping.",
+      status:"Not on sale · reviewed April 2027",
+      note:"Paused 8 October 2026 and decided with prints at the April 2027 review. Earlier description, kept for reference: Printed reproductions on quality matte card stock — a separate, accessible tier from my fine art prints. A permanent Shopify listing, not a limited edition. The buyer pays shipping.",
       packs:{
         'Pack of 6':{floor:"~$12–$15",price:"$42–$50",profit:"~$27–$38"},
         'Pack of 8':{floor:"~$15–$19",price:"$52–$62",profit:"~$33–$47"}
@@ -455,13 +458,13 @@
   };
 
   var PRODUCT_ORDER = [
-    ["print","Print"],
-    ["original","Original"],
     ["study","Study"],
+    ["original","Original"],
+    ["print","Print"],
     ["card","Card pack"]
   ];
 
-  var state = {product:"print", size:null, surface:null, pack:null};
+  var state = {product:"study", size:null, surface:null, pack:null};
 
   var segProduct = document.getElementById("seg-product");
   var segSize    = document.getElementById("seg-size");
@@ -554,7 +557,7 @@
       return {rec:rec, label:d.label+" · "+state.size+" · "+state.surface.toLowerCase(), tag:rec.tag, note:d.note, kind:"art"};
     }
     if(d.axis==="pack") return {rec:d.packs[state.pack], label:d.label+" · "+state.pack, tag:null, note:d.note, kind:"card"};
-    return {rec:d.fixed, label:d.label+' · 4×6″ · cotton paper', tag:"Minimum $125", note:d.note, kind:"art"};
+    return {rec:d.fixed, label:d.label+' · roughly 8×10″ · watercolour paper', tag:"Minimum $200 · on sale", note:d.note, kind:"art"};
   }
 
   function esc(s){ return String(s).replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}); }
@@ -566,12 +569,15 @@
     if(r.kind==="card"){ thirdKey = "Profit / pack"; thirdVal = rec.profit; }
     else { thirdKey = "After next review"; thirdVal = rec.next; }
 
-    var pill = r.tag ? '<span class="pill">'+esc(r.tag)+'</span>' : '';
+    var st = DATA[state.product].status;
+    if(state.product==="study"){ thirdKey = "After a sold-out release"; }
+    var priceKey = state.product==="print" ? "Price when prints open" : (st ? "May 2026 figure · not in use" : "My price");
+    var pill = (st || r.tag) ? '<span class="pill">'+esc(st || r.tag)+'</span>' : '';
 
     return ''+
       '<div class="result-head">'+esc(r.label)+pill+'</div>'+
       '<div class="result-grid">'+
-        '<div class="r-item r-price"><div class="k">My price</div><div class="v num">'+esc(rec.price)+'</div></div>'+
+        '<div class="r-item r-price"><div class="k">'+priceKey+'</div><div class="v num">'+esc(rec.price)+'</div></div>'+
         '<div class="r-item"><div class="k">My floor</div><div class="v num">'+esc(rec.floor)+'</div></div>'+
         '<div class="r-item"><div class="k">'+thirdKey+'</div><div class="v num">'+esc(thirdVal)+'</div></div>'+
       '</div>'+
@@ -622,15 +628,13 @@
   // ---- Tier tables ----
   var TIERS = [
     {key:"print", name:"Prints",
-     desc:"Numbered limited editions of 10 on fine art paper. One consistent price for all 10 copies; the finishing kit is built into the floor.",
+     desc:"Not on sale; reviewed April 2027. Limited edition, archival quality, 8×10″ only, at $125. Earlier description, kept for reference: Numbered limited editions of 10 on fine art paper. One consistent price for all 10 copies; the finishing kit is built into the floor.",
      head:["Size","My floor","My price","Next edition if 6+ sold"],
      rows:[
-       ['Small 4×6″ <span class="tag">entry</span>',"~$50","$90–$110","~$99–$127"],
-       ['Medium 8×10″',"~$70","$125–$150","~$138–$173"],
-       ['Large 11×14″ <span class="tag">best value</span>',"~$85","$155–$185","~$171–$213"]
+       ['8×10″ · the only size',"~$70","$125","Set at the April 2027 review"]
      ]},
     {key:"original", name:"Originals",
-     desc:"One-of-a-kind paintings and drawings, priced by size and surface. Cotton is base; linen adds $20–30; panel adds $50–70. A listed price holds until the piece sells.",
+     desc:"Not on sale until January 2028. May 2026 figures, kept as a record and not to be quoted; the 2028 prices are rebuilt from tracked hours. One-of-a-kind paintings and drawings, priced by size and surface. Cotton is base; linen adds $20–30; panel adds $50–70. A listed price holds until the piece sells.",
      head:["Size + surface","My floor","My price","After review (+10–15%)"],
      grouped:[
        {g:"4×6″", rows:[
@@ -650,13 +654,13 @@
        ]}
      ]},
     {key:"study", name:"Studies",
-     desc:"Process work released in irregular batches. 4×6″ cotton paper, one of a kind, minimum $125. Priced at 40–50% of a standard original — accurate to what the work is, not a discount. No print editions are made from studies.",
-     head:["Size + surface","My floor","My price","After review (+10–15%)"],
+     desc:"On sale. Roughly 8×10″, pencil or acrylic on archival watercolour paper, one of a kind. My least expensive entry point, minimum $200, one price for every study in a release. Released monthly, to my list first.",
+     head:["Size + surface","My floor","My price","After a sold-out release (+15–20%)"],
      rows:[
-       ['4×6″ study · cotton paper',"~$62","$200 flat","~$220–$230"]
+       ['8×10″ study · watercolour paper',"~$117","$200 to open","~$230–$240"]
      ]},
     {key:"card", name:"Card packs",
-     desc:"Printed reproductions on quality 14–16pt matte card stock — my most accessible tier. Sold in packs on Shopify as a permanent listing; the buyer pays shipping.",
+     desc:"Not on sale; reviewed April 2027. Printed reproductions on quality 14–16pt matte card stock. Sold in packs on Shopify as a permanent listing; the buyer pays shipping.",
      head:["Pack size","Floor cost","My price","Profit per pack"],
      rows:[
        ["Pack of 6 cards","~$12–$15","$42–$50","~$27–$38"],
@@ -666,7 +670,7 @@
 
   var tabsEl = document.getElementById("tabs");
   var panelEl = document.getElementById("tier-panel");
-  var activeTier = 0;
+  var activeTier = 2;
 
   function renderTierTable(t){
     var thead = "<thead><tr>" + t.head.map(function(h,i){
@@ -706,7 +710,7 @@
   render();
   calc();
   renderTabs();
-  panelEl.innerHTML = renderTierTable(TIERS[0]);
+  panelEl.innerHTML = renderTierTable(TIERS[activeTier]);
 })();
 </script>
 
