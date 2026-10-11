@@ -14,7 +14,7 @@ do not have to be made again.
 | File | What it holds |
 |---|---|
 | `index.html` | **The studio day.** The landing page, and the one to open on a Sunday morning. The four projects, the two frames that hold them, and the inspiration download. |
-| `studies.html` | **The studies series.** An hour a piece, one size, one price, released monthly, with part of every sale to Arts Umbrella. |
+| `studies.html` | **The studies series.** An hour a piece, one size, two prices by surface, released monthly. The Arts Umbrella share is paused until the practice is in the black. |
 | `teaching.html` | **Foundations.** Foundation year at Emily Carr, reconsidered. One recorded module a year. |
 | `writing.html` | **Writing.** What the writing does in the practice: where it comes from, how a sentence is made, where the archive lives, what forms it takes. Forty stars across seven constellations, in 2D or 3D. |
 | `documentation.html` | **The capture setup, decided once.** Six rigs that between them feed the website, grant applications, the annual book, video and teaching. Filter by what you need. |
@@ -102,8 +102,9 @@ return on the next rebuild. The file itself is untouched, wherever it lives.
 If it comes back, the two things it could hold that nothing else does are: how
 someone actually buys work, since the originals are sold by PDF catalogue and
 email rather than through a cart and that is not written down anywhere public;
-and what the practice supports, since part of every studies sale goes to Arts
-Umbrella and that is currently only recorded on the Atlas.
+and what the practice supports, since a share of studies sales is pledged to Arts
+Umbrella once the practice is in the black, and that is currently only recorded
+on the Atlas.
 
 ---
 

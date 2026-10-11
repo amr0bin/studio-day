@@ -318,7 +318,7 @@
       <span class="acc-ico" aria-hidden="true"></span>
     </button>
     <div class="acc-panel"><div class="acc-inner">
-      <p><strong>Studies — per monthly release.</strong> Every study in a release holds one price. When a release sells out, I set the next release 15–20% higher, rounded to a clean figure. When a release does not sell through, I hold the price. I never lower it.</p>
+      <p><strong>Studies — per monthly release.</strong> Every study on the same surface in a release holds one price; paper and linen are priced separately. When a release sells out, I set the next release 15–20% higher, rounded to a clean figure. When a release does not sell through, I hold the price. I never lower it.</p>
       <p><strong>Prints — edition of 10 (paused, reviewed April 2027).</strong> Every copy in an edition holds one price. When I release a new edition, I look back at the previous one: if at least 6 of 10 sold, I read that as my pricing working and my practice moving, and I set the new edition 10–15% higher. If fewer than 6 sold, I hold the price and consider whether the work, the format, or something else needs to shift first.</p>
       <p><strong>Originals — by size and surface (on sale from January 2028).</strong> I track sales quietly by type (for example, all 8×10″ linen pieces). Once a type is consistently finding homes — roughly after 4–6 have sold — I raise my starting price for the next piece of that type by 10–15%.</p>
       <p><strong>Two things I hold to:</strong> I never change the price on a piece that's already listed, and I never communicate these reviews to buyers as pressure. This is internal bookkeeping that keeps my pricing honest to my practice.</p>
@@ -393,7 +393,7 @@
   <p>All figures in CAD, using midpoint estimates: ~$375 materials and ~$500+ studio overhead per month, ~$62/hr labour, across ~6 pieces/month. My markup runs 30–50% above floor.</p>
   <p>Four tiers: limited edition prints (ed. of 10) · original paintings and drawings · studies (monthly release, the only tier on sale) · card packs (printed reproductions).</p>
   <p>Price reviews happen privately and apply to new work only. I refine my floors as I track my real hours and materials.</p>
-  <p>Study floor: about $13 of paper, finishing and fees, one hour at $62, and a twelfth of the month's studio overhead (about $42), when twelve studies are made in a month.</p>
+  <p>Study floor on paper: about $14 of paper, finishing and fees, one hour at $62, and a twelfth of the month's studio overhead (about $42), when twelve studies are made in a month.</p>
   <p class="stamp">Last updated October 2026</p>
 </footer>
 
@@ -441,8 +441,8 @@
     study: {
       label:"Study",
       axis:"none",
-      note:"Roughly 8×10″, pencil or acrylic on archival watercolour paper, one of a kind. My least expensive entry point: nothing is sold below a study. One price for every study in a release, minimum $200. Released monthly: my list sees it on the first Saturday after the 15th, and it opens to everyone on the Monday night that follows. After a release sells out, the next is priced 15–20% higher, rounded to a clean figure; otherwise the price holds, and it is never lowered. Prints from studies are reviewed in April 2027.",
-      fixed:{floor:"~$117",price:"$200 to open",next:"~$230–$240"}
+      note:"Roughly 8×10″, one of a kind: pencil, ink or charcoal on cotton archival paper at $250, or acrylic or oil pastel on linen canvas at $350. Decided 11 October 2026. My least expensive entry point: nothing is sold below a study. One price per surface in a release. Released monthly: my list sees it on the first Saturday after the 15th, and it opens to everyone on the Monday night that follows. After a release sells out, the next is priced 15–20% higher, rounded to a clean figure; otherwise the price holds, and it is never lowered. Prints from studies are reviewed in April 2027.",
+      fixed:{floor:"~$118 on paper",price:"$250 paper · $350 linen",next:"~$290–$300 · ~$400–$420"}
     },
     card: {
       label:"Card pack",
@@ -557,7 +557,7 @@
       return {rec:rec, label:d.label+" · "+state.size+" · "+state.surface.toLowerCase(), tag:rec.tag, note:d.note, kind:"art"};
     }
     if(d.axis==="pack") return {rec:d.packs[state.pack], label:d.label+" · "+state.pack, tag:null, note:d.note, kind:"card"};
-    return {rec:d.fixed, label:d.label+' · roughly 8×10″ · watercolour paper', tag:"Minimum $200 · on sale", note:d.note, kind:"art"};
+    return {rec:d.fixed, label:d.label+' · roughly 8×10″ · paper or linen', tag:"From $250 · on sale", note:d.note, kind:"art"};
   }
 
   function esc(s){ return String(s).replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];}); }
@@ -654,10 +654,11 @@
        ]}
      ]},
     {key:"study", name:"Studies",
-     desc:"On sale. Roughly 8×10″, pencil or acrylic on archival watercolour paper, one of a kind. My least expensive entry point, minimum $200, one price for every study in a release. Released monthly, to my list first.",
+     desc:"On sale. Roughly 8×10″, one of a kind, on cotton archival paper or linen canvas. My least expensive entry point, one price per surface in a release. Prices decided 11 October 2026. Released monthly, to my list first.",
      head:["Size + surface","My floor","My price","After a sold-out release (+15–20%)"],
      rows:[
-       ['8×10″ study · watercolour paper',"~$117","$200 to open","~$230–$240"]
+       ['8×10″ study · pencil, ink or charcoal · cotton archival paper',"~$118","$250 to open","~$290–$300"],
+       ['8×10″ study · acrylic or oil pastel · linen canvas',"not tracked yet","$350 to open","~$400–$420"]
      ]},
     {key:"card", name:"Card packs",
      desc:"Not on sale; reviewed April 2027. Printed reproductions on quality 14–16pt matte card stock. Sold in packs on Shopify as a permanent listing; the buyer pays shipping.",

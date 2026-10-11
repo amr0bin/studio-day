@@ -161,7 +161,7 @@ E = [
 
  dict(id="artsumbrella", name="Arts Umbrella", kind="network", place="Vancouver, British Columbia",
    lat=49.27, lng=-123.13, certainty="held",
-   brief="Vancouver arts education organisation for children and young people. Part of every studies sale goes here.",
+   brief="Vancouver arts education organisation for children and young people. A share of studies sales is pledged here once the practice is in the black.",
    why="Held in the atlas because it is already part of the practice rather than a target for it. The studies series funds a social good, which is the structure read correctly from Jean Smith's model.",
    take="This is a commitment rather than an opportunity. It is on the map so the map is honest about where the money goes.",
    src=[]),

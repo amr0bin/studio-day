@@ -60,7 +60,7 @@ Each term has one measure drawn from these five. Feeling on a Sunday evening is 
 
 Two dates decide the shape of the next year, from the record rather than the plan.
 
-- **February 2027**, a quarter in. Has the rhythm held: Sundays kept, sheets released, the critic seen monthly? If yes, the giving relationship with Arts Umbrella may be approached; if not, wait for November.
+- **February 2027**, a quarter in. Has the rhythm held: Sundays kept, sheets released, the critic seen monthly? If yes, and once giving has begun, the giving relationship with Arts Umbrella may be approached; if not, wait for November.
 - **November 2027**, a year in. The portfolio and the critic's view decide: Foundations in 2028 or not; two studio Sundays a month or four; Patreon weekly or fortnightly; and whether the work is valuable enough to institutions to write the first letters, Arts Umbrella with the giving record attached, the paint maker with a year of paintings.
 
 Each November after that, the coming term is rewritten from the same evidence.
@@ -91,7 +91,7 @@ No private names anywhere in the practice's documents. No recitation of achievem
 
 **Thesis.** Dear Ordinary fortnightly; the book in November.
 
-**Money.** Donations to Arts Umbrella from the first release, ten per cent of sales, quietly. BC Arts Council registration in October and the exhibition-fee record checked, which decides whether the provincial grant is open. Canada Council profile validated. Application fees under $200 for the year.
+**Money.** Donations to Arts Umbrella paused on 11 October 2026 until the practice is in the black; from then, ten per cent of sales, quietly. BC Arts Council registration in October and the exhibition-fee record checked, which decides whether the provincial grant is open. Canada Council profile validated. Application fees under $200 for the year.
 
 **Care.** The shyness worked as a problem, not a fact: capture separate from showing, one public wall, one crit a month. December kept clear.
 
