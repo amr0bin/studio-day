@@ -14,7 +14,7 @@ do not have to be made again.
 | File | What it holds |
 |---|---|
 | `index.html` | **The studio day.** The landing page, and the one to open on a Sunday morning. The four projects, the two frames that hold them, and the inspiration download. |
-| `studies.html` | **The studies series.** An hour a piece, one size, two prices by surface, released monthly. The Arts Umbrella share is paused until the practice is in the black. |
+| `studies.html` | **The studies series.** An hour a piece, one size, two prices by surface ($350 paper, $450 linen), released four times a year. The Arts Umbrella share is paused until the practice is in the black. |
 | `teaching.html` | **Foundations.** Foundation year at Emily Carr, reconsidered. One recorded module a year. |
 | `writing.html` | **Writing.** What the writing does in the practice: where it comes from, how a sentence is made, where the archive lives, what forms it takes. Forty stars across seven constellations, in 2D or 3D. |
 | `documentation.html` | **The capture setup, decided once.** Six rigs that between them feed the website, grant applications, the annual book, video and teaching. Filter by what you need. |

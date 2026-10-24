@@ -64,7 +64,7 @@ Roughly one month of total available time, concentrated into a six-week block. I
 - Recording afterward: **$185–$250**
 - Twenty students at $400 is $8,000 for six weeks of evenings, and the recording keeps earning
 
-Compare to the studies series at $250 to $350 a piece. The difference in return per hour is the reason this branch matters.
+Compare to the studies series at $350 to $450 a piece. The difference in return per hour is the reason this branch matters.
 
 ### First run
 
